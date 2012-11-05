@@ -10,13 +10,15 @@ public class ConnectionHandler {
 	private Socket clientSocket;
 	private Router router = new Router();
 
-	public ConnectionHandler(int portNumber, ServerSocket serverSocket) {
+	public ConnectionHandler(int portNumber) {
 		port = portNumber;
-		server = serverSocket;
+		//eventually instantiate this with a Router as well
 	}
 
-	public void createSockets(ServerSocket serverSocket) throws IOException {
+	public void open() throws IOException {
 		server = new ServerSocket(port);
+		printStatus("Socket open on " + port);
+
 		handleNewClientSocket();
 	}
 
@@ -25,7 +27,11 @@ public class ConnectionHandler {
 			try {
 			clientSocket = server.accept();
 			Request request = getRequest(clientSocket, input(clientSocket));
+			printStatus("Request received");
+
 			processResponse(responseTo(request), output(clientSocket));
+
+			printStatus("Closing socket");
 			clientSocket.close();
 			} catch (Exception e) {
 				//should this do something?
@@ -38,14 +44,14 @@ public class ConnectionHandler {
 		return parser.parseRequest();
 	}
 
-	private InputStream input(Socket clientSocket) throws IOException {
-		return clientSocket.getInputStream();
-	}
-
 	private void processResponse(Response response, OutputStream output) {
 		Responder responder = new Responder(new PrintWriter(new OutputStreamWriter(output), true));
 		responder.prepare(response);
-		responder.respond();
+		responder.sendResponse();
+	}
+
+	private InputStream input(Socket clientSocket) throws IOException {
+		return clientSocket.getInputStream();
 	}
 
 	private OutputStream output(Socket clientSocket) throws IOException {
@@ -53,10 +59,9 @@ public class ConnectionHandler {
 	}
 
 	private Response responseTo(Request request) {
-		// TO START: have this return some sort of response object
-
-		// this needs to return a response from whatever controller action it goes to
-		router.handle(request);
+		// TO START: have this return a generic response object
+		// Eventually it returns a response with content
+		Response response = router.getResponseFor(request);
 		return null; //FIX
 	}
 
@@ -66,5 +71,9 @@ public class ConnectionHandler {
 
 	public ServerSocket getServer() {
 		return server;
+	}
+
+	private void printStatus(String status) {
+		System.out.println(status);
 	}
 }
