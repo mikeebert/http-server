@@ -4,6 +4,7 @@ public class Request {
 	private String verb;
 	private String path;
 	private String httpVersion;
+	private String header;
 	private String body;
 
 	public void setVerb(String verb) {
@@ -36,5 +37,13 @@ public class Request {
 
 	public String getBody() {
 		return body;
+	}
+
+	public String getHeader() {
+		return header;
+	}
+
+	public void setHeader(String header) {
+		this.header = header;
 	}
 }
