@@ -2,7 +2,7 @@ package HttpServer;
 
 public class Router {
 
-	public Response handle(Request request) {
+	public Response getResponseFor(Request request) {
 		// this will route the request based on the path...
 		// set the content of the response and return the response.
 
