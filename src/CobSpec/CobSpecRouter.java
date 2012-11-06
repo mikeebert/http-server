@@ -22,9 +22,7 @@ public class CobSpecRouter implements RouterInterface {
 	}
 
 	private void getResponseBodyFor(Request request) throws IOException {
-		if (request.getPath().equals("/hello_world")) {
-			addFileToResponse(request.getPath());
-		} else if (request.getPath().equals("/")) {
+		if (request.getPath().equals("/") || request.getPath().equals("/form")) {
 			addFileToResponse("/index");
 		} else {
 			response.setNotFound(true);

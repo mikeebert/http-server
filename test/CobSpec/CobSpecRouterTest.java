@@ -23,30 +23,12 @@ public class CobSpecRouterTest {
 	}
 
 	@Test
-	public void itReturns200andHelloWorldPage() throws Exception {
-		request.setVerb("GET");
-		request.setPath("/hello_world");
-		response.setContent("<!DOCTYPE html>\n" +
-												"<html>\n" +
-												"  <head>\n" +
-												"  </head>\n" +
-												"  <body>\n" +
-												"    <h1>\n" +
-												"      Hello World\n" +
-												"    </h1>\n" +
-												"  </body>\n" +
-												"</html>\n");
-		Response routerResponse = router.getResponseFor(request);
-		assertEquals(response.getContent(), routerResponse.getContent());
-		assertEquals(200, routerResponse.getStatusCode());
-	}
-
-	@Test
-	public void itReturnsTheRootPath() throws Exception {
+	public void itReturnsASuccessfulRootPath() throws Exception {
 		request.setVerb("GET");
 		request.setPath("/");
 		response.setContent(readFile("/index.html"));
 		Response routerResponse = router.getResponseFor(request);
+		assertEquals(200, routerResponse.getStatusCode());
 		assertEquals(response.getContent(), routerResponse.getContent());
 	}
 

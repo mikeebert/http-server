@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a636b589-4877-4a39-82a4-3ad72592c37b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Router.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/ConnectionHandler.class" afterPath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/ConnectionHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Main.class" afterPath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/RequestParser.class" afterPath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/RequestParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Responder.class" afterPath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Responder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Response.class" afterPath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Response.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/ResponderTest.class" afterPath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/ResponderTest.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/CobSpec/CobSpecController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/CobSpec/CobSpecControllerTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/viewsCobSpec/hello_world.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/HTTPserver/CobSpec/CobSpecRouter.class" afterPath="$PROJECT_DIR$/out/production/HTTPserver/CobSpec/CobSpecRouter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/HTTPserver/CobSpec/CobSpecRouterTest.class" afterPath="$PROJECT_DIR$/out/test/HTTPserver/CobSpec/CobSpecRouterTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java" afterPath="$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/Main.java" afterPath="$PROJECT_DIR$/src/HttpServer/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/RequestParser.java" afterPath="$PROJECT_DIR$/src/HttpServer/RequestParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/Responder.java" afterPath="$PROJECT_DIR$/src/HttpServer/Responder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/Response.java" afterPath="$PROJECT_DIR$/src/HttpServer/Response.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/HttpServer/ResponderTest.java" afterPath="$PROJECT_DIR$/test/HttpServer/ResponderTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CobSpec/CobSpecRouter.java" afterPath="$PROJECT_DIR$/src/CobSpec/CobSpecRouter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/CobSpec/CobSpecRouterTest.java" afterPath="$PROJECT_DIR$/test/CobSpec/CobSpecRouterTest.java" />
     </list>
     <ignored path="HTTPserver.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,13 +66,13 @@
     <favorites_list name="HTTPserver" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.525231">
+    <splitter split-orientation="horizontal" split-proportion="0.5045832">
       <split-first>
         <leaf>
           <file leaf-file-name="CobSpecRouter.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/CobSpec/CobSpecRouter.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="21" column="10" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0">
+                <state line="25" column="34" selection-start="775" selection-end="775" vertical-scroll-proportion="0.0">
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -86,19 +80,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ConnectionHandler.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="ConnectionHandler.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="40" column="64" selection-start="1084" selection-end="1084" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CobSpecController.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/CobSpec/CobSpecController.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="4" column="45" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0">
+                <state line="40" column="64" selection-start="1084" selection-end="1084" vertical-scroll-proportion="0.53862894">
                   <folding />
                 </state>
               </provider>
@@ -113,15 +98,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="404.html" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/viewsCobSpec/404.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="4" column="14" selection-start="131" selection-end="131" vertical-scroll-proportion="-2.5">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="Request.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/HttpServer/Request.java">
               <provider selected="true" editor-type-id="text-editor">
@@ -131,19 +107,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="hello_world.html" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/viewsCobSpec/hello_world.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="10" column="40" selection-start="106" selection-end="106" vertical-scroll-proportion="-6.25">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Response.java" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="Response.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/HttpServer/Response.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="29" column="102" selection-start="542" selection-end="542" vertical-scroll-proportion="0.48494983">
+                <state line="29" column="102" selection-start="542" selection-end="542" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -153,10 +120,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="CobSpecRouterTest.java" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="CobSpecRouterTest.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/test/CobSpec/CobSpecRouterTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="43" column="7" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.7018498">
+                <state line="18" column="25" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0">
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -175,19 +142,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/HttpServer/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="19" column="62" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CobSpecControllerTest.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/CobSpec/CobSpecControllerTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="3" column="37" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0">
+                <state line="19" column="62" selection-start="401" selection-end="401" vertical-scroll-proportion="0.3101197">
                   <folding />
                 </state>
               </provider>
@@ -235,12 +193,12 @@
         <option value="$PROJECT_DIR$/src/CobSpec/CobSpecController.java" />
         <option value="$PROJECT_DIR$/viewsCobSpec/hello_world.html" />
         <option value="$PROJECT_DIR$/viewsCobSpec/index.html" />
-        <option value="$PROJECT_DIR$/test/CobSpec/CobSpecRouterTest.java" />
         <option value="$PROJECT_DIR$/viewsCobSpec/404.html" />
         <option value="$PROJECT_DIR$/test/HttpServer/ResponderTest.java" />
         <option value="$PROJECT_DIR$/src/HttpServer/Responder.java" />
         <option value="$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java" />
         <option value="$PROJECT_DIR$/src/HttpServer/Response.java" />
+        <option value="$PROJECT_DIR$/test/CobSpec/CobSpecRouterTest.java" />
         <option value="$PROJECT_DIR$/src/CobSpec/CobSpecRouter.java" />
       </list>
     </option>
@@ -692,7 +650,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="1418" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -710,7 +668,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08870326" sideWeight="0.7293755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08870326" sideWeight="0.7293755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27062452" sideWeight="0.92720765" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -777,13 +735,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/viewsCobSpec/hello_world.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="40" selection-start="106" selection-end="106" vertical-scroll-proportion="-6.25">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/viewsCobSpec/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="20" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0931677">
@@ -805,13 +756,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/CobSpec/CobSpecControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="37" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/HttpServer/RequestParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="85" column="45" selection-start="2516" selection-end="2516" vertical-scroll-proportion="0.0">
@@ -821,23 +765,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/viewsCobSpec/404.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="14" selection-start="131" selection-end="131" vertical-scroll-proportion="-2.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CobSpec/CobSpecController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="45" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/HttpServer/ResponderTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="106" selection-start="297" selection-end="297" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="64" selection-start="1084" selection-end="1084" vertical-scroll-proportion="0.53862894">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HttpServer/Response.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="102" selection-start="542" selection-end="542" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HttpServer/Request.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="22" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/viewsCobSpec/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="14" selection-start="131" selection-end="131" vertical-scroll-proportion="0.06703911">
           <folding />
         </state>
       </provider>
@@ -849,42 +807,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java">
+    <entry file="file://$PROJECT_DIR$/test/CobSpec/CobSpecRouterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="64" selection-start="1084" selection-end="1084" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="18" column="25" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HttpServer/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="62" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0">
+        <state line="19" column="62" selection-start="401" selection-end="401" vertical-scroll-proportion="0.3101197">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CobSpec/CobSpecRouter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="10" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0">
+        <state line="25" column="34" selection-start="775" selection-end="775" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/CobSpec/CobSpecRouterTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="7" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.7018498">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HttpServer/Response.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="102" selection-start="542" selection-end="542" vertical-scroll-proportion="0.48494983">
-          <folding />
         </state>
       </provider>
     </entry>
