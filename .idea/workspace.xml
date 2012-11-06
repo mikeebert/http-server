@@ -2,23 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a636b589-4877-4a39-82a4-3ad72592c37b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/HttpServer/HttpServer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/HttpServer/Main.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/HttpServer/MockOutputStream.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/HttpServer/MockPrintWriter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/HttpServer/ResponderTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/HTTPServerTest.class" afterPath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/HttpServerTest.class" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/HttpServer/HTTPServerTest.java" afterPath="$PROJECT_DIR$/test/HttpServer/HttpServerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Router.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/ConnectionHandler.class" afterPath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/ConnectionHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Main.class" afterPath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/RequestParser.class" afterPath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/RequestParser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Responder.class" afterPath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Responder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Response.class" afterPath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Response.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/ResponderTest.class" afterPath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/ResponderTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java" afterPath="$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/Request.java" afterPath="$PROJECT_DIR$/src/HttpServer/Request.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/Main.java" afterPath="$PROJECT_DIR$/src/HttpServer/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/RequestParser.java" afterPath="$PROJECT_DIR$/src/HttpServer/RequestParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/Responder.java" afterPath="$PROJECT_DIR$/src/HttpServer/Responder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/Router.java" afterPath="$PROJECT_DIR$/src/HttpServer/Router.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/HttpServer/RequestParserTest.java" afterPath="$PROJECT_DIR$/test/HttpServer/RequestParserTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/HttpServer/RouterTest.java" afterPath="$PROJECT_DIR$/test/HttpServer/RouterTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/Response.java" afterPath="$PROJECT_DIR$/src/HttpServer/Response.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/HttpServer/ResponderTest.java" afterPath="$PROJECT_DIR$/test/HttpServer/ResponderTest.java" />
     </list>
     <ignored path="HTTPserver.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,52 +72,52 @@
     <favorites_list name="HTTPserver" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.525231">
       <split-first>
         <leaf>
-          <file leaf-file-name="ConnectionHandler.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java">
+          <file leaf-file-name="CobSpecRouter.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/CobSpec/CobSpecRouter.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="31" column="49" selection-start="770" selection-end="770" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Responder.java" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/HttpServer/Responder.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="26" column="46" selection-start="533" selection-end="533" vertical-scroll-proportion="0.30708662">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Response.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/HttpServer/Response.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="11" column="52" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Router.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/HttpServer/Router.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="14" column="53" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="RequestParser.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/HttpServer/RequestParser.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="31" column="28" selection-start="757" selection-end="757" vertical-scroll-proportion="0.0">
+                <state line="21" column="10" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0">
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ConnectionHandler.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="40" column="64" selection-start="1084" selection-end="1084" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CobSpecController.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/CobSpec/CobSpecController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="4" column="45" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Responder.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/HttpServer/Responder.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="44" column="30" selection-start="1186" selection-end="1186" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="404.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/viewsCobSpec/404.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="4" column="14" selection-start="131" selection-end="131" vertical-scroll-proportion="-2.5">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -134,24 +131,35 @@
               </provider>
             </entry>
           </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="MockBufferedReader.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/HttpServer/MockBufferedReader.java">
+          <file leaf-file-name="hello_world.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/viewsCobSpec/hello_world.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="7" column="42" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0">
+                <state line="10" column="40" selection-start="106" selection-end="106" vertical-scroll-proportion="-6.25">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="RouterTest.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/HttpServer/RouterTest.java">
+          <file leaf-file-name="Response.java" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/HttpServer/Response.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="17" column="5" selection-start="418" selection-end="418" vertical-scroll-proportion="0.0">
+                <state line="29" column="102" selection-start="542" selection-end="542" vertical-scroll-proportion="0.48494983">
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="CobSpecRouterTest.java" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/test/CobSpec/CobSpecRouterTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="43" column="7" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.7018498">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -160,15 +168,35 @@
             <entry file="file://$PROJECT_DIR$/test/HttpServer/RequestParserTest.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="85" column="45" selection-start="2516" selection-end="2516" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/HttpServer/Main.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="19" column="62" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MockPrintWriter.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/HttpServer/MockPrintWriter.java">
+          <file leaf-file-name="CobSpecControllerTest.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test/CobSpec/CobSpecControllerTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="7" column="37" selection-start="189" selection-end="189" vertical-scroll-proportion="0.0">
+                <state line="3" column="37" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="RequestParser.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/HttpServer/RequestParser.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="21" column="4" selection-start="480" selection-end="766" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -177,34 +205,7 @@
           <file leaf-file-name="ResponderTest.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/test/HttpServer/ResponderTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="7" column="29" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MockOutputStream.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/HttpServer/MockOutputStream.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="6" column="0" selection-start="132" selection-end="132" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="HttpServerTest.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/HttpServer/HttpServerTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="6" column="0" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/HttpServer/Main.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="7" column="39" selection-start="199" selection-end="199" vertical-scroll-proportion="0.084134616">
+                <state line="15" column="106" selection-start="297" selection-end="297" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -225,22 +226,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/HttpServer/Response.java" />
-        <option value="$PROJECT_DIR$/src/HttpServer/Router.java" />
-        <option value="$PROJECT_DIR$/test/HttpServer/RouterTest.java" />
-        <option value="$PROJECT_DIR$/test/HttpServer/mockOutputStream.java" />
-        <option value="$PROJECT_DIR$/test/HttpServer/ResponderTest.java" />
-        <option value="$PROJECT_DIR$/test/HttpServer/MockOutputStream.java" />
-        <option value="$PROJECT_DIR$/test/HttpServer/MockPrintWriter.java" />
-        <option value="$PROJECT_DIR$/test/HttpServer/MockBufferedReader.java" />
-        <option value="$PROJECT_DIR$/test/HttpServer/HTTPServerTest.java" />
-        <option value="$PROJECT_DIR$/src/HttpServer/HttpServer.java" />
-        <option value="$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java" />
-        <option value="$PROJECT_DIR$/src/HttpServer/Request.java" />
-        <option value="$PROJECT_DIR$/src/HttpServer/Main.java" />
         <option value="$PROJECT_DIR$/src/HttpServer/RequestParser.java" />
-        <option value="$PROJECT_DIR$/test/HttpServer/RequestParserTest.java" />
+        <option value="$PROJECT_DIR$/test/HttpServer/RouterTest.java" />
+        <option value="$PROJECT_DIR$/src/HttpServer/Router.java" />
+        <option value="$PROJECT_DIR$/src/HttpServer/RouterInterface.java" />
+        <option value="$PROJECT_DIR$/src/HttpServer/CobSpecRouter.java" />
+        <option value="$PROJECT_DIR$/src/HttpServer/Main.java" />
+        <option value="$PROJECT_DIR$/src/CobSpec/CobSpecController.java" />
+        <option value="$PROJECT_DIR$/viewsCobSpec/hello_world.html" />
+        <option value="$PROJECT_DIR$/viewsCobSpec/index.html" />
+        <option value="$PROJECT_DIR$/test/CobSpec/CobSpecRouterTest.java" />
+        <option value="$PROJECT_DIR$/viewsCobSpec/404.html" />
+        <option value="$PROJECT_DIR$/test/HttpServer/ResponderTest.java" />
         <option value="$PROJECT_DIR$/src/HttpServer/Responder.java" />
+        <option value="$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java" />
+        <option value="$PROJECT_DIR$/src/HttpServer/Response.java" />
+        <option value="$PROJECT_DIR$/src/CobSpec/CobSpecRouter.java" />
       </list>
     </option>
   </component>
@@ -275,6 +276,16 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -285,16 +296,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="HTTPserver" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -327,11 +328,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="viewsCobSpec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTTPserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="http-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="HttpServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTTPserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="http-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CobSpec" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -353,6 +386,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTTPserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="http-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CobSpec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -364,16 +415,17 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="preferences.keymap" />
+    <property name="DefaultHtmlFileTemplate" value="Html" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -385,66 +437,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration default="false" name="All in HTTPserver" type="JUnit" factoryName="JUnit" temporary="true">
-      <module name="HTTPserver" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="HttpServer.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="HTTPserver" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="RequestParserTest.itReturnsTheHeader" type="JUnit" factoryName="JUnit" temporary="true">
-      <module name="HTTPserver" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="HttpServer" />
-      <option name="MAIN_CLASS_NAME" value="HttpServer.RequestParserTest" />
-      <option name="METHOD_NAME" value="itReturnsTheHeader" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
     <configuration default="false" name="RequestParserTest.itReadsTheInput" type="JUnit" factoryName="JUnit" temporary="true">
       <module name="HTTPserver" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -489,6 +481,66 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
+    <configuration default="false" name="CobSpecRouterTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="HTTPserver" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="CobSpec" />
+      <option name="MAIN_CLASS_NAME" value="CobSpec.CobSpecRouterTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ResponderTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="HTTPserver" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="HttpServer" />
+      <option name="MAIN_CLASS_NAME" value="HttpServer.ResponderTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="HttpServer.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="HTTPserver" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
@@ -509,6 +561,24 @@
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
@@ -544,24 +614,6 @@
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" />
@@ -578,6 +630,17 @@
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
         <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
@@ -607,11 +670,11 @@
       </method>
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.All in HTTPserver" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.RequestParserTest.itReturnsTheHeader" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.RequestParserTest.itReadsTheInput" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.RequestParserTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.RequestParserTest.itReadsTheInput" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.RequestParserTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.CobSpecRouterTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.ResponderTest" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Main" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -634,6 +697,7 @@
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.64829105" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24969324" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39911798" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -641,16 +705,15 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18302095" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18272938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08910103" sideWeight="0.6122449" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3877551" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08870326" sideWeight="0.7293755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27062452" sideWeight="0.92720765" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.648855" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -714,96 +777,113 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/HttpServer/MockServerSocket.java">
+    <entry file="file://$PROJECT_DIR$/viewsCobSpec/hello_world.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0" />
+        <state line="10" column="40" selection-start="106" selection-end="106" vertical-scroll-proportion="-6.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/viewsCobSpec/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="20" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0931677">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HttpServer/HttpServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="24" selection-start="249" selection-end="249" vertical-scroll-proportion="0.76086956" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HttpServer/Response.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="52" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HttpServer/Request.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="22" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/HttpServer/MockBufferedReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="42" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/HttpServer/RouterTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="5" selection-start="418" selection-end="418" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/HttpServer/MockPrintWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="37" selection-start="189" selection-end="189" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/HttpServer/ResponderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="29" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/HttpServer/MockOutputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="132" selection-end="132" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/HttpServer/HttpServerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HttpServer/Router.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="53" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0">
+        <state line="14" column="24" selection-start="249" selection-end="249" vertical-scroll-proportion="0.24475524">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HttpServer/RequestParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="28" selection-start="757" selection-end="757" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="21" column="4" selection-start="480" selection-end="766" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/CobSpec/CobSpecControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="37" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/HttpServer/RequestParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="85" column="45" selection-start="2516" selection-end="2516" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/viewsCobSpec/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="14" selection-start="131" selection-end="131" vertical-scroll-proportion="-2.5">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HttpServer/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/CobSpec/CobSpecController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="39" selection-start="199" selection-end="199" vertical-scroll-proportion="0.084134616">
+        <state line="4" column="45" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java">
+    <entry file="file://$PROJECT_DIR$/test/HttpServer/ResponderTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="49" selection-start="770" selection-end="770" vertical-scroll-proportion="0.0">
+        <state line="15" column="106" selection-start="297" selection-end="297" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HttpServer/Responder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="46" selection-start="533" selection-end="533" vertical-scroll-proportion="0.30708662">
+        <state line="44" column="30" selection-start="1186" selection-end="1186" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="64" selection-start="1084" selection-end="1084" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HttpServer/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="62" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CobSpec/CobSpecRouter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="10" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/CobSpec/CobSpecRouterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="7" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.7018498">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HttpServer/Response.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="102" selection-start="542" selection-end="542" vertical-scroll-proportion="0.48494983">
           <folding />
         </state>
       </provider>

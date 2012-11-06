@@ -8,11 +8,11 @@ public class ConnectionHandler {
 	private int port;
 	private ServerSocket server;
 	private Socket clientSocket;
-	private Router router = new Router();
+	private RouterInterface router;
 
-	public ConnectionHandler(int portNumber) {
+	public ConnectionHandler(int portNumber, RouterInterface appRouter) {
 		port = portNumber;
-		//eventually instantiate this with a Router as well
+		router = appRouter;
 	}
 
 	public void open() throws IOException {
@@ -27,10 +27,7 @@ public class ConnectionHandler {
 			try {
 			clientSocket = server.accept();
 			Request request = getRequest(clientSocket, input(clientSocket));
-			printStatus("Request received");
-
 			processResponse(responseTo(request), output(clientSocket));
-
 			printStatus("Closing socket");
 			clientSocket.close();
 			} catch (Exception e) {
@@ -45,6 +42,8 @@ public class ConnectionHandler {
 	}
 
 	private void processResponse(Response response, OutputStream output) {
+//		System.out.println("it got here with the response content: ");
+//		System.out.println(response.getContent());
 		Responder responder = new Responder(new PrintWriter(new OutputStreamWriter(output), true));
 		responder.prepare(response);
 		responder.sendResponse();
@@ -58,11 +57,8 @@ public class ConnectionHandler {
 	  return clientSocket.getOutputStream();
 	}
 
-	private Response responseTo(Request request) {
-		// TO START: have this return a generic response object
-		// Eventually it returns a response with content
-		Response response = router.getResponseFor(request);
-		return null; //FIX
+	private Response responseTo(Request request) throws IOException {
+		return router.getResponseFor(request);
 	}
 
 	public int getPort() {

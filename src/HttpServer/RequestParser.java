@@ -27,7 +27,7 @@ public class RequestParser {
 			line = reader.readLine();
 		}
 
-		System.out.println("### REQUEST ###: " + CRLF + input);
+		System.out.println("### REQUEST RECEIVED ###: " + CRLF + input);
 
 		return input.toString();
 	}
