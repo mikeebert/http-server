@@ -2,6 +2,7 @@ package HttpServer;
 
 public class Response {
 	private String content;
+	private String resource;
 	private int statusCode;
 	private boolean notFound;
 	private String statusMessage;
@@ -41,5 +42,13 @@ public class Response {
 		} else {
 			return false;
 		}
+	}
+
+	public String getResource() {
+		return resource;
+	}
+
+	public void setResource(String resource) {
+		this.resource = resource;
 	}
 }

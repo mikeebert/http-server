@@ -42,9 +42,8 @@ public class ConnectionHandler {
 	}
 
 	private void processResponse(Response response, OutputStream output) {
-//		System.out.println("it got here with the response content: ");
-//		System.out.println(response.getContent());
 		Responder responder = new Responder(new PrintWriter(new OutputStreamWriter(output), true));
+		//could-should separate the following two responsibilities
 		responder.prepare(response);
 		responder.sendResponse();
 	}
@@ -58,7 +57,7 @@ public class ConnectionHandler {
 	}
 
 	private Response responseTo(Request request) throws IOException {
-		return router.getResponseFor(request);
+		return router.setResponseFor(request);
 	}
 
 	public int getPort() {

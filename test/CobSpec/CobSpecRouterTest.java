@@ -1,6 +1,9 @@
 package CobSpec;
 
 import java.io.*;
+import java.net.FileNameMap;
+import java.net.URLConnection;
+
 import HttpServer.Request;
 import HttpServer.Response;
 import org.junit.Before;
@@ -17,7 +20,7 @@ public class CobSpecRouterTest {
 
 	@Before
 	public void setUp() throws Exception {
-		router = new CobSpecRouter();
+		router = new CobSpecRouter("/Users/ebert/Dropbox/projects/http-server/public/CobSpec/");
 		request = new Request();
 		response = new Response();
 	}
@@ -26,8 +29,8 @@ public class CobSpecRouterTest {
 	public void itReturnsASuccessfulRootPath() throws Exception {
 		request.setVerb("GET");
 		request.setPath("/");
-		response.setContent(readFile("/index.html"));
-		Response routerResponse = router.getResponseFor(request);
+		response.setContent(readFile("index.html"));
+		Response routerResponse = router.setResponseFor(request);
 		assertEquals(200, routerResponse.getStatusCode());
 		assertEquals(response.getContent(), routerResponse.getContent());
 	}
@@ -36,13 +39,36 @@ public class CobSpecRouterTest {
 	public void itReturns404AndNotFoundPage() throws Exception {
 		request.setVerb("GET");
 		request.setPath("/some/non/existent/path");
-		Response routerResponse = router.getResponseFor(request);
+		Response routerResponse = router.setResponseFor(request);
 		assertEquals(404, routerResponse.getStatusCode());
 		assertTrue(routerResponse.getContent().contains("Not Found"));
 	}
 
+	@Test
+	public void itReturnsFile1() throws Exception {
+		request.setVerb("GET");
+		request.setPath("/file1");
+		response.setContent(readFile("/file1"));
+		Response routerResponse = router.setResponseFor(request);
+		assertEquals(200, routerResponse.getStatusCode());
+		assertEquals(response.getContent(), routerResponse.getContent());
+	}
+
+	@Test
+	public void itReturnsJpegImage() throws Exception {
+		request.setVerb("GET");
+		request.setPath("/image.jpeg");
+		response.setContent(readFile("/image.jpeg"));
+		FileNameMap fileNameMap = URLConnection.getFileNameMap();
+		String type = fileNameMap.getContentTypeFor("/index.html");
+		System.out.println("The type is " + type);
+		Response routerResponse = router.setResponseFor(request);
+		assertEquals(200, routerResponse.getStatusCode());
+		assertEquals(response.getContent(), routerResponse.getContent());
+	}
+
 	private String readFile(String fileName) throws IOException {
-		FileInputStream fileStream = new FileInputStream("/Users/ebert/Dropbox/projects/http-server/viewsCobSpec/" + fileName);
+		FileInputStream fileStream = new FileInputStream("/Users/ebert/Dropbox/projects/http-server/public/CobSpec/" + fileName);
 		BufferedReader fileReader = new BufferedReader(new InputStreamReader(fileStream));
 		StringBuilder input = new StringBuilder();
 		String line = fileReader.readLine();

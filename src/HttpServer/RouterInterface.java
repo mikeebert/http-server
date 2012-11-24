@@ -4,7 +4,8 @@ import java.io.IOException;
 
 public interface RouterInterface {
 
-	public Response getResponseFor(Request request) throws IOException;
+	public Response setResponseFor(Request request) throws IOException;
+
 
 }
 

@@ -1,6 +1,8 @@
 package HttpServer;
 
 import java.io.PrintWriter;
+import java.net.FileNameMap;
+import java.net.URLConnection;
 
 public class Responder {
 
@@ -38,6 +40,8 @@ public class Responder {
 	}
 
 	private void setHeaders(Response response) {
+//		FileNameMap fileNameMap = URLConnection.getFileNameMap();
+//		String type = fileNameMap.getContentTypeFor(response.getResource());
 		preparedResponse.append("Content-Type: text/html" + CRLF);
 		preparedResponse.append("Content-Length: " + response.getContent().length() + CRLF);
 	}
@@ -45,17 +49,6 @@ public class Responder {
 	public void sendResponse() {
 		outputWriter.println(getPreparedResponse());
 		outputWriter.flush();
-
-//
-//		body = "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n</head>\r\n<body>\r\n<h1>\r\nHello World\r\n</h1>\r\n</body>\r\n</html>\r\n";
-//		System.out.println("HTTP/1.1 200 OK" + "\r\n" + "<!doctype html><html><head></head><body><h1>Hello World</h1></body></html>");
-//		outputWriter.println("HTTP/1.1 200 OK" + "\r\n" +
-//			"Content-Type: text/html" + "\r\n" +
-//			"Content-Length: " + body.length() + "\r\n\r\n" +
-//			body);
-
-//		outputWriter.flush();
-		//needs to send response with the output
 	}
 
 	public String getPreparedResponse() {

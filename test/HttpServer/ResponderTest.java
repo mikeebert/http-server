@@ -22,6 +22,7 @@ public class ResponderTest {
 	public void itAppendsStatusAndHeadersToPreparedResponse() throws Exception {
 		Response response = new Response();
 		response.setStatusCode(200);
+		response.setResource("/Users/ebert/Dropbox/projects/http-server/public/CobSpec/index.html");
 		String someContent = "This is some test content";
 		response.setContent(someContent);
 
