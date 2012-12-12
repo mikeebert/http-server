@@ -1,11 +1,14 @@
 package HttpServer;
 
+import java.util.HashMap;
+
 public class Request {
 	private String verb;
 	private String path;
 	private String httpVersion;
 	private String header;
 	private String body;
+	private HashMap<String,String> params;
 
 	public void setVerb(String verb) {
 		this.verb = verb;
@@ -45,5 +48,9 @@ public class Request {
 
 	public void setHeader(String header) {
 		this.header = header;
+	}
+
+	public void setParams(HashMap<String,String> params) {
+		this.params = params;
 	}
 }

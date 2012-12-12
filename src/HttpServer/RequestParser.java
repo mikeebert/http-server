@@ -2,6 +2,7 @@ package HttpServer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class RequestParser {
 
@@ -27,7 +28,7 @@ public class RequestParser {
 			line = reader.readLine();
 		}
 
-		System.out.println("### REQUEST RECEIVED ###: " + CRLF + input);
+		printStatus("### REQUEST RECEIVED ###: " + CRLF + input);
 
 		return input.toString();
 	}
@@ -35,6 +36,7 @@ public class RequestParser {
 	private Request constructRequest(Request request, String input) {
 		request.setVerb(getVerb(input));
 		request.setPath(getPath(input));
+		request.setParams(getParams(input));
 		request.setHttpVersion(getHttpVersion(input));
 		request.setHeader(getHeader(input));
 		request.setBody(getBody(input));
@@ -46,7 +48,11 @@ public class RequestParser {
 	}
 
 	public String getPath(String input) {
-		return firstLine(input).split(" ")[1];
+		return getResourcePath(uriReference(firstLine(input)));
+	}
+
+	private String uriReference(String firstLine) {
+		return firstLine.split(" ")[1];
 	}
 
 	public String getHttpVersion(String input) {
@@ -81,19 +87,32 @@ public class RequestParser {
 			return null;
 	}
 
+	public String getResourcePath(String fullpath) {
+		return fullpath.split("\\?")[0];
+	}
+
+	public HashMap<String,String> getParams(String input) {
+		HashMap<String, String> params = new HashMap<String, String>();
+		String fullPath = getPath(input);
+		if (hasParams(fullPath)) {
+			String fullParamString = fullPath.split("\\?")[1];
+			String[] paramsArray = fullParamString.split("&");
+			for (int i=0;i < paramsArray.length;i++) {
+				params.put(paramsArray[i].split("=")[0], paramsArray[i].split("=")[1]);
+			}
+		}
+		return params;
+	}
+
+	private boolean hasParams(String fullPath) {
+		String[] splitPath = fullPath.split("\\?");
+		if (splitPath.length > 1)
+			return true;
+		else
+			return false;
+	}
+
 	private void printStatus(String message) {
 		System.out.println(message);
 	}
 }
-
-//
-//	public String getHeader() throws IOException {
-//		StringBuilder header = new StringBuilder();
-//		String line = reader.readLine();
-//
-//		while (line != null && !line.equals("")) {
-//			header.append(line).append("\n");
-//			line = reader.readLine();
-//		}
-//		return header.toString();
-//	}

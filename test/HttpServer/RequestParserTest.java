@@ -6,6 +6,7 @@ import org.junit.Test;
 import static junit.framework.Assert.assertEquals;
 
 import java.io.StringReader;
+import java.util.HashMap;
 
 
 public class RequestParserTest {
@@ -24,8 +25,7 @@ public class RequestParserTest {
 	@Test
 	public void itReadsTheInput() throws Exception {
 		mockReader.setMockInput(simpleInput);
-//		assertEquals(simpleInput, parser.getInput());
-		assertEquals("GET / HTTP/1.1\nHost: localhost: 8080\r\n\r\n", parser.getInput());
+		assertEquals(simpleInput + "\r\n", parser.getInput());
 	}
 
 	@Test
@@ -34,8 +34,26 @@ public class RequestParserTest {
 	}
 
 	@Test
-	public void itReturnsThePath() throws Exception {
+	public void itReturnsTheResourcePath() throws Exception {
 		assertEquals("/", parser.getPath(simpleInput));
+	}
+
+	@Test
+	public void itReturnsTheResourcePathForComplexURL() throws Exception {
+		assertEquals("/paramsurl", parser.getPath("GET /paramsurl?this=that HTTP/1.1"));
+	}
+
+	public void itReturnsParamsHashFromAComplexURL() throws Exception {
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("this", "that");
+		assertEquals(params, parser.getParams("GET /paramsurl?this=that HTTP/1.1"));
+	}
+
+	public void itSetsMultipleParams() throws Exception {
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("variable_1", "12345987");
+		params.put("variable_2", "some_value");
+		assertEquals(params, parser.getParams("GET /some-script-url?variable_1=123459876&variable_2=some_value HTTP/1.1"));
 	}
 
 	@Test
