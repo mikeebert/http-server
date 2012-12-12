@@ -8,19 +8,21 @@ import HttpServer.Request;
 import HttpServer.Response;
 import org.junit.Before;
 import org.junit.Test;
+import sun.jvm.hotspot.code.DebugInfoReadStream;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 
 public class CobSpecRouterTest {
 
+	private static final String DIR = "/Users/ebert/Dropbox/projects/http-server/public/CobSpec/";
 	private CobSpecRouter router;
 	private Request request;
 	private Response response;
 
 	@Before
 	public void setUp() throws Exception {
-		router = new CobSpecRouter("/Users/ebert/Dropbox/projects/http-server/public/CobSpec/");
+		router = new CobSpecRouter(DIR);
 		request = new Request();
 		response = new Response();
 	}
@@ -68,7 +70,7 @@ public class CobSpecRouterTest {
 	}
 
 	private String readFile(String fileName) throws IOException {
-		FileInputStream fileStream = new FileInputStream("/Users/ebert/Dropbox/projects/http-server/public/CobSpec/" + fileName);
+		FileInputStream fileStream = new FileInputStream(DIR + fileName);
 		BufferedReader fileReader = new BufferedReader(new InputStreamReader(fileStream));
 		StringBuilder input = new StringBuilder();
 		String line = fileReader.readLine();

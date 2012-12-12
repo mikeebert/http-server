@@ -12,19 +12,20 @@ import java.util.HashMap;
 
 public class CobSpecRouter implements RouterInterface {
 	private String dir;
-	private HashMap<String, String> routes;
+	private HashMap<String, String> routes = new HashMap<String, String>();
 	private Response response;
 
 	public CobSpecRouter(String directory) {
 		setDirectory(directory);
-		routes = new HashMap();
 		routes.put("/", "index.html");
-		routes.put("/index", "index.html");
+		routes.put("/index.html", "index.html");
 		routes.put("/form", "index.html");
 		routes.put("/file1", "file1");
+		routes.put("/file2", "file2");
 		routes.put("/image.jpeg", "image.jpeg");
 		routes.put("/image.png", "image.png");
 		routes.put("/image.gif", "image.gif");
+		routes.put("/some-script-url", "echo-return.html");
 	}
 
 	private void setDirectory(String directory) {
@@ -42,12 +43,9 @@ public class CobSpecRouter implements RouterInterface {
 	private void getResponseFor(Request request) throws IOException {
 		if (routes.containsKey(request.getPath())) {
 			String resource = routes.get(request.getPath());
-			response.setStatusCode(200);
-//			response.setResource(dir + resource);
 			addFileToResponse(resource);
 		} else {
 			response.setNotFound(true);
-//			response.setResource(dir + "/404.html");
 			addFileToResponse("/404.html");
 		}
 	}
@@ -61,14 +59,12 @@ public class CobSpecRouter implements RouterInterface {
 	}
 
 	private void addFileToResponse(String path) throws IOException {
-		System.out.println(dir + path);
-		FileInputStream fileStream = new FileInputStream(dir + path);
-		String fileContents = readFile(fileStream);
-		fileStream.close();
+		String fileContents = readFile(dir + path);
 		response.setContent(fileContents);
 	}
 
-	private String readFile(FileInputStream fileStream) throws IOException {
+	private String readFile(String filePath) throws IOException {
+		FileInputStream fileStream = new FileInputStream(filePath);
 		BufferedReader fileReader = new BufferedReader(new InputStreamReader(fileStream));
 		StringBuilder input = new StringBuilder();
 		String line = fileReader.readLine();
@@ -78,6 +74,7 @@ public class CobSpecRouter implements RouterInterface {
 			line = fileReader.readLine();
 		}
 
+		fileStream.close();
 		return input.toString();
 	}
 
