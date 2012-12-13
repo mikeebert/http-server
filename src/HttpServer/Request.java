@@ -53,4 +53,8 @@ public class Request {
 	public void setParams(HashMap<String,String> params) {
 		this.params = params;
 	}
+
+	public HashMap<String, String> getParams() {
+		return params;
+	}
 }
