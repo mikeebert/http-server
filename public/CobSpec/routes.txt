@@ -1,0 +1,11 @@
+PATH  | VERB |  RESOURCE
+/ | GET | index.html
+/index.html | GET | index.html
+/form | GET | index.html
+/file1 | GET | file1
+/file2 | GET | file2
+/image.jpeg | GET | image.jpeg
+/image.png | GET | image.png
+/image.gif | GET | image.gif
+/some-script-url | GET | echo-return.html
+/redirect | GET | index.html
