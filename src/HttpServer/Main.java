@@ -1,12 +1,13 @@
 package HttpServer;
 
-import CobSpec.CobSpecRouter;
-
 public class Main {
+	private static int port = 5000;
+	private static String directory = "/Users/ebert/Dropbox/projects/http-server/public/CobSpec/";
 
 	public static void main(String[] args) {
-		int port = 5000;
-		RouterInterface router = new CobSpecRouter("/Users/ebert/Dropbox/projects/http-server/public/CobSpec/");
+		parseCommands(args);
+
+		Router router = new Router(directory);
 		ConnectionHandler handler = new ConnectionHandler(port, router);
 		HttpServer server = new HttpServer(handler);
 		try{
@@ -16,4 +17,13 @@ public class Main {
 		}
 	}
 
+	private static void parseCommands(String[] args) {
+		for(int i=0; i < args.length; i++ ) {
+			if (args[i].equals("-p")) {
+				port = Integer.parseInt(args[i+1]);
+			} else if (args[i].equals("-d")) {
+				directory = args[i+1];
+			}
+		}
+	}
 }
