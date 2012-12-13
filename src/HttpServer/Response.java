@@ -1,10 +1,11 @@
 package HttpServer;
 
+import java.util.HashMap;
+
 public class Response {
 	private String content;
 	private String resource;
 	private int statusCode;
-	private boolean notFound;
 	private String statusMessage;
 
 	public void setContent(String htmlString) {
@@ -30,18 +31,6 @@ public class Response {
 			return "NOT FOUND";
 		} else
 			return "STATUS MESSAGE";
-	}
-
-	public void setNotFound(boolean notFoundValue) {
-		this.notFound = notFoundValue;
-	}
-
-	public boolean checkNotFound() {
-		if (this.notFound) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 	public String getResource() {
