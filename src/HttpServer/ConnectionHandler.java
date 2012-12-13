@@ -8,10 +8,9 @@ public class ConnectionHandler {
 	private int port;
 	private ServerSocket socket;
 	private Socket clientSocket;
-	private RouterInterface router;
-	private ResponseBuilder builder;
+	private Router router;
 
-	public ConnectionHandler(int portNumber, RouterInterface appRouter) {
+	public ConnectionHandler(int portNumber, Router appRouter) {
 		port = portNumber;
 		router = appRouter;
 	}
@@ -27,9 +26,18 @@ public class ConnectionHandler {
 		while (true) {
 			try {
 				clientSocket = socket.accept();
-				Request request = getRequest(clientSocket, input(clientSocket));
-				Response response = routeRequest(request);
-				processResponse(response, output(clientSocket));
+
+				Request request = getRequest(clientSocket);
+
+				//need to get rid of nasty favicon hack!
+				if (!request.getPath().equals("/favicon.ico")) {
+					Response response = getResponseFor(request);
+					processResponse(response, output(clientSocket));
+
+					//sendResponse(response, clientSocket));
+					//Response response = routeRequest(request);
+				}
+
 				clientSocket.close();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -37,44 +45,33 @@ public class ConnectionHandler {
 		}
 	}
 
-	private InputStream input(Socket clientSocket) throws IOException {
-		return clientSocket.getInputStream();
-	}
-
-	private OutputStream output(Socket clientSocket) throws IOException {
-	  return clientSocket.getOutputStream();
-	}
-
-	private Request getRequest(Socket clientSocket, InputStream input) throws IOException {
-		RequestParser parser = new RequestParser(new BufferedReader(new InputStreamReader(input)));
+	private Request getRequest(Socket clientSocket) throws IOException {
+		RequestParser parser = new RequestParser(new BufferedReader(new InputStreamReader(input(clientSocket))));
 		return parser.parseRequest();
 	}
+//
+	private Response getResponseFor(Request request) throws IOException {
+		ResponseBuilder builder = new ResponseBuilder(router.getResourceFor(request.getPath()), request.getVerb(), request.getParams());
+		return builder.buildResponse();
+	}
+//
+//	private void sendResponse(Response response, Socket clientSocket) {
+//		Responder responder = new ResponderFactory(response.getType(), clientSocket);
+//		responder.sendResponse(response);
+//	}
 
 	private void processResponse(Response response, OutputStream output) {
 		Responder responder = new Responder(new PrintWriter(new OutputStreamWriter(output), true));
 		responder.prepare(response);
 		responder.sendResponse();
-
-//		builder = new ResponseBuilder(response);
-//		Response preparedResponse = builder.build(response);
-//    ResponseSender sender = new ResponseSender(new PrintWriter(new OutputStreamWriter(output), true));
-//		sender.sendResponse(preparedResponse);
 	}
 
-	private Response routeRequest(Request request) throws IOException {
-		return router.setResponseFor(request);
+	private InputStream input(Socket clientSocket) throws IOException {
+		return clientSocket.getInputStream();
 	}
 
-	public int getPort() {
-		return port;
-	}
-
-	public ServerSocket getSocket() {
-		return socket;
-	}
-
-	public void setSocket(ServerSocket newSocket) {
-		socket = newSocket;
+	private OutputStream output(Socket clientSocket) throws IOException {
+		return clientSocket.getOutputStream();
 	}
 
 	private void printStatus(String status) {
