@@ -34,21 +34,22 @@ public class RequestParser {
 	}
 
 	private Request constructRequest(Request request, String input) {
-		request.setVerb(getVerb(input));
-		request.setPath(getPath(input));
-		request.setParams(getParams(input));
+		String firstLine = getfirstLine(input);
+		request.setVerb(getVerb(firstLine));
+		request.setPath(getPath(firstLine));
+		request.setParams(getParams(firstLine));
 		request.setHttpVersion(getHttpVersion(input));
 		request.setHeader(getHeader(input));
 		request.setBody(getBody(input));
 		return request;
 	}
 
-	public String getVerb(String input) {
-		return firstLine(input).split(" ")[0];
+	public String getVerb(String firstLine) {
+		return firstLine.split(" ")[0];
 	}
 
-	public String getPath(String input) {
-		return getResourcePath(uriReference(firstLine(input)));
+	public String getPath(String firstLine) {
+		return getResourcePath(uriReference(firstLine));
 	}
 
 	private String uriReference(String firstLine) {
@@ -56,10 +57,10 @@ public class RequestParser {
 	}
 
 	public String getHttpVersion(String input) {
-		return firstLine(input).split(" ")[2].split("/")[1];
+		return getfirstLine(input).split(" ")[2].split("/")[1];
 	}
 
-	private String firstLine(String input) {
+	private String getfirstLine(String input) {
 		return input.split("\r?\n")[0];
 	}
 
@@ -91,25 +92,26 @@ public class RequestParser {
 		return fullpath.split("\\?")[0];
 	}
 
-	public HashMap<String,String> getParams(String input) {
+	public HashMap<String,String> getParams(String firstLine) {
 		HashMap<String, String> params = new HashMap<String, String>();
-		String fullPath = getPath(input);
+		String fullPath = firstLine.split(" ")[1];
+
 		if (hasParams(fullPath)) {
 			String fullParamString = fullPath.split("\\?")[1];
 			String[] paramsArray = fullParamString.split("&");
-			for (int i=0;i < paramsArray.length;i++) {
-				params.put(paramsArray[i].split("=")[0], paramsArray[i].split("=")[1]);
+			for (int i=0;i < paramsArray.length; i++) {
+				String param = paramsArray[i];
+				if (param.split("=").length > 1)
+					params.put(param.split("=")[0], param.split("=")[1]);
 			}
 		}
+
 		return params;
 	}
 
 	private boolean hasParams(String fullPath) {
 		String[] splitPath = fullPath.split("\\?");
-		if (splitPath.length > 1)
-			return true;
-		else
-			return false;
+		return splitPath.length > 1;
 	}
 
 	private void printStatus(String message) {

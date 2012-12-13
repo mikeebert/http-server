@@ -43,17 +43,19 @@ public class RequestParserTest {
 		assertEquals("/paramsurl", parser.getPath("GET /paramsurl?this=that HTTP/1.1"));
 	}
 
+	@Test
 	public void itReturnsParamsHashFromAComplexURL() throws Exception {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("this", "that");
 		assertEquals(params, parser.getParams("GET /paramsurl?this=that HTTP/1.1"));
 	}
 
+	@Test
 	public void itSetsMultipleParams() throws Exception {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("variable_1", "12345987");
 		params.put("variable_2", "some_value");
-		assertEquals(params, parser.getParams("GET /some-script-url?variable_1=123459876&variable_2=some_value HTTP/1.1"));
+		assertEquals(params, parser.getParams("GET /some-script-url?variable_1=12345987&variable_2=some_value HTTP/1.1"));
 	}
 
 	@Test
