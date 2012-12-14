@@ -1,12 +1,11 @@
 package HttpServer;
 
-import java.util.HashMap;
+
 
 public class Response {
 	private String content;
 	private String resource;
 	private int statusCode;
-	private String statusMessage;
 
 	public void setContent(String htmlString) {
 		content = htmlString;

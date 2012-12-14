@@ -2,7 +2,7 @@ package HttpServer;
 
 public class Main {
 	private static int port = 5000;
-	private static String directory = "/Users/ebert/Dropbox/projects/http-server/public/CobSpec/";
+	private static String directory = "/Users/ebert/Dropbox/projects/http-server/resources/CobSpec/";
 
 	public static void main(String[] args) {
 		parseCommands(args);
@@ -13,7 +13,7 @@ public class Main {
 		try{
 			server.run();
 		} catch (Exception e) {
-			System.out.println("Can't execute run.");
+			System.out.println("Can't execute main.");
 		}
 	}
 

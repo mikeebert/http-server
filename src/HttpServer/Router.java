@@ -48,7 +48,6 @@ public class Router {
 	public String getResourceFor(String path) {
 
 		for(HashMap route: routes) {
-			System.out.println("Trying to match: " + path + " to: " + route.get("path"));
 			if(route.get("path").equals(path))
 				return dir + route.get("resource").toString();
 		}

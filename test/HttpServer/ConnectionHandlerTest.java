@@ -2,6 +2,8 @@ package HttpServer;
 
 import org.junit.Test;
 
+import java.net.ServerSocket;
+
 import static junit.framework.Assert.assertEquals;
 
 
@@ -12,7 +14,7 @@ public class ConnectionHandlerTest {
 //		MockServerSocket serverSocket= new MockServerSocket();
 //		ConnectionHandler handler = new ConnectionHandler(123, serverSocket);
 //		assertEquals(123, handler.getPort());
-//		assertEquals(serverSocket, handler.getServer());
+//		assertEquals(serverSocket, handler.getSocket());
 //	}
 //
 //	@Test
