@@ -35,12 +35,15 @@ public class RequestParser {
 
 	private Request constructRequest(Request request, String input) {
 		String firstLine = getfirstLine(input);
+
 		request.setVerb(getVerb(firstLine));
-		request.setPath(getPath(firstLine));
-		request.setParams(getParams(firstLine));
-		request.setHttpVersion(getHttpVersion(input));
+		request.setPath(getResourcePath(getFullPath(firstLine)));
+		request.setHttpVersion(getHttpVersion(firstLine));
 		request.setHeader(getHeader(input));
 		request.setBody(getBody(input));
+		if (hasParams(getFullPath(firstLine)))
+			request.setParams(getParams(firstLine));
+
 		return request;
 	}
 
@@ -49,19 +52,23 @@ public class RequestParser {
 	}
 
 	public String getPath(String firstLine) {
-		return getResourcePath(uriReference(firstLine));
+		return getResourcePath(getFullPath(firstLine));
 	}
 
-	private String uriReference(String firstLine) {
+	public String getResourcePath(String fullpath) {
+		return fullpath.split("\\?")[0];
+	}
+
+	private String getFullPath(String firstLine) {
 		return firstLine.split(" ")[1];
 	}
 
-	public String getHttpVersion(String input) {
-		return getfirstLine(input).split(" ")[2].split("/")[1];
+	public String getHttpVersion(String firstLine) {
+		return firstLine.split(" ")[2].split("/")[1];
 	}
 
 	private String getfirstLine(String input) {
-		return input.split("\r?\n")[0];
+		return input.split("\r\n")[0];
 	}
 
 	public String getHeader(String input) {
@@ -88,22 +95,15 @@ public class RequestParser {
 			return null;
 	}
 
-	public String getResourcePath(String fullpath) {
-		return fullpath.split("\\?")[0];
-	}
-
 	public HashMap<String,String> getParams(String firstLine) {
 		HashMap<String, String> params = new HashMap<String, String>();
-		String fullPath = firstLine.split(" ")[1];
+		String fullPath = getFullPath(firstLine);
+		String[] paramsArray = fullPath.split("\\?")[1].split("&");
 
-		if (hasParams(fullPath)) {
-			String fullParamString = fullPath.split("\\?")[1];
-			String[] paramsArray = fullParamString.split("&");
-			for (int i=0;i < paramsArray.length; i++) {
-				String param = paramsArray[i];
-				if (param.split("=").length > 1)
-					params.put(param.split("=")[0], param.split("=")[1]);
-			}
+		for (int i=0;i < paramsArray.length; i++) {
+			String param = paramsArray[i];
+			if (param.split("=").length > 1)
+				params.put(param.split("=")[0], param.split("=")[1]);
 		}
 
 		return params;

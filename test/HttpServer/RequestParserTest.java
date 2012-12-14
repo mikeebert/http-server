@@ -60,7 +60,7 @@ public class RequestParserTest {
 
 	@Test
 	public void itReturnsTheVersion() throws Exception {
-		assertEquals("1.1", parser.getHttpVersion(simpleInput));
+		assertEquals("1.1", parser.getHttpVersion("GET / HTTP/1.1"));
 	}
 
 	@Test
