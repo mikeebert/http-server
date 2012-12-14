@@ -1,0 +1,3 @@
+PATH | VERB | RESOURCE
+/ | GET | /index.html
+/board | GET | /board.html
