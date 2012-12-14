@@ -28,15 +28,11 @@ public class ConnectionHandler {
 				clientSocket = socket.accept();
 
 				Request request = getRequest(clientSocket);
+				Response response = getResponseFor(request);
+				processResponse(response, output(clientSocket));
 
-				//need to get rid of nasty favicon hack!
-				if (!request.getPath().equals("/favicon.ico")) {
-					Response response = getResponseFor(request);
-					processResponse(response, output(clientSocket));
-
-					//sendResponse(response, clientSocket));
-					//Response response = routeRequest(request);
-				}
+				//THIS FUNCTION SHOULD REPLACE processResponse
+				//sendResponse(response, clientSocket));
 
 				clientSocket.close();
 			} catch (Exception e) {
