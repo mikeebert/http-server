@@ -5,11 +5,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class ResponseBuilder {
-	private static final String NOTFOUNDFILE = "404.html";
+	private static final String NOTFOUND = "404.html";
 
 	private Response response;
 	private String resource;
@@ -25,17 +24,15 @@ public class ResponseBuilder {
 
 	public Response buildResponse() throws IOException {
 		response = new Response();
-//		setResponseStatusLine();
-//		setResponseHeaders();
-//		addResponseBody(getResource());
 		addContentToResponse(getResource());
+		//setResponseType?
 		addStatusCodeToResponse(requestVerb);
 		return response;
 	}
 
 	private void addStatusCodeToResponse(String requestVerb) {
-//		if(requestVerb.equals("GET") && !getResource().endsWith(NOTFOUNDFILE)) {
-		if(!getResource().endsWith(NOTFOUNDFILE)) {
+	//handle different status codes based on verbs and resources
+		if(!getResource().endsWith(NOTFOUND)) {
 			response.setStatusCode(200);
 		} else {
 			response.setStatusCode(404);
@@ -44,14 +41,16 @@ public class ResponseBuilder {
 
 	private void addContentToResponse(String resource) throws IOException {
 		//TWO BRANCHES:
-		//FIRST: what type of content is it? will affect read file.
+		//FIRST: what type of content is it? text? image? css? it will affect send.
 		//SECOND: is it a dynamic resource that gets updated?
 
 		String resourceContents = readfile(getResource());
 
 		if(params == null) {
 			response.setContent(resourceContents);
-		} else {
+		} else if (resource.endsWith("favicon.ico")) {
+			response.setContent(null);
+		}	else {
 			response.setContent(update(resourceContents));
 		}
 	}
