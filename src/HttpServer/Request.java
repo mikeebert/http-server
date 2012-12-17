@@ -8,6 +8,7 @@ public class Request {
 	private String httpVersion;
 	private String header;
 	private String body;
+	private String postContent;
 	private HashMap<String,String> params;
 
 	public void setVerb(String verb) {
@@ -56,5 +57,20 @@ public class Request {
 
 	public HashMap<String, String> getParams() {
 		return params;
+	}
+
+	public boolean isPost() {
+		if (this.verb.equals("POST"))
+			return true;
+		else
+			return false;
+	}
+
+	public String getPostContent() {
+		return postContent;
+	}
+
+	public void setPostContent(String postContent) {
+		this.postContent = postContent;
 	}
 }
