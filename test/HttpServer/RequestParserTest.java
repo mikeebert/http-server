@@ -44,21 +44,6 @@ public class RequestParserTest {
 	}
 
 	@Test
-	public void itReturnsParamsHashFromAComplexURL() throws Exception {
-		HashMap<String, String> params = new HashMap<String, String>();
-		params.put("this", "that");
-		assertEquals(params, parser.getParams("GET /paramsurl?this=that HTTP/1.1"));
-	}
-
-	@Test
-	public void itSetsMultipleParams() throws Exception {
-		HashMap<String, String> params = new HashMap<String, String>();
-		params.put("variable_1", "12345987");
-		params.put("variable_2", "some_value");
-		assertEquals(params, parser.getParams("GET /some-script-url?variable_1=12345987&variable_2=some_value HTTP/1.1"));
-	}
-
-	@Test
 	public void itReturnsTheVersion() throws Exception {
 		assertEquals("1.1", parser.getHttpVersion("GET / HTTP/1.1"));
 	}
@@ -115,5 +100,40 @@ public class RequestParserTest {
 		assertEquals(null, request.getBody());
 	}
 
+	@Test
+	public void itReturnsParamsHashFromAComplexURL() throws Exception {
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("this", "that");
+		assertEquals(params, parser.getURLParams("GET /paramsurl?this=that HTTP/1.1"));
+	}
 
+	@Test
+	public void itSetsMultipleParams() throws Exception {
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("variable_1", "12345987");
+		params.put("variable_2", "some_value");
+		assertEquals(params, parser.getURLParams("GET /some-script-url?variable_1=12345987&variable_2=some_value HTTP/1.1"));
+	}
+
+	@Test
+	public void itGetsContentLengthFromHeaders() throws Exception {
+		String headersWithContentLength = "Header1: nothing\r\nContent-Length: 9\r\n";
+		assertEquals(9, parser.getContentLength(headersWithContentLength));
+	}
+
+	@Test
+	public void itAsksReaderForPostContent() throws Exception {
+		int length = "test string".toCharArray().length;
+		parser.getPostContent(length);
+		assertEquals(true, mockReader.fetchedPostContent());
+	}
+
+	@Test
+	public void addsBodyParamsToExistingParams() throws Exception {
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("foo", "bar");
+		params.put("this", "that");
+		String content = "what=ever&game=2";
+
+	}
 }

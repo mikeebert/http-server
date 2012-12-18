@@ -33,7 +33,7 @@ public class RequestParser {
 		return input.toString();
 	}
 
-	private Request constructRequest(Request request, String input) {
+	private Request constructRequest(Request request, String input) throws IOException {
 		String firstLine = getfirstLine(input);
 
 		request.setVerb(getVerb(firstLine));
@@ -41,10 +41,14 @@ public class RequestParser {
 		request.setHttpVersion(getHttpVersion(firstLine));
 		request.setHeader(getHeader(input));
 		request.setBody(getBody(input));
-		if (hasParams(getFullPath(firstLine)))
-			request.setParams(getParams(firstLine));
+		request.setParams(getURLParams(firstLine));
+		addPostContentToParams(request);
 
 		return request;
+	}
+
+	private String getfirstLine(String input) {
+		return input.split("\r\n")[0];
 	}
 
 	public String getVerb(String firstLine) {
@@ -65,10 +69,6 @@ public class RequestParser {
 
 	public String getHttpVersion(String firstLine) {
 		return firstLine.split(" ")[2].split("/")[1];
-	}
-
-	private String getfirstLine(String input) {
-		return input.split("\r\n")[0];
 	}
 
 	public String getHeader(String input) {
@@ -95,13 +95,33 @@ public class RequestParser {
 			return null;
 	}
 
-	public HashMap<String,String> getParams(String firstLine) {
+	public HashMap<String,String> getURLParams(String firstLine) {
 		HashMap<String, String> params = new HashMap<String, String>();
-		String fullPath = getFullPath(firstLine);
-		String[] paramsArray = fullPath.split("\\?")[1].split("&");
 
-		for (int i=0;i < paramsArray.length; i++) {
-			String param = paramsArray[i];
+		if (urlHasParams(getFullPath(firstLine))) {
+			String fullPath = getFullPath(firstLine);
+			String[] termsArray = fullPath.split("\\?")[1].split("&");
+			return paramaterizeTerms(params, termsArray);
+		}
+
+		return null;
+	}
+
+	private void addPostContentToParams(Request request) throws IOException {
+		if (request.isPost()) {
+			String postContent = getPostContent(getContentLength(request.getHeader()));
+			String[] termsArray = postContent.split("&");
+
+			request.setParams(paramaterizeTerms(request.getParams(), termsArray));
+		}
+	}
+
+	private HashMap<String, String> paramaterizeTerms(HashMap<String, String> params, String[] termsArray) {
+		if (params == null)
+			params = new HashMap<String, String>();
+
+		for (int i=0;i < termsArray.length; i++) {
+			String param = termsArray[i];
 			if (param.split("=").length > 1)
 				params.put(param.split("=")[0], param.split("=")[1]);
 		}
@@ -109,9 +129,31 @@ public class RequestParser {
 		return params;
 	}
 
-	private boolean hasParams(String fullPath) {
+	private boolean urlHasParams(String fullPath) {
 		String[] splitPath = fullPath.split("\\?");
 		return splitPath.length > 1;
+	}
+
+	public String getPostContent(int length) throws IOException {
+		char[] characters = new char[length];
+		StringBuilder postContent = new StringBuilder();
+
+		reader.read(characters, 0, length);
+		postContent.append(new String(characters));
+
+		printStatus("POST Content: " + postContent.toString() + CRLF);
+		return postContent.toString();
+	}
+
+	public int getContentLength(String headers) {
+		String[] headerArray = headers.split(CRLF);
+
+		for(String header: headerArray) {
+			if (header.startsWith("Content-Length"))
+				return Integer.parseInt(header.split(": ")[1]);
+		}
+
+		return 0;
 	}
 
 	private void printStatus(String message) {
