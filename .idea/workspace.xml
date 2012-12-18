@@ -7,18 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a636b589-4877-4a39-82a4-3ad72592c37b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/HttpServer/ControllerInterface.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/HttpServer/GameController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/HttpServer/MockController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/tictactoe/GameControllerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/tictactoe/board.html" afterPath="$PROJECT_DIR$/resources/tictactoe/board.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java" afterPath="$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/RequestParser.java" afterPath="$PROJECT_DIR$/src/HttpServer/RequestParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/ResponseBuilder.java" afterPath="$PROJECT_DIR$/src/HttpServer/ResponseBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/HttpServer/MockBufferedReader.java" afterPath="$PROJECT_DIR$/test/HttpServer/MockBufferedReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/HttpServer/RequestParserTest.java" afterPath="$PROJECT_DIR$/test/HttpServer/RequestParserTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/HttpServer/ResponseBuilderTest.java" afterPath="$PROJECT_DIR$/test/HttpServer/ResponseBuilderTest.java" />
     </list>
     <ignored path="HTTPserver.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -116,10 +105,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GameController.java" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="GameController.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/HttpServer/GameController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="14" column="95" selection-start="425" selection-end="425" vertical-scroll-proportion="0.2367531">
+                <state line="14" column="14" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -145,10 +134,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ConnectionHandler.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="ConnectionHandler.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="43" column="70" selection-start="994" selection-end="994" vertical-scroll-proportion="0.0">
+                <state line="43" column="70" selection-start="994" selection-end="994" vertical-scroll-proportion="0.43968433">
                   <folding />
                 </state>
               </provider>
@@ -221,7 +210,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GameControllerTest.java" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="GameControllerTest.java" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/test/tictactoe/GameControllerTest.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="4" column="0" selection-start="56" selection-end="56" vertical-scroll-proportion="0.06764374">
@@ -927,13 +916,6 @@
         <state line="9" column="42" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="70" selection-start="994" selection-end="994" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/HttpServer/ResponseBuilderTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="32" selection-start="937" selection-end="937" vertical-scroll-proportion="0.0">
@@ -957,16 +939,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HttpServer/GameController.java">
+    <entry file="file://$PROJECT_DIR$/test/tictactoe/GameControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="95" selection-start="425" selection-end="425" vertical-scroll-proportion="0.2367531">
+        <state line="4" column="0" selection-start="56" selection-end="56" vertical-scroll-proportion="0.06764374">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/tictactoe/GameControllerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/HttpServer/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="56" selection-end="56" vertical-scroll-proportion="0.06764374">
+        <state line="14" column="14" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="70" selection-start="994" selection-end="994" vertical-scroll-proportion="0.43968433">
           <folding />
         </state>
       </provider>
