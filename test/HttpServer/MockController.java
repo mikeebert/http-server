@@ -1,5 +1,6 @@
 package HttpServer;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 public class MockController implements ControllerInterface {
@@ -16,7 +17,7 @@ public class MockController implements ControllerInterface {
 	}
 
 	@Override
-	public String updateWith(String resource, String requestVerb, HashMap<String, String> params, String postContent) {
-		return null;
+	public String process(String resource, HashMap<String, String> params) throws IOException {
+		return null;  //To change body of implemented methods use File | Settings | File Templates.
 	}
 }
