@@ -1,5 +1,7 @@
 package HttpServer;
 
+import sun.jvm.hotspot.oops.ObjectHistogramElement;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -14,24 +16,33 @@ public class ResponseBuilder {
 	private String resource;
 	private HashMap<String, String> params;
 	private String requestVerb;
+	private String postContent;
+	private ControllerInterface responseController;
 
-	public ResponseBuilder(String resource, String requestVerb, HashMap<String, String> params) {
+	public ResponseBuilder(String resource, String requestVerb, HashMap<String, String> params, String postContent) {
+		this.resource = resource;
+		this.responseController = setUpController();
 		this.requestVerb = requestVerb;
-		setResource(resource);
-		setRequestVerb(requestVerb);
-		setParams(params);
+		this.params = params;
+		this.postContent = postContent;
+	}
+
+	private ControllerInterface setUpController() {
+		if (this.resource.contains("game"))
+			return new GameController();
+		else
+			return null;
 	}
 
 	public Response buildResponse() throws IOException {
 		response = new Response();
-		addContentToResponse(getResource());
+		addContentToResponse();
 		//setResponseType?
 		addStatusCodeToResponse(requestVerb);
 		return response;
 	}
 
 	private void addStatusCodeToResponse(String requestVerb) {
-	//handle different status codes based on verbs and resources
 		if(!getResource().endsWith(NOTFOUND)) {
 			response.setStatusCode(200);
 		} else {
@@ -39,33 +50,54 @@ public class ResponseBuilder {
 		}
 	}
 
-	private void addContentToResponse(String resource) throws IOException {
-		//TWO BRANCHES:
+	private void addContentToResponse() throws IOException {
 		//FIRST: what type of content is it? text? image? css? it will affect send.
 		//SECOND: is it a dynamic resource that gets updated?
 
-		String resourceContents = readfile(getResource());
-
-		if(params == null) {
-			response.setContent(resourceContents);
-		} else if (resource.endsWith("favicon.ico")) {
-			response.setContent(null);
+		if(isStaticResource()) {
+			response.setContent(getStaticResourceContents());
 		}	else {
-			response.setContent(update(resourceContents));
+			response.setContent(getUpdatedResource());
 		}
 	}
 
-	public String update(String resourceContents) {
-		String updatedContents = resourceContents;
+	private boolean isStaticResource() {
+		return this.params == null;
+	}
 
-		for (Map.Entry<String, String> entry : params.entrySet()) {
+	private String getStaticResourceContents() throws IOException {
+		if(this.resource.endsWith("favicon.ico"))
+			return null;
+		else
+			return readFile(getResource());
+	}
+
+	public String getUpdatedResource() throws IOException {
+
+		if (requestIsForEcho())
+			return updateEchoContents();
+		else
+			return responseController.updateWith(resource, requestVerb, params, postContent);
+	}
+
+	private String updateEchoContents() throws IOException {
+		String updatedContents = readFile(getResource());
+
+		for (Map.Entry<String, String> entry : params.entrySet())
 			updatedContents = updatedContents.replace("&&" + entry.getKey(), entry.getValue());
-		}
 
 		return updatedContents;
 	}
 
-	private String readfile(String resource) throws IOException {
+	public boolean requestIsForEcho() {
+		String resource = this.resource;
+		if (resource.contains("echo-return") || resource.contains("dynamic"))
+			return true;
+		else
+			return false;
+	}
+
+	private String readFile(String resource) throws IOException {
 		FileInputStream fileStream = new FileInputStream(resource);
 		BufferedReader fileReader = new BufferedReader(new InputStreamReader(fileStream));
 		StringBuilder input = new StringBuilder();
@@ -84,23 +116,15 @@ public class ResponseBuilder {
 		return resource;
 	}
 
-	public void setResource(String resource) {
-		this.resource = resource;
-	}
-
 	public HashMap<String, String> getParams() {
 		return params;
-	}
-
-	public void setParams(HashMap<String, String> params) {
-		this.params = params;
 	}
 
 	public String getRequestVerb() {
 		return requestVerb;
 	}
 
-	public void setRequestVerb(String requestVerb) {
-		this.requestVerb = requestVerb;
+	public ControllerInterface getController() {
+		return responseController;
 	}
 }
