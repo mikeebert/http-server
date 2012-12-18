@@ -47,7 +47,10 @@ public class ConnectionHandler {
 	}
 //
 	private Response getResponseFor(Request request) throws IOException {
-		ResponseBuilder builder = new ResponseBuilder(router.getResourceFor(request.getPath()), request.getVerb(), request.getParams());
+		ResponseBuilder builder = new ResponseBuilder(router.getResourceFor(request.getPath()),
+																									request.getVerb(),
+																									request.getParams(),
+																									request.getPostContent());
 		return builder.buildResponse();
 	}
 //
