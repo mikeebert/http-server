@@ -22,7 +22,7 @@ public class Router {
 	}
 
 	private void setRoutes() throws IOException {
-		String[] routesArray = readFile(dir + "routes.txt").split("\n");
+		String[] routesArray = new FileReader().readFile(dir + "routes.txt").split("\n");
 		int routes_header_row = 0;
 
 		for (int i= routes_header_row + 1; i < routesArray.length; i++) {
@@ -36,15 +36,6 @@ public class Router {
 		}
 	}
 
-//	private boolean routesContain(String path) {
-//		for(HashMap route: routes ) {
-//			if(route.get("path").equals(path)) {
-//				return true;
-//			}
-//		}
-//		return false;
-//	}
-
 	public String getResourceFor(String path) {
 
 		for(HashMap route: routes) {
@@ -53,21 +44,6 @@ public class Router {
 		}
 
 		return dir + "404.html";
-	}
-
-	private String readFile(String filePath) throws IOException {
-		FileInputStream fileStream = new FileInputStream(filePath);
-		BufferedReader fileReader = new BufferedReader(new InputStreamReader(fileStream));
-		StringBuilder input = new StringBuilder();
-		String line = fileReader.readLine();
-
-		while ((line != null) && (!line.equals(""))) {
-			input.append(line).append("\n");
-			line = fileReader.readLine();
-		}
-
-		fileStream.close();
-		return input.toString();
 	}
 
 	public List<HashMap<String, String>> getRoutes() {

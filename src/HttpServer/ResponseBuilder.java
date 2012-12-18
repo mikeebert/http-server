@@ -1,11 +1,8 @@
 package HttpServer;
 
-import sun.jvm.hotspot.oops.ObjectHistogramElement;
+import tictactoe.GameController;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,18 +13,19 @@ public class ResponseBuilder {
 	private String resource;
 	private HashMap<String, String> params;
 	private String requestVerb;
-	private String postContent;
 	private ControllerInterface responseController;
+	private FileReader reader;
 
-	public ResponseBuilder(String resource, String requestVerb, HashMap<String, String> params, String postContent) {
+	public ResponseBuilder(String resource, String requestVerb, HashMap<String, String> params) {
 		this.resource = resource;
 		this.responseController = setUpController();
 		this.requestVerb = requestVerb;
 		this.params = params;
-		this.postContent = postContent;
+		this.reader = new FileReader();
 	}
 
 	private ControllerInterface setUpController() {
+		//If I have a resource identified by a string, how could I go into the directory to get the class of the file it references???
 		if (this.resource.contains("game"))
 			return new GameController();
 		else
@@ -69,7 +67,7 @@ public class ResponseBuilder {
 		if(this.resource.endsWith("favicon.ico"))
 			return null;
 		else
-			return readFile(getResource());
+			return getFile(getResource());
 	}
 
 	public String getUpdatedResource() throws IOException {
@@ -77,11 +75,11 @@ public class ResponseBuilder {
 		if (requestIsForEcho())
 			return updateEchoContents();
 		else
-			return responseController.updateWith(resource, requestVerb, params, postContent);
+			return responseController.process(resource, params);
 	}
 
 	private String updateEchoContents() throws IOException {
-		String updatedContents = readFile(getResource());
+		String updatedContents = getFile(getResource());
 
 		for (Map.Entry<String, String> entry : params.entrySet())
 			updatedContents = updatedContents.replace("&&" + entry.getKey(), entry.getValue());
@@ -91,25 +89,11 @@ public class ResponseBuilder {
 
 	public boolean requestIsForEcho() {
 		String resource = this.resource;
-		if (resource.contains("echo-return") || resource.contains("dynamic"))
-			return true;
-		else
-			return false;
+		return resource.contains("echo-return") || resource.contains("dynamic");
 	}
 
-	private String readFile(String resource) throws IOException {
-		FileInputStream fileStream = new FileInputStream(resource);
-		BufferedReader fileReader = new BufferedReader(new InputStreamReader(fileStream));
-		StringBuilder input = new StringBuilder();
-		String line = fileReader.readLine();
-
-		while ((line != null) && (!line.equals(""))) {
-			input.append(line).append("\n");
-			line = fileReader.readLine();
-		}
-
-		fileStream.close();
-		return input.toString();
+	private String getFile(String resource) throws IOException {
+		return reader.readFile(resource);
 	}
 
 	public String getResource() {
