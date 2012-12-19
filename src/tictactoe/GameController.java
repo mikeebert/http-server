@@ -9,35 +9,44 @@ import java.util.HashMap;
 public class GameController implements ControllerInterface {
 
 	private boolean initialized = false;
-	private String responseContent = "";
-	private FileReader reader;
+	private String resourceContent = "";
+	private FileReader fileReader;
+	private static final int[] SPACES = {1,2,3,4,5,6,7,8,9};
 
 	public GameController() {
 		setInitialized(true);
-		reader = new FileReader();
+		fileReader = new FileReader();
 	}
 
 	public String process(String resource, HashMap<String, String> params) throws IOException {
-		String[] directoryAndMethod = resource.split("/game/");
-		String resourceDirectory = directoryAndMethod[0];
-		String method = directoryAndMethod[1];
+		String resourceDirectory = resource.split("/game/")[0];
+		String method = resource.split("/game/")[1];
 
+		getResource(method, resourceDirectory, params);
+		return resourceContent;
+	}
+
+	private void getResource(String method, String resourceDirectory, HashMap<String, String> params) throws IOException {
 		if(method.equals("new"))
-			responseContent = newGame(resourceDirectory);
+			resourceContent = newGame(resourceDirectory);
 		else if (method.equals("update"))
-			responseContent = updateGame(resourceDirectory, params);
+			resourceContent = updateGame(resourceDirectory, params);
+	}
 
-		return responseContent;
+	private String newGame(String resourceDirectory) throws IOException {
+		String boardFile = fileReader.readFile(resourceDirectory + "/board.html");
+
+		for(int space: SPACES) {
+			boardFile = boardFile.replace("&&cell" + space,
+																		"<button name='cell" + space + "' value='on' type='submit'>move</button>");
+		}
+
+		return boardFile;
 	}
 
 	private String updateGame(String resourceDirectory, HashMap<String, String> params) {
 
-		return responseContent;
-	}
-
-	private String newGame(String resourceDirectory) throws IOException {
-		responseContent = reader.readFile(resourceDirectory + "/board.html");
-		return responseContent;
+		return resourceContent;
 	}
 
 	@Override
@@ -47,5 +56,13 @@ public class GameController implements ControllerInterface {
 
 	public void setInitialized(boolean initialized) {
 		this.initialized = initialized;
+	}
+
+	public void setFileReader(FileReader reader) {
+		fileReader = reader;
+	}
+
+	public String getResourceContent() {
+		return resourceContent;
 	}
 }
