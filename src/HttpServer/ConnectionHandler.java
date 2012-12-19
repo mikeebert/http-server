@@ -34,6 +34,7 @@ public class ConnectionHandler {
 				//THIS FUNCTION SHOULD REPLACE processResponse
 				//sendResponse(response, clientSocket));
 
+				printStatus("### Closing Socket.\n\n");
 				clientSocket.close();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -49,8 +50,7 @@ public class ConnectionHandler {
 	private Response getResponseFor(Request request) throws IOException {
 		ResponseBuilder builder = new ResponseBuilder(router.getResourceFor(request.getPath()),
 																									request.getVerb(),
-																									request.getParams(),
-																									request.getPostContent());
+																									request.getParams());
 		return builder.buildResponse();
 	}
 //
