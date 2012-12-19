@@ -18,18 +18,17 @@ public class ResponseBuilder {
 
 	public ResponseBuilder(String resource, String requestVerb, HashMap<String, String> params) {
 		this.resource = resource;
-		this.responseController = setUpController();
+		setUpController();
 		this.requestVerb = requestVerb;
 		this.params = params;
 		this.reader = new FileReader();
 	}
 
-	private ControllerInterface setUpController() {
-		//If I have a resource identified by a string, how could I go into the directory to get the class of the file it references???
-		if (this.resource.contains("game"))
-			return new GameController();
-		else
-			return null;
+	//If I have a resource identified by a string (a file or controller & action)...
+	// ... how could I go into the directory to get the class contained in the file it references???
+	private void setUpController() {
+		if (resource.contains("game"))
+			responseController = new GameController();
 	}
 
 	public Response buildResponse() throws IOException {
@@ -41,7 +40,7 @@ public class ResponseBuilder {
 	}
 
 	private void addStatusCodeToResponse(String requestVerb) {
-		if(!getResource().endsWith(NOTFOUND)) {
+		if(!resource.endsWith(NOTFOUND)) {
 			response.setStatusCode(200);
 		} else {
 			response.setStatusCode(404);
@@ -59,11 +58,19 @@ public class ResponseBuilder {
 		}
 	}
 
-	private boolean isStaticResource() {
-		return this.params == null;
+	public boolean isStaticResource() {
+		String[] fileExtensions = {".html", ".txt"};
+
+		for (String ext: fileExtensions) {
+			if (resource.endsWith(ext))
+				return true;
+		}
+
+		return false;
 	}
 
 	private String getStaticResourceContents() throws IOException {
+		//HACK for favicon
 		if(this.resource.endsWith("favicon.ico"))
 			return null;
 		else
@@ -71,7 +78,6 @@ public class ResponseBuilder {
 	}
 
 	public String getUpdatedResource() throws IOException {
-
 		if (requestIsForEcho())
 			return updateEchoContents();
 		else
@@ -88,7 +94,6 @@ public class ResponseBuilder {
 	}
 
 	public boolean requestIsForEcho() {
-		String resource = this.resource;
 		return resource.contains("echo-return") || resource.contains("dynamic");
 	}
 

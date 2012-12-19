@@ -22,6 +22,20 @@ public class ResponseBuilderTest {
 	}
 
 	@Test
+	public void itTestsForStaticContentByExtensionAndParams() throws Exception {
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("foo", "bar");
+		ResponseBuilder builder = new ResponseBuilder("something/something.html", null, null);
+		ResponseBuilder builder3 = new ResponseBuilder("something/index.txt", null, params);
+		ResponseBuilder builder4 = new ResponseBuilder("something/index", null, params);
+		ResponseBuilder builder5 = new ResponseBuilder("something/index", null, null);
+		assertEquals(true, builder.isStaticResource());
+		assertEquals(true, builder3.isStaticResource());
+		assertEquals(false, builder4.isStaticResource());
+		assertEquals(false, builder5.isStaticResource());
+	}
+
+	@Test
 	public void itSetsUpAControllerResourceIfPassedOne() throws Exception {
 		String resource = DIR + "/game/";
 		ResponseBuilder builder = new ResponseBuilder(resource, null, null);
@@ -66,7 +80,7 @@ public class ResponseBuilderTest {
 		params.put("this", "that");
 		params.put("foo", "bar");
 
-		ResponseBuilder builder = new ResponseBuilder(DIR + "dynamic_test.html", "GET", params);
+		ResponseBuilder builder = new ResponseBuilder(DIR + "dynamic_test", "GET", params);
 		Response response = builder.buildResponse();
 
 		assertEquals("<html>\n<body>\nthat\nbar\n</body>\n</html>\n", response.getContent());
