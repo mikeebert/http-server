@@ -34,7 +34,7 @@ public class ResponseBuilder {
 	public Response buildResponse() throws IOException {
 		response = new Response();
 		addContentToResponse();
-		//setResponseType?
+		//setResponseType
 		addStatusCodeToResponse(requestVerb);
 		return response;
 	}
