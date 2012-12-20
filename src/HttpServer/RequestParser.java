@@ -107,13 +107,9 @@ public class RequestParser {
 		return null;
 	}
 
-	private void addPostContentToParams(Request request) throws IOException {
-		if (request.isPost()) {
-			String postContent = getPostContent(getContentLength(request.getHeader()));
-			String[] termsArray = postContent.split("&");
-
-			request.setParams(paramaterizeTerms(request.getParams(), termsArray));
-		}
+	private boolean urlHasParams(String fullPath) {
+		String[] splitPath = fullPath.split("\\?");
+		return splitPath.length > 1;
 	}
 
 	private HashMap<String, String> paramaterizeTerms(HashMap<String, String> params, String[] termsArray) {
@@ -129,9 +125,13 @@ public class RequestParser {
 		return params;
 	}
 
-	private boolean urlHasParams(String fullPath) {
-		String[] splitPath = fullPath.split("\\?");
-		return splitPath.length > 1;
+	private void addPostContentToParams(Request request) throws IOException {
+		if (request.isPost()) {
+			String postContent = getPostContent(getContentLength(request.getHeader()));
+			String[] termsArray = postContent.split("&");
+
+			request.setParams(paramaterizeTerms(request.getParams(), termsArray));
+		}
 	}
 
 	public String getPostContent(int length) throws IOException {
@@ -147,13 +147,14 @@ public class RequestParser {
 
 	public int getContentLength(String headers) {
 		String[] headerArray = headers.split(CRLF);
+		int contentLength = 0;
 
 		for(String header: headerArray) {
 			if (header.startsWith("Content-Length"))
-				return Integer.parseInt(header.split(": ")[1]);
+				contentLength = Integer.parseInt(header.split(": ")[1]);
 		}
 
-		return 0;
+		return contentLength;
 	}
 
 	private void printStatus(String message) {
