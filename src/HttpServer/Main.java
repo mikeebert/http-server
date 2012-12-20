@@ -4,7 +4,7 @@ import tictactoe.GameRepository;
 
 public class Main {
 	private static int port = 5000;
-	private static String directory = "/Users/ebert/Dropbox/projects/http-server/resources/tictactoe/";
+	private static String directory = "/Users/ebert/Dropbox/projects/http-server/resources/CobSpec/";
 
 	public static void main(String[] args) {
 		parseCommands(args);

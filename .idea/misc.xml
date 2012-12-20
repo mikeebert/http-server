@@ -3,6 +3,10 @@
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <type id="javaeeApplication" />
+    <type id="web" />
+  </component>
   <component name="IdProvider" IDEtalkID="76C61743F6604A990068007AFFF76BBF" />
   <component name="ProjectResources">
     <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>

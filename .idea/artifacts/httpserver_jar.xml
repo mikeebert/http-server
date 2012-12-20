@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="httpserver:jar">
+    <output-path>$PROJECT_DIR$/</output-path>
+    <root id="archive" name="HTTPserver.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../tictactoe-java/src/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="Http-server" />
+      <element id="module-output" name="tictactoe-java" />
+    </root>
+  </artifact>
+</component>

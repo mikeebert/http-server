@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HTTPserver.iml" filepath="$PROJECT_DIR$/HTTPserver.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../tictactoe-java/tictactoe.iml" filepath="$PROJECT_DIR$/../tictactoe-java/tictactoe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Http-server.iml" filepath="$PROJECT_DIR$/Http-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tictactoe-java/tictactoe-java.iml" filepath="$PROJECT_DIR$/../tictactoe-java/tictactoe-java.iml" />
     </modules>
   </component>
 </project>
