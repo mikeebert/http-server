@@ -1,8 +1,10 @@
 package HttpServer;
 
+import tictactoe.GameRepository;
+
 public class Main {
 	private static int port = 5000;
-	private static String directory = "/Users/ebert/Dropbox/projects/http-server/resources/CobSpec/";
+	private static String directory = "/Users/ebert/Dropbox/projects/http-server/resources/tictactoe/";
 
 	public static void main(String[] args) {
 		parseCommands(args);
@@ -10,6 +12,8 @@ public class Main {
 		Router router = new Router(directory);
 		ConnectionHandler handler = new ConnectionHandler(port, router);
 		HttpServer server = new HttpServer(handler);
+		setUpRepository();
+
 		try{
 			server.run();
 		} catch (Exception e) {
@@ -25,5 +29,10 @@ public class Main {
 				directory = args[i+1];
 			}
 		}
+	}
+
+	private static void setUpRepository() {
+		if (directory.contains("tictactoe"))
+			GameRepository.initialize();
 	}
 }
