@@ -2,3 +2,4 @@ PATH | VERB | RESOURCE
 / | GET | /index.html
 /board | GET | /board.html
 /game/new | GET | /game/new
+/game/update | POST | /game/update

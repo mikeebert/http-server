@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
 	<title>Board</title>
 	<style>
@@ -19,8 +19,10 @@
 	</style>
 </head>
 <body>
-	<h1>This will be the board.</h1>
-	<div id="board">
+	<div align="center">
+		<p>Game In Progress</p>
+	</div>
+	<div id="board" align="center">
 		<form method="post" action="/game/update">
 			<table>
 				<tr>
@@ -39,12 +41,12 @@
 					<td>&&cell9</td>
 				</tr>
 			</table>
-			<input type="hidden" name="game-id" value="&&" />
+			<input type="hidden" name="game-id" value="&&gameId" />
 		</form>
 	</div>
-	<div>
+	<div id="reset game" align="center">
 		<h4>
-			<a href="/game/new">Play New Game</a>
+			<a href="/game/new">Reset Game</a>
 		</h4>
 	</div>
 </body>
