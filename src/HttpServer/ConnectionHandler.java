@@ -48,10 +48,10 @@ public class ConnectionHandler {
 	}
 //
 	private Response getResponseFor(Request request) throws IOException {
-		ResponseBuilder builder = new ResponseBuilder(router.getResourceFor(request.getPath()),
-																									request.getVerb(),
-																									request.getParams());
-		return builder.buildResponse();
+		ResponseBuilder builder = new ResponseBuilder();
+		return builder.buildResponseFor(router.getResourceFor(request.getPath()),
+																		request.getVerb(),
+																		request.getParams());
 	}
 //
 //	private void sendResponse(Response response, Socket clientSocket) {
@@ -59,8 +59,8 @@ public class ConnectionHandler {
 //		responder.sendResponse(response);
 //	}
 
-	private void processResponse(Response response, OutputStream output) {
-		Responder responder = new Responder(new PrintWriter(new OutputStreamWriter(output), true));
+	private void processResponse(Response response, OutputStream output) throws IOException {
+		Responder responder = new Responder(output);
 		responder.prepare(response);
 		responder.sendResponse();
 	}

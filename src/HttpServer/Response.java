@@ -6,6 +6,8 @@ public class Response {
 	private String content;
 	private String resource;
 	private int statusCode;
+	private String type;
+	private char[] binaryContent;
 
 	public void setContent(String htmlString) {
 		content = htmlString;
@@ -38,5 +40,21 @@ public class Response {
 
 	public void setResource(String resource) {
 		this.resource = resource;
+	}
+
+	public void setType(String resourceType) {
+		type = resourceType;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public char[] getBinaryContent() {
+		return binaryContent;
+	}
+
+	public void setBinaryContent(char[] binaryContent) {
+		this.binaryContent = binaryContent;
 	}
 }

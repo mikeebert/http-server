@@ -2,7 +2,13 @@ package HttpServer;
 
 import tictactoe.GameController;
 
+import javax.activation.MimeType;
+import javax.imageio.ImageReader;
+import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.FileNameMap;
+import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,27 +22,35 @@ public class ResponseBuilder {
 	private ControllerInterface responseController;
 	private FileReader reader;
 
-	public ResponseBuilder(String resource, String requestVerb, HashMap<String, String> params) {
-		this.resource = resource;
-		setUpController();
-		this.requestVerb = requestVerb;
-		this.params = params;
-		this.reader = new FileReader();
+	public Response buildResponseFor(String resourcePath, String method, HashMap<String,String> requestParams) throws IOException {
+		response = new Response();
+		resource = resourcePath;
+		response.setResource(resource);
+		setupResourceController();
+		requestVerb = method;
+		params = requestParams;
+		reader = new FileReader();
+		buildResponse();
+		return response;
 	}
 
-	//If I have a resource identified by a string (a file or controller & action)...
-	// ... how could I go into the directory to get the class contained in the file it references???
-	private void setUpController() {
+	//ideally this method would grab the controller from the resources directory.
+	private void setupResourceController() {
 		if (resource.contains("game"))
 			responseController = new GameController();
+//		responseController = getClass().getResource(resource);
+
 	}
 
-	public Response buildResponse() throws IOException {
-		response = new Response();
+	public void buildResponse() throws IOException {
+		response.setType(getResourceType());
 		addContentToResponse();
-		//setResponseType
 		addStatusCodeToResponse(requestVerb);
-		return response;
+	}
+
+	private String getResourceType() {
+		FileNameMap fileNameMap = URLConnection.getFileNameMap();
+		return fileNameMap.getContentTypeFor(resource);
 	}
 
 	private void addStatusCodeToResponse(String requestVerb) {
@@ -59,7 +73,7 @@ public class ResponseBuilder {
 	}
 
 	public boolean isStaticResource() {
-		String[] fileExtensions = {".html", ".txt"};
+		String[] fileExtensions = {".html", ".txt", ".jpeg", ".png", ".gif"};
 
 		for (String ext: fileExtensions) {
 			if (resource.endsWith(ext))
@@ -71,10 +85,17 @@ public class ResponseBuilder {
 
 	private String getStaticResourceContents() throws IOException {
 		//HACK for favicon
-		if(this.resource.endsWith("favicon.ico"))
-			return null;
+		if(resource.endsWith("favicon.ico"))
+			return resource;
 		else
-			return getFile(getResource());
+			return getFile();
+	}
+
+	private String getFile() throws IOException {
+		if (isImage(resource)) {
+			return resource;
+		} else
+			return reader.readFile(resource);
 	}
 
 	public String getUpdatedResource() throws IOException {
@@ -85,7 +106,7 @@ public class ResponseBuilder {
 	}
 
 	private String updateEchoContents() throws IOException {
-		String updatedContents = getFile(getResource());
+		String updatedContents = getFile();
 
 		for (Map.Entry<String, String> entry : params.entrySet())
 			updatedContents = updatedContents.replace("&&" + entry.getKey(), entry.getValue());
@@ -97,10 +118,11 @@ public class ResponseBuilder {
 		return resource.contains("echo-return") || resource.contains("dynamic");
 	}
 
-	private String getFile(String resource) throws IOException {
-		return reader.readFile(resource);
+	private boolean isImage(String resource) {
+		return resource.endsWith(".jpeg") || resource.endsWith(".gif") || resource.endsWith(".png");
 	}
 
+	// Getters and Setters
 	public String getResource() {
 		return resource;
 	}
@@ -116,4 +138,17 @@ public class ResponseBuilder {
 	public ControllerInterface getController() {
 		return responseController;
 	}
+
+	public void setController(ControllerInterface controller) {
+		responseController = controller;
+	}
+
+	public void setResource(String path) {
+		resource = path;
+	}
+
+	public Response getResponse() {
+		return response;
+	}
+
 }

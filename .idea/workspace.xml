@@ -7,58 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a636b589-4877-4a39-82a4-3ad72592c37b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/httpserver_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Http-server.iml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/HTTPserver_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/HTTPserver.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/HTTPserver_jar/HTTPserver.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/ConnectionHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/ControllerInterface.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/FileReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/HttpServer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Request.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/RequestParser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Responder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Response.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/ResponseBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/HTTPserver/HttpServer/Router.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/HTTPserver/tictactoe/GameController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/HTTPserver/tictactoe/GameRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/tictactoe/org/mebert/ttt/Ai.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/tictactoe/org/mebert/ttt/Board.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/tictactoe/org/mebert/ttt/Game.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/tictactoe/org/mebert/ttt/MaxPlayer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/tictactoe/org/mebert/ttt/MinPlayer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/tictactoe/org/mebert/ttt/MinimaxPlayer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/tictactoe/org/mebert/ttt/Player.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/ConnectionHandlerTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/HTTPServerTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/MockBufferedReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/MockController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/MockFileReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/MockOutputStream.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/MockPrintWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/MockResponse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/MockServerSocket.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/RequestParserTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/RequestTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/ResponderTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/ResponseBuilderTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/RouterTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/test.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/HttpServer/test404.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/tictactoe/GameControllerTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/tictactoe/GameRepositoryTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/HTTPserver/tictactoe/MockGame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/tictactoe/org/mebert/ttt/AiTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/tictactoe/org/mebert/ttt/BoardTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/tictactoe/org/mebert/ttt/GameTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/tictactoe/org/mebert/ttt/MaxPlayerTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/tictactoe/org/mebert/ttt/MinPlayerTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/tictactoe/org/mebert/ttt/MockAi.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/tictactoe/org/mebert/ttt/MockBoard.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/tictactoe/org/mebert/ttt/PlayerTest.class" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../tictactoe-java/tictactoe-java.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/Http-server/HttpServer/MockPrintWriter.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../tictactoe-java/out/production/tictactoe/org/mebert/ttt/Ai.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../tictactoe-java/out/production/tictactoe/org/mebert/ttt/Board.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../tictactoe-java/out/production/tictactoe/org/mebert/ttt/Game.class" afterPath="" />
@@ -75,10 +25,19 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../tictactoe-java/out/test/tictactoe/org/mebert/ttt/MockBoard.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../tictactoe-java/out/test/tictactoe/org/mebert/ttt/PlayerTest.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../tictactoe-java/tictactoe.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/test/HttpServer/MockPrintWriter.java" afterPath="$PROJECT_DIR$/test/HttpServer/MockOutput.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTTPserver.jar" afterPath="$PROJECT_DIR$/HTTPserver.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/CobSpec/routes.txt" afterPath="$PROJECT_DIR$/resources/CobSpec/routes.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/tictactoe/index.html" afterPath="$PROJECT_DIR$/resources/tictactoe/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java" afterPath="$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/Main.java" afterPath="$PROJECT_DIR$/src/HttpServer/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/Responder.java" afterPath="$PROJECT_DIR$/src/HttpServer/Responder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/Response.java" afterPath="$PROJECT_DIR$/src/HttpServer/Response.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/ResponseBuilder.java" afterPath="$PROJECT_DIR$/src/HttpServer/ResponseBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/HttpServer/MockController.java" afterPath="$PROJECT_DIR$/test/HttpServer/MockController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/HttpServer/ResponderTest.java" afterPath="$PROJECT_DIR$/test/HttpServer/ResponderTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/HttpServer/ResponseBuilderTest.java" afterPath="$PROJECT_DIR$/test/HttpServer/ResponseBuilderTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../tictactoe-java/.idea/modules.xml" afterPath="$PROJECT_DIR$/../tictactoe-java/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../tictactoe-java/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../tictactoe-java/.idea/workspace.xml" />
     </list>
@@ -137,7 +96,108 @@
     <favorites_list name="HTTPserver" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="ResponseBuilder.java" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/HttpServer/ResponseBuilder.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="95" column="21" selection-start="2564" selection-end="2564" vertical-scroll-proportion="0.83870965">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Responder.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/HttpServer/Responder.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="47" column="29" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="FileReader.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/HttpServer/FileReader.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="19" column="3" selection-start="535" selection-end="535" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Response.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/HttpServer/Response.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="41" column="27" selection-start="721" selection-end="721" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/HttpServer/Main.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="28" column="30" selection-start="782" selection-end="782" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ConnectionHandler.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="62" column="48" selection-start="1800" selection-end="1800" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="ResponseBuilderTest.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test/HttpServer/ResponseBuilderTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="31" column="3" selection-start="1020" selection-end="1020" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ResponderTest.java" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/test/HttpServer/ResponderTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="23" column="15" selection-start="529" selection-end="529" vertical-scroll-proportion="0.5544148">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MockOutput.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test/HttpServer/MockOutput.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="7" column="10" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="routes.txt" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/resources/CobSpec/routes.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="8" column="28" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -150,29 +210,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/test/tictactoe/MockGame.java" />
-        <option value="$PROJECT_DIR$/resources/tictactoe/routes.txt" />
-        <option value="$PROJECT_DIR$/../tictactoe-java/test/org/mebert/ttt/MockAi.java" />
-        <option value="$PROJECT_DIR$/resources/tictactoe/index.html" />
-        <option value="$PROJECT_DIR$/../tictactoe-java/test/org/mebert/ttt/AiTest.java" />
-        <option value="$PROJECT_DIR$/test/tictactoe/GameControllerTest.java" />
-        <option value="$PROJECT_DIR$/../tictactoe-java/test/org/mebert/ttt/MockBoard.java" />
-        <option value="$PROJECT_DIR$/../tictactoe-java/test/org/mebert/ttt/BoardTest.java" />
-        <option value="$PROJECT_DIR$/../tictactoe-java/src/org/mebert/ttt/Board.java" />
-        <option value="$PROJECT_DIR$/../tictactoe-java/test/org/mebert/ttt/GameTest.java" />
-        <option value="$PROJECT_DIR$/../tictactoe-java/src/org/mebert/ttt/Game.java" />
         <option value="$PROJECT_DIR$/resources/tictactoe/board.html" />
         <option value="$PROJECT_DIR$/src/tictactoe/GameController.java" />
         <option value="$PROJECT_DIR$/src/tictactoe/GameRepository.java" />
+        <option value="$PROJECT_DIR$/test/HttpServer/MockController.java" />
+        <option value="$PROJECT_DIR$/test/HttpServer/ResponseBuilderTest.java" />
         <option value="$PROJECT_DIR$/resources/CobSpec/routes.txt" />
+        <option value="$PROJECT_DIR$/resources/tictactoe/index.html" />
+        <option value="$PROJECT_DIR$/src/HttpServer/Response.java" />
         <option value="$PROJECT_DIR$/src/HttpServer/Main.java" />
+        <option value="$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java" />
+        <option value="$PROJECT_DIR$/test/HttpServer/MockPrintWriter.java" />
+        <option value="$PROJECT_DIR$/test/HttpServer/MockOutput.java" />
+        <option value="$PROJECT_DIR$/test/HttpServer/ResponderTest.java" />
+        <option value="$PROJECT_DIR$/src/HttpServer/FileReader.java" />
+        <option value="$PROJECT_DIR$/src/HttpServer/Responder.java" />
+        <option value="$PROJECT_DIR$/src/HttpServer/ResponseBuilder.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="4" />
     <option name="y" value="22" />
-    <option name="width" value="2560" />
-    <option name="height" value="1418" />
+    <option name="width" value="1676" />
+    <option name="height" value="1028" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -200,6 +261,16 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -219,6 +290,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tictactoe-java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTTPserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tictactoe-java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ttt" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -381,20 +470,6 @@
               <option name="myItemId" value="HTTPserver" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTTPserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -402,7 +477,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -445,14 +520,80 @@
       <recent name="$PROJECT_DIR$/publicCobSpec/CobSpec" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in Http-server">
-    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="HttpServer.Main" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+  <component name="RunManager" selected="Application.Main">
+    <configuration default="false" name="ResponseBuilderTest.itInitializesWithResourceAndVerbAndParams" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="Http-server" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="HttpServer" />
+      <option name="MAIN_CLASS_NAME" value="HttpServer.ResponseBuilderTest" />
+      <option name="METHOD_NAME" value="itInitializesWithResourceAndVerbAndParams" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ResponseBuilderTest.itSetsMimeType" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="Http-server" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="HttpServer" />
+      <option name="MAIN_CLASS_NAME" value="HttpServer.ResponseBuilderTest" />
+      <option name="METHOD_NAME" value="itSetsMimeType" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ResponderTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="Http-server" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="HttpServer" />
+      <option name="MAIN_CLASS_NAME" value="HttpServer.ResponderTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="HttpServer.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
@@ -461,54 +602,6 @@
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
-    </configuration>
-    <configuration default="false" name="GameControllerTest.itReplacesButtonHTML" type="JUnit" factoryName="JUnit" temporary="true">
-      <module name="HTTPserver" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="tictactoe" />
-      <option name="MAIN_CLASS_NAME" value="tictactoe.GameControllerTest" />
-      <option name="METHOD_NAME" value="itReplacesButtonHTML" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method>
-        <option name="BuildArtifacts" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="false" name="GameTest" type="JUnit" factoryName="JUnit" temporary="true">
-      <module name="tictactoe" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="org.mebert.ttt" />
-      <option name="MAIN_CLASS_NAME" value="org.mebert.ttt.GameTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method>
-        <option name="BuildArtifacts" enabled="false" />
-      </method>
     </configuration>
     <configuration default="false" name="All in Http-server" type="JUnit" factoryName="JUnit" temporary="true">
       <module name="Http-server" />
@@ -530,33 +623,7 @@
       <patterns />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
-      <method>
-        <option name="BuildArtifacts" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="false" name="RequestParserTest" type="JUnit" factoryName="JUnit" temporary="true">
-      <module name="Http-server" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="HttpServer" />
-      <option name="MAIN_CLASS_NAME" value="HttpServer.RequestParserTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method>
-        <option name="BuildArtifacts" enabled="false" />
-      </method>
+      <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
@@ -687,7 +754,7 @@
       </method>
     </configuration>
     <configuration default="false" name="ResponseBuilderTest" type="JUnit" factoryName="JUnit">
-      <module name="" />
+      <module name="Http-server" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" value="" />
       <option name="PACKAGE_NAME" value="HttpServer" />
@@ -711,12 +778,12 @@
       </method>
     </configuration>
     <list size="6">
-      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.ResponseBuilderTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.GameControllerTest.itReplacesButtonHTML" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.GameTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.All in Http-server" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.RequestParserTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.ResponseBuilderTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ResponseBuilderTest.itInitializesWithResourceAndVerbAndParams" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.ResponseBuilderTest.itSetsMimeType" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.ResponderTest" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.All in Http-server" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -733,13 +800,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="2560" height="1418" extended-state="0" />
-    <editor active="false" />
+    <frame x="4" y="22" width="1676" height="1028" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50157726" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24969324" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39861217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -747,18 +814,19 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2954796" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29437706" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975337" sideWeight="0.6700077" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11694511" sideWeight="0.79722434" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20277564" sideWeight="0.98766905" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13128835" sideWeight="0.5810364" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4189636" sideWeight="0.98766905" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5014191" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975337" sideWeight="0.6700077" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -821,46 +889,97 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../tictactoe-java/src/org/mebert/ttt/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/tictactoe/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="26" selection-start="1969" selection-end="1969" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="8" column="23" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tictactoe/GameRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="19" selection-end="19" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/HttpServer/RequestParserTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="9" selection-start="322" selection-end="322" vertical-scroll-proportion="0.08582677" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/HttpServer/MockController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="23" selection-start="301" selection-end="301" vertical-scroll-proportion="0.2038835" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/HttpServer/ResponseBuilderTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="57" selection-start="771" selection-end="771" vertical-scroll-proportion="0.0">
+        <state line="31" column="3" selection-start="1020" selection-end="1020" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/CobSpec/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../tictactoe-java/test/org/mebert/ttt/MockAi.java">
+    <entry file="file://$PROJECT_DIR$/resources/tictactoe/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="15" selection-start="416" selection-end="416" vertical-scroll-proportion="0.0">
+        <state line="8" column="7" selection-start="149" selection-end="149" vertical-scroll-proportion="0.2112676">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../tictactoe-java/test/org/mebert/ttt/GameTest.java">
+    <entry file="file://$PROJECT_DIR$/resources/CobSpec/routes.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="18" selection-start="3123" selection-end="3123" vertical-scroll-proportion="1.2958333">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/tictactoe/routes.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="34" selection-start="134" selection-end="134" vertical-scroll-proportion="0.08230453">
+        <state line="8" column="28" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/tictactoe/MockGame.java">
+    <entry file="file://$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="38" selection-start="254" selection-end="254" vertical-scroll-proportion="0.0">
+        <state line="62" column="48" selection-start="1800" selection-end="1800" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/HttpServer/MockOutput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="10" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/HttpServer/ResponderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="15" selection-start="529" selection-end="529" vertical-scroll-proportion="0.5544148">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HttpServer/Response.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="27" selection-start="721" selection-end="721" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HttpServer/FileReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="3" selection-start="535" selection-end="535" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HttpServer/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="30" selection-start="782" selection-end="782" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HttpServer/Responder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="29" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -869,72 +988,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HttpServer/ResponseBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="34" selection-start="1275" selection-end="1275" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/tictactoe/board.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="2" selection-start="397" selection-end="397" vertical-scroll-proportion="-14.375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/tictactoe/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="52" selection-start="131" selection-end="131" vertical-scroll-proportion="-3.75">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/HttpServer/ConnectionHandlerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/HttpServer/HttpServerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="13" selection-start="58" selection-end="58" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tictactoe/GameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="23" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tictactoe/GameRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="19" selection-end="19" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/CobSpec/routes.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="28" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/HttpServer/RequestParserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="9" selection-start="322" selection-end="322" vertical-scroll-proportion="0.01489573">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HttpServer/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="15" selection-start="222" selection-end="222" vertical-scroll-proportion="0.11916584">
+        <state line="95" column="21" selection-start="2564" selection-end="2564" vertical-scroll-proportion="0.83870965">
           <folding />
         </state>
       </provider>

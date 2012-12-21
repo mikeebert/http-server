@@ -1,6 +1,6 @@
 package HttpServer;
 
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.FileNameMap;
 import java.net.URLConnection;
 
@@ -10,15 +10,19 @@ public class Responder {
 	private static final String SPACE = " ";
 	private static final String CRLF = "\r\n";
 	private StringBuffer preparedResponse;
-	private PrintWriter outputWriter;
-	private String body;
+	private OutputStreamWriter outputWriter;
+	private String responseType;
+	private OutputStream outputStream;
+	private String binaryResource;
 
-	public Responder(PrintWriter writer) {
-		outputWriter = writer;
+	public Responder(OutputStream output) {
+		this.outputStream = output;
 	}
 
 	public void prepare(Response response) {
 		preparedResponse = new StringBuffer();
+		responseType = response.getType();
+		binaryResource = response.getResource();
 		setResponseStatusLine(response);
 		setHeaders(response);
 		addLineBreak();
@@ -40,16 +44,36 @@ public class Responder {
 	}
 
 	private void setHeaders(Response response) {
-//		FileNameMap fileNameMap = URLConnection.getFileNameMap();
-//		String type = fileNameMap.getContentTypeFor(response.getResource());
-		preparedResponse.append("Content-Type: text/html" + CRLF);
+		preparedResponse.append("Content-Type: " + response.getType() + CRLF);
 		preparedResponse.append("Content-Length: " + response.getContent().length() + CRLF);
 	}
 
-	public void sendResponse() {
-		outputWriter.println(getPreparedResponse());
-		outputWriter.flush();
+	public void sendResponse() throws IOException {
+		if (responseType.contains("text"))
+			sendTextResponse();
+		else
+			sendBinaryResponse();
 	}
+
+	private void sendTextResponse() {
+		PrintWriter writer = new PrintWriter(new OutputStreamWriter(outputStream), true);
+		writer.println(getPreparedResponse());
+		writer.flush();
+	}
+
+	private void sendBinaryResponse() throws IOException {
+		System.out.println("################IT GOT HERE" + CRLF);
+		System.out.println("binaryResource to String: " + binaryResource);
+
+//		byte[] buffer = getPreparedResponse().getBytes();
+
+		byte[] buffer = org.apache.commons.io.FileUtils.readFileToByteArray(new File(binaryResource));
+		FilterOutputStream filterOutput = new FilterOutputStream(outputStream);
+		filterOutput.write(buffer);
+		filterOutput.flush();
+	}
+
+
 
 	public String getPreparedResponse() {
 		return preparedResponse.toString();

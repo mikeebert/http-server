@@ -9,12 +9,12 @@ import static junit.framework.Assert.assertEquals;
 
 public class ResponderTest {
 
-	private MockPrintWriter mockWriter;
+	private MockOutput mockWriter;
 	private Responder responder;
 
 	@Before
 	public void setUp() throws Exception {
-		mockWriter = new MockPrintWriter(new MockOutputStream());
+		mockWriter = new MockOutput(new MockOutputStream());
 		responder = new Responder(mockWriter);
 	}
 
@@ -22,7 +22,8 @@ public class ResponderTest {
 	public void itAppendsStatusAndHeadersToPreparedResponse() throws Exception {
 		Response response = new Response();
 		response.setStatusCode(200);
-		response.setResource("/Users/ebert/Dropbox/projects/http-server/public/CobSpec/index.html");
+		response.setType("text/html");
+		response.setResource("/Users/ebert/Dropbox/projects/http-server/test/HttpServer/test.html");
 		String someContent = "This is some test content";
 		response.setContent(someContent);
 

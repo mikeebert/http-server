@@ -3,7 +3,7 @@ package HttpServer;
 import tictactoe.GameRepository;
 
 public class Main {
-	private static int port = 5000;
+	private static int port = 9292;
 	private static String directory = "/Users/ebert/Dropbox/projects/http-server/resources/CobSpec/";
 
 	public static void main(String[] args) {

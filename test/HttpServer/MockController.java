@@ -13,11 +13,11 @@ public class MockController implements ControllerInterface {
 
 	@Override
 	public boolean isInitialized() {
-		return initialized;  //To change body of implemented methods use File | Settings | File Templates.
+		return initialized;
 	}
 
 	@Override
 	public String process(String resource, HashMap<String, String> params) throws IOException {
-		return null;  //To change body of implemented methods use File | Settings | File Templates.
+		return null;
 	}
 }
