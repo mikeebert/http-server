@@ -11,7 +11,6 @@ public class MockController implements ControllerInterface {
 		this.initialized = true;
 	}
 
-	@Override
 	public boolean isInitialized() {
 		return initialized;
 	}

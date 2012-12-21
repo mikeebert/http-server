@@ -26,42 +26,22 @@ public class ResponseBuilderTest {
 		String requestVerb = "GET";
 
 		builder.buildResponseFor(resource, requestVerb, params);
-		assertEquals(builder.getResource(), resource);
+		assertEquals(builder.getResponseResource(), resource);
 		assertEquals(builder.getRequestVerb(), requestVerb);
 		assertEquals(builder.getParams(), params);
 	}
 
 	@Test
-	public void itTestsForStaticContentByExtensionAndParams() throws Exception {
-		HashMap<String, String> params = new HashMap<String, String>();
-		params.put("foo", "bar");
-
-		builder.buildResponseFor(TESTFILE, null, null);
-		assertEquals(true, builder.isStaticResource());
-
-		ResponseBuilder builder2 = new ResponseBuilder();
-		builder2.setController(mockController);
-		builder2.buildResponseFor(TESTFILE, null, params);
-		assertEquals(true, builder2.isStaticResource());
-
-		ResponseBuilder builder3 = new ResponseBuilder();
-		builder3.setController(mockController);
-		builder3.buildResponseFor("something/index", null, params);
-		assertEquals(false, builder3.isStaticResource());
-
-		ResponseBuilder builder4 = new ResponseBuilder();
-		builder4.setController(mockController);
-		builder4.buildResponseFor("something/index", null, null);
-		assertEquals(false, builder4.isStaticResource());
+	public void itSetsResponseTypeForHTML() throws Exception {
+		Response response = builder.buildResponseFor(DIR + "test.html", "GET", null);
+		assertEquals("text/html", response.getType());
 	}
 
-//	@Test
-//	public void itSetsUpAControllerResourceIfPassedOne() throws Exception {
-//		String resource = DIR + "/game/test.html";
-//		builder.buildResponseFor(resource, null, null);
-//
-//		assertEquals(true, builder.getController().isInitialized());
-//	}
+	@Test
+	public void itSetsResponseTypeForJPG() throws  Exception {
+		Response response = builder.buildResponseFor(DIR + "test.jpg", "GET", null);
+		assertEquals("image/jpeg", response.getType());
+	}
 
 	@Test
 	public void itAddsResourceFileContentToResponse() throws Exception {
@@ -69,7 +49,7 @@ public class ResponseBuilderTest {
 
 		Response response = builder.getResponse();
 
-		assertEquals("<h1>Hello World</h1>\n", response.getContent());
+		assertEquals("<h1>Hello World</h1>\n", response.getTextContent());
 	}
 
 	@Test
@@ -87,21 +67,14 @@ public class ResponseBuilderTest {
 	}
 
 	@Test
-	public void itReturnsTrueForEchoRequests() throws Exception {
-		builder.setResource("/something/echo-return");
-
-		assertEquals(true, builder.requestIsForEcho());
-	}
-
-	@Test
 	public void itUpdatesEchoResponsesWithParams() throws Exception {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("this", "that");
 		params.put("foo", "bar");
 
-		Response response = builder.buildResponseFor(DIR + "dynamic_test", "GET", params);
+		Response response = builder.buildResponseFor(DIR + "test-echo-return", "GET", params);
 
-		assertEquals("<html>\n<body>\nthat\nbar\n</body>\n</html>\n", response.getContent());
+		assertEquals("<html>\n<body>\nthat\nbar\n</body>\n</html>\n", response.getTextContent());
 	}
 
 }

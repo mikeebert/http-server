@@ -12,13 +12,11 @@ public class GameController implements ControllerInterface {
 	private static final String controllerName = "/game/";
 	private static final int[] SPACES = {1,2,3,4,5,6,7,8,9};
 
-	private boolean initialized = false;
 	private String resourceContent = "";
 	private FileReader fileReader;
 
 
 	public GameController() {
-		setInitialized(true);
 		fileReader = new FileReader();
 	}
 
@@ -101,15 +99,6 @@ public class GameController implements ControllerInterface {
 
 	private String addGameId(String boardHtml, int gameId) {
 		return boardHtml.replace("&&gameId", String.valueOf(gameId));
-	}
-
-	@Override
-	public boolean isInitialized() {
-		return initialized;
-	}
-
-	public void setInitialized(boolean initialized) {
-		this.initialized = initialized;
 	}
 
 	public void setFileReader(FileReader reader) {
