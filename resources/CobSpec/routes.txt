@@ -9,3 +9,4 @@ PATH  | VERB |  RESOURCE
 /image.gif | GET | image.gif
 /some-script-url | GET | echo-return
 /redirect | GET | index.html
+/favicon.ico | GET | favicon.ico
