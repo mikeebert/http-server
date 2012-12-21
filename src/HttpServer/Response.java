@@ -3,18 +3,18 @@ package HttpServer;
 
 
 public class Response {
-	private String content;
+	private String textContent;
 	private String resource;
 	private int statusCode;
 	private String type;
 	private char[] binaryContent;
 
-	public void setContent(String htmlString) {
-		content = htmlString;
+	public void setTextContent(String htmlString) {
+		textContent = htmlString;
 	}
 
-	public String getContent() {
-		return content;
+	public String getTextContent() {
+		return textContent;
 	}
 
 	public void setStatusCode(int code) {

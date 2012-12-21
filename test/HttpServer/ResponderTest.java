@@ -1,31 +1,20 @@
 package HttpServer;
 
-import org.junit.Before;
 import org.junit.Test;
-
-import java.io.PrintWriter;
 
 import static junit.framework.Assert.assertEquals;
 
 public class ResponderTest {
 
-	private MockOutput mockWriter;
-	private Responder responder;
-
-	@Before
-	public void setUp() throws Exception {
-		mockWriter = new MockOutput(new MockOutputStream());
-		responder = new Responder(mockWriter);
-	}
-
 	@Test
 	public void itAppendsStatusAndHeadersToPreparedResponse() throws Exception {
+		Responder responder = new Responder(new MockOutput(new MockOutputStream()));
 		Response response = new Response();
 		response.setStatusCode(200);
 		response.setType("text/html");
 		response.setResource("/Users/ebert/Dropbox/projects/http-server/test/HttpServer/test.html");
 		String someContent = "This is some test content";
-		response.setContent(someContent);
+		response.setTextContent(someContent);
 
 		String expectedResponse = "HTTP/1.1 200 OK\r\n" +
 															"Content-Type: text/html\r\n" +

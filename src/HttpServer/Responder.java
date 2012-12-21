@@ -1,8 +1,6 @@
 package HttpServer;
 
 import java.io.*;
-import java.net.FileNameMap;
-import java.net.URLConnection;
 
 public class Responder {
 
@@ -34,7 +32,7 @@ public class Responder {
 	}
 
 	private void addBody(Response response) {
-		preparedResponse.append(response.getContent());
+		preparedResponse.append(response.getTextContent());
 	}
 
 	private void setResponseStatusLine(Response response) {
@@ -45,7 +43,7 @@ public class Responder {
 
 	private void setHeaders(Response response) {
 		preparedResponse.append("Content-Type: " + response.getType() + CRLF);
-		preparedResponse.append("Content-Length: " + response.getContent().length() + CRLF);
+		preparedResponse.append("Content-Length: " + response.getTextContent().length() + CRLF);
 	}
 
 	public void sendResponse() throws IOException {
@@ -62,10 +60,6 @@ public class Responder {
 	}
 
 	private void sendBinaryResponse() throws IOException {
-		System.out.println("################IT GOT HERE" + CRLF);
-		System.out.println("binaryResource to String: " + binaryResource);
-
-//		byte[] buffer = getPreparedResponse().getBytes();
 
 		byte[] buffer = org.apache.commons.io.FileUtils.readFileToByteArray(new File(binaryResource));
 		FilterOutputStream filterOutput = new FilterOutputStream(outputStream);
