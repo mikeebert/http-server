@@ -40,7 +40,7 @@ public class ResponseBuilder {
 		FileNameMap fileNameMap = URLConnection.getFileNameMap();
 		String type = fileNameMap.getContentTypeFor(response.getResource());
 
-		response.setType(type == null ? "text/html" : type);
+		response.setType(type != null ?  type : "text/html");
 	}
 
 	//ideally this method would grab the controller by name from the resources directory.
@@ -51,17 +51,14 @@ public class ResponseBuilder {
 			resourceController = new CobSpecController();
 	}
 
-	//AND statement is hack for favicon requests
+	//need to come up with solution for stupid favicon requests
 	private void addContentToResponse() throws IOException {
-		if(isStaticResource() && !response.getResource().endsWith(".ico")) {
+		if (isFaviconRequest())
+			response.setTextContent(null);
+		else if(isStaticResource())
 			getStaticResourceContents();
-		}	else {
+		else
 			getUpdatedResource();
-		}
-	}
-
-	private boolean isStaticResource() {
-		return response.getResource().contains(".");
 	}
 
 	private void getStaticResourceContents() throws IOException {
@@ -75,6 +72,14 @@ public class ResponseBuilder {
 		response.setTextContent(resourceController.process(response.getResource(), params));
 	}
 
+	private boolean isFaviconRequest() {
+		return response.getResource().endsWith(".ico");
+	}
+
+	private boolean isStaticResource() {
+		return response.getResource().contains(".");
+	}
+
 	private boolean isImage(String resource) {
 		return resource.endsWith(".jpeg") ||
 					 resource.endsWith(".gif") ||
@@ -82,15 +87,11 @@ public class ResponseBuilder {
 	}
 
 	private void addStatusCodeToResponse(String requestVerb) {
-		if (resourceNotFound()) {
+		if (response.getResource().endsWith(NOTFOUND)) {
 			response.setStatusCode(404);
 		} else {
 			response.setStatusCode(200);
 		}
-	}
-
-	private boolean resourceNotFound() {
-		return response.getResource().endsWith(NOTFOUND);
 	}
 
 	// Getters and Setters
