@@ -58,7 +58,7 @@ public class Responder {
 
 	private void sendTextResponse() {
 		PrintWriter writer = new PrintWriter(new OutputStreamWriter(outputStream), true);
-		writer.println(getPreparedResponse());
+		writer.println(preparedResponse);
 		writer.flush();
 	}
 

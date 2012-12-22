@@ -8,7 +8,7 @@ import java.net.URLConnection;
 import java.util.HashMap;
 
 public class ResponseBuilder {
-	private static final String NOTFOUND = "404.html";
+	private static final String NOTFOUND = "404";
 	private Response response;
 	private HashMap<String, String> params;
 	private String requestVerb;
@@ -63,7 +63,7 @@ public class ResponseBuilder {
 
 	private void getStaticResourceContents() throws IOException {
 		if (isImage(response.getResource()))
-			response.setTextContent(null);
+			response.setTextContent("");
 		else
 			response.setTextContent(reader.readFile(response.getResource()));
 	}
@@ -87,7 +87,7 @@ public class ResponseBuilder {
 	}
 
 	private void addStatusCodeToResponse(String requestVerb) {
-		if (response.getResource().endsWith(NOTFOUND)) {
+		if (response.getResource().contains(NOTFOUND)) {
 			response.setStatusCode(404);
 		} else {
 			response.setStatusCode(200);

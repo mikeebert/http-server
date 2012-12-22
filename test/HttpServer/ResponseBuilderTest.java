@@ -9,7 +9,6 @@ import java.util.HashMap;
 
 public class ResponseBuilderTest {
 	private static final String DIR = "/Users/ebert/Dropbox/projects/http-server/test/HttpServer/";
-	private static final String TESTFILE = "/Users/ebert/Dropbox/projects/http-server/test/HttpServer/test.html";
 	private ResponseBuilder builder;
 	private MockController mockController = new MockController();
 
