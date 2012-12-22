@@ -43,7 +43,10 @@ public class Responder {
 
 	private void setHeaders(Response response) {
 		preparedResponse.append("Content-Type: " + response.getType() + CRLF);
-		preparedResponse.append("Content-Length: " + response.getTextContent().length() + CRLF);
+		if (response.getTextContent() != null) {
+			preparedResponse.append("Content-Length: " + response.getTextContent().length() + CRLF);
+		}
+		System.out.println("###Preparing Response: " + preparedResponse + CRLF);
 	}
 
 	public void sendResponse() throws IOException {
@@ -66,8 +69,6 @@ public class Responder {
 		filterOutput.write(buffer);
 		filterOutput.flush();
 	}
-
-
 
 	public String getPreparedResponse() {
 		return preparedResponse.toString();
