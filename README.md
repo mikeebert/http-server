@@ -8,7 +8,7 @@ This HTTP Server is an exercise in creating sockets, parsing requests and servin
 
 You can use this to serve static content on OS X by placing all of your content and a routes.txt file in a directory and starting the HTTPserver.jar from Terminal with the following command:
 
-  java -jar -p 5000 -d /Users/yourUserName/directoryWhereYourContentIs/
+        java -jar -p 5000 -d /Users/yourUserName/directoryWhereYourContentIs/
 
 -p: the port you would like to use. 
 -d: the directory with your content and routes.txt file.
