@@ -10,6 +10,6 @@ public class MockOutput extends OutputStream {
 
 	@Override
 	public void write(int b) throws IOException {
-		//To change body of implemented methods use File | Settings | File Templates.
+
 	}
 }
