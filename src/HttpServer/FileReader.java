@@ -18,4 +18,30 @@ public class FileReader {
 		fileStream.close();
 		return input.toString();
 	}
+
+	public byte[] getBinaryData(String binaryResource) {
+		File file = new File(binaryResource);
+		byte[] buffer = new byte[(int)file.length()];
+
+		try {
+			InputStream input = null;
+			try {
+				int totalBytesRead = 0;
+				input = new BufferedInputStream(new FileInputStream(file));
+				while (totalBytesRead < buffer.length) {
+					int bytesRemaining = buffer.length - totalBytesRead;
+					int bytesRead = input.read(buffer, totalBytesRead, bytesRemaining);
+
+					if (bytesRead > 0) {
+						totalBytesRead = totalBytesRead + bytesRead;
+					}
+				}
+			} finally {
+				input.close();
+			}
+		} catch (IOException ex) {
+			System.out.println("Error reading file.");
+		}
+		return buffer;
+	}
 }

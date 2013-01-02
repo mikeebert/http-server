@@ -7,7 +7,6 @@
       </element>
       <element id="module-output" name="Http-server" />
       <element id="module-output" name="tictactoe-java" />
-      <element id="library" level="project" name="org.apache.commons:com.springsource.org.apache.commons.io:1.4.0" />
     </root>
   </artifact>
 </component>

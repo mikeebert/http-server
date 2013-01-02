@@ -2,8 +2,6 @@ package HttpServer;
 
 import java.io.*;
 
-//import static org.apache.commons.io.FileUtils.readFileToByteArray;
-
 public class Responder {
 
 	private static final String VERSION = "HTTP/1.1";
@@ -64,12 +62,14 @@ public class Responder {
 		writer.flush();
 	}
 
+	// Needs to be split into getting the data and sending the data
 	private void sendBinaryResponse() throws IOException {
+		FileReader reader = new FileReader();
+		byte[] binaryData =  reader.getBinaryData(binaryResource);
 
-//		byte[] buffer = readFileToByteArray(new File(binaryResource));
-//		FilterOutputStream filterOutput = new FilterOutputStream(outputStream);
-//		filterOutput.write(buffer);
-//		filterOutput.flush();
+		FilterOutputStream filterOutput = new FilterOutputStream(outputStream);
+		filterOutput.write(binaryData);
+		filterOutput.flush();
 	}
 
 	public String getPreparedResponse() {

@@ -7,17 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a636b589-4877-4a39-82a4-3ad72592c37b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/HttpServer/MockOutputStream.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/commons_io_2_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/HttpServer/mockOutputStream.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/org_apache_commons_com_springsource_org_apache_commons_io_1_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/com.springsource.org.apache.commons.io-1.4.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/commons-io-2.4.jar" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTTPserver.jar" afterPath="$PROJECT_DIR$/HTTPserver.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Http-server/HttpServer/FileReader.class" afterPath="$PROJECT_DIR$/out/production/Http-server/HttpServer/FileReader.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Http-server/HttpServer/Responder.class" afterPath="$PROJECT_DIR$/out/production/Http-server/HttpServer/Responder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/Http-server/HttpServer/MockFileReader.class" afterPath="$PROJECT_DIR$/out/test/Http-server/HttpServer/MockFileReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/Http-server/HttpServer/MockOutputStream.class" afterPath="$PROJECT_DIR$/out/test/Http-server/HttpServer/MockOutputStream.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/httpserver_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/httpserver_jar.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Http-server.iml" afterPath="$PROJECT_DIR$/Http-server.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/FileReader.java" afterPath="$PROJECT_DIR$/src/HttpServer/FileReader.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/Responder.java" afterPath="$PROJECT_DIR$/src/HttpServer/Responder.java" />
     </list>
     <ignored path="HTTPserver.iws" />
@@ -79,10 +78,17 @@
       <file leaf-file-name="Responder.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/HttpServer/Responder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="5" selection-start="1447" selection-end="1447" vertical-scroll-proportion="0.8011364">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="3" column="0" selection-start="39" selection-end="39" vertical-scroll-proportion="0.051136363">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileReader.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/HttpServer/FileReader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="42" selection-start="958" selection-end="958" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -100,7 +106,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/HttpServer/ControllerInterface.java" />
         <option value="$PROJECT_DIR$/test/HttpServer/MockController.java" />
         <option value="$PROJECT_DIR$/src/HttpServer/CobSpecController.java" />
         <option value="$PROJECT_DIR$/test/HttpServer/CobSpecControllerTest.java" />
@@ -115,6 +120,7 @@
         <option value="$PROJECT_DIR$/test/HttpServer/MockFileReader.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/test/HttpServer/MockOutputStream.java" />
+        <option value="$PROJECT_DIR$/src/HttpServer/FileReader.java" />
         <option value="$PROJECT_DIR$/src/HttpServer/Responder.java" />
       </list>
     </option>
@@ -140,7 +146,9 @@
   </component>
   <component name="ProjectStructureProblems">
     <ignored-problems>
+      <problem id="library-invalid-classes-path(library:project:org.apache.commons:com.springsource.org.apache.commons.io:1.4.0)" />
       <problem id="unused-library(library:project:commons-io-2.4)" />
+      <problem id="unused-library(library:project:org.apache.commons:com.springsource.org.apache.commons.io:1.4.0)" />
     </ignored-problems>
   </component>
   <component name="ProjectView">
@@ -266,20 +274,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTTPserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="http-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane">
@@ -296,7 +290,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -333,15 +327,15 @@
       <recent name="HttpServer" />
       <recent name="" />
     </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="tictactoe" />
-      <recent name="HttpServer" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/CobSpec" />
       <recent name="$PROJECT_DIR$/resources" />
       <recent name="$PROJECT_DIR$/test" />
       <recent name="$PROJECT_DIR$/publicCobSpec/CobSpec" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="tictactoe" />
+      <recent name="HttpServer" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.All in Http-server">
@@ -631,6 +625,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5005513" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24969324" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39861217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -643,12 +638,11 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19509202" sideWeight="0.6703418" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19018404" sideWeight="0.48732084" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51267916" sideWeight="0.93006134" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5005513" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975337" sideWeight="0.6700077" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -713,13 +707,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/HttpServer/FileReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="13" selection-start="53" selection-end="53" vertical-scroll-proportion="0.07100592">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/HttpServer/ControllerInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="38" selection-start="150" selection-end="150" vertical-scroll-proportion="0.121107265">
@@ -813,21 +800,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/com.springsource.org.apache.commons.io-1.4.0.jar!/org/apache/commons/io/FileUtils.class">
+    <entry file="file://$PROJECT_DIR$/src/HttpServer/FileReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="159" selection-end="159" vertical-scroll-proportion="0.08669834">
-          <folding>
-            <element signature="e#0#8972#0" expanded="true" />
-          </folding>
+        <state line="32" column="42" selection-start="958" selection-end="958" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HttpServer/Responder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="5" selection-start="1447" selection-end="1447" vertical-scroll-proportion="0.8011364">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="3" column="0" selection-start="39" selection-end="39" vertical-scroll-proportion="0.051136363">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -892,7 +875,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Http-server</last-edited>
+          <last-edited>tictactoe-java</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
