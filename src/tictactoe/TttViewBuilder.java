@@ -2,7 +2,6 @@ package tictactoe;
 
 import HttpServer.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
 
 public class TttViewBuilder {
 	private static final int[] SPACES = {1,2,3,4,5,6,7,8,9};
@@ -13,12 +12,13 @@ public class TttViewBuilder {
 
 	public String buildNewBoard(String resourceDirectory, int gameId) throws IOException {
 		String boardFile = fileReader.readFile(resourceDirectory + "/board.html");
-		String newBoard = addGameId(boardFile, gameId);
+		String newBoard = addGameIdToHtml(boardFile, gameId);
 
 		for(int space: SPACES) {
-			boardFile = boardFile.replace("&&cell" + space, buildButtonFor(space));
+			newBoard = newBoard.replace("&&cell" + space, buildButtonFor(space));
 		}
-		return boardFile;
+
+		return newBoard;
 	}
 
 	public String updateBoardHtml(String resourceDirectory, int gameId, String[] moves) throws IOException {
@@ -58,7 +58,7 @@ public class TttViewBuilder {
 		return !move.equals("X") && !move.equals("O");
 	}
 
-	private String addGameId(String boardHtml, int gameId) {
+	private String addGameIdToHtml(String boardHtml, int gameId) {
 		return boardHtml.replace("&&gameId", String.valueOf(gameId));
 	}
 
