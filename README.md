@@ -47,8 +47,7 @@ You can play tic-tac-toe versus an unbeatable UI by starting the included Jar wi
 
 3) FileReader Binary Test requires org.apache.commons.io to compare byte arrays. In IntelliJ go to Project Structure > Modules. Select HTTP-server and using "+" button on the bottom add Library from Maven. I'm using org.apache.commons.io-2.1 ... or you can just comment out the test to run the rest of the suite.
 
-4) Some of the tests rely on hardcoded paths to mock files. Update the **DIR** constant at the top of these three files:
+4) Some of the tests rely on hardcoded paths to mock files. Update the **DIR** constant at the top of this file:
 - ResponderTest
-- RouterTest
 
 There are also a few commented-out tests. These are tests that I need to finish but I’m having trouble figuring out the proper mocks. (There may also be a few comments in the code. I know they shouldn’t be there but and as I keep working on this I’ll remove them.)

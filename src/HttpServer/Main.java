@@ -12,6 +12,7 @@ public class Main {
 		parseCommands(args);
 
 		Router router = new Router(directory);
+		router.createRoutesHash();
 		ConnectionHandler handler = new ConnectionHandler(port, router);
 		HttpServer server = new HttpServer(handler);
 		setUpRepository();
