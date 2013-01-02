@@ -2,22 +2,21 @@ package tictactoe;
 
 import HttpServer.ControllerInterface;
 import HttpServer.FileReader;
+import org.mebert.ttt.Game;
 
 import java.io.IOException;
 import java.util.HashMap;
 
-import org.mebert.ttt.Game;
-
 public class GameController implements ControllerInterface {
 	private static final String controllerName = "/game/";
-	private static final int[] SPACES = {1,2,3,4,5,6,7,8,9};
 
 	private String resourceContent = "";
+	private TttViewBuilder tttViewBuilder;
 	private FileReader fileReader;
-
 
 	public GameController() {
 		fileReader = new FileReader();
+		tttViewBuilder = new TttViewBuilder();
 	}
 
 	public String process(String resource, HashMap<String, String> params) throws IOException {
@@ -35,74 +34,27 @@ public class GameController implements ControllerInterface {
 			resourceContent = updateGame(resourceDirectory, params);
 	}
 
-	private String newGame(String resourceDirectory) throws IOException {
+	public String newGame(String resourceDirectory) throws IOException {
 		Game game = new Game();
 		GameRepository.store(game);
-		String boardFile = fileReader.readFile(resourceDirectory + "/board.html");
-		String newBoard = addGameId(boardFile, game.getId());
-
-		return  buildNewBoard(newBoard);
+		return tttViewBuilder.buildNewBoard(resourceDirectory, game.getId());
 	}
 
-	private String updateGame(String resourceDirectory, HashMap<String, String> params) throws IOException {
+	public String updateGame(String resourceDirectory, HashMap<String, String> params) throws IOException {
 		Game game = GameRepository.fetch(Integer.parseInt(params.get("game-id")));
-		String gameBoardHtml = updateBoardHtml(resourceDirectory, game.getId(), game.updateBoardWith(params.get("move")));
+
+		String boardHtml = tttViewBuilder.updateBoardHtml(resourceDirectory, game.getId(), game.updateBoardWith(params.get("move")));
 
 		if (game.isOver())
-			return buildGameOverHtml(gameBoardHtml);
+			return tttViewBuilder.buildGameOverHtml(boardHtml);
 		else
-			return gameBoardHtml;
-	}
+			return boardHtml;
 
-	private String buildNewBoard(String boardFile) {
-		for(int space: SPACES) {
-			boardFile = boardFile.replace("&&cell" + space, buildButtonFor(space));
-		}
-		return boardFile;
-	}
-
-	private String updateBoardHtml(String resourceDirectory, int gameId, String[] moves) throws IOException {
-		String boardFile = fileReader.readFile(resourceDirectory + "/board.html");
-		String gameBoardFile = boardFile.replace("&&gameId", String.valueOf(gameId));
-
-		return buildUpdatedBoard(moves, gameBoardFile);
-	}
-
-	private String buildUpdatedBoard(String[] updatedMoves, String boardFile) {
-		for (int i = 0;i < updatedMoves.length; i++) {
-			if (isEmpty(updatedMoves[i])) {
-				boardFile = boardFile.replace("&&cell" + move(i), buildButtonFor(move(i)));
-			} else {
-				boardFile = boardFile.replace("&&cell" + move(i), updatedMoves[i]);
-			}
-		}
-		return boardFile;
-	}
-
-	private String buildGameOverHtml(String gameBoardHtml) {
-		String noButtons = gameBoardHtml.replaceAll("<button.*</button>", "");
-		String gameOverHtml = noButtons.replace("<p>Game In Progress</p>", "<p>Game Over</p>");
-		return gameOverHtml;
-	}
-
-	private String buildButtonFor(int move) {
-		return "<button name='move' value='" + move + "' type='submit'>move</button>";
-	}
-
-	private int move(int i) {
-		return 1 + i;
-	}
-
-	private boolean isEmpty(String move) {
-		return !move.equals("X") && !move.equals("O");
-	}
-
-	private String addGameId(String boardHtml, int gameId) {
-		return boardHtml.replace("&&gameId", String.valueOf(gameId));
 	}
 
 	public void setFileReader(FileReader reader) {
 		fileReader = reader;
+		tttViewBuilder.setFileReader(reader);
 	}
 
 	public String getResourceContent() {

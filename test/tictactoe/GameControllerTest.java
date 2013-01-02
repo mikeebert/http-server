@@ -22,16 +22,20 @@ public class GameControllerTest {
 		controller.setFileReader(mockReader);
 	}
 
+
+
+
+	////////
 	@Test
 	public void itReturnsNewBoard() throws Exception {
-		mockReader.fileContents = "test";
+		mockReader.setFileContents("test");
 
 		assertEquals("test", controller.process("/something/game/new", null));
 	}
 
 	@Test
 	public void itUpdatesBoardHtml() throws Exception {
-		mockReader.fileContents = "&&cell1";
+		mockReader.setFileContents("&&cell1");
 		controller.process("/game/new", null);
 		String updatedContent = controller.getResourceContent();
 
@@ -40,6 +44,8 @@ public class GameControllerTest {
 
 	@Test
 	public void itPassesParamsToUpdateExistingGame() throws Exception {
+		mockReader.setFileContents("some-content");
+
 		MockGame mockGame = new MockGame();
 		GameRepository.store(mockGame);
 		HashMap<String, String> params = new HashMap<String, String>();
@@ -55,7 +61,7 @@ public class GameControllerTest {
 	public void itUpdatesStringContentForMovesAndID() throws Exception {
 		MockGame mockGame = new MockGame();
 		GameRepository.store(mockGame);
-		mockReader.fileContents = "&&cell1 | &&cell2 | &&cell3 | &&gameId";
+		mockReader.setFileContents("&&cell1 | &&cell2 | &&cell3 | &&gameId");
 		mockGame.setMockMoves(new String[]{"X", "2", "O"});
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("game-id", "1");
