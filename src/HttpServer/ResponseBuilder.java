@@ -14,11 +14,20 @@ public class ResponseBuilder {
 	private HashMap<String, String> params;
 	private String requestVerb;
 	private ControllerInterface resourceController;
-	private FileReader reader;
+	private FileReader fileReader;
 
 
-	public ResponseBuilder() {
-		reader = new FileReader();
+	public ResponseBuilder(String resourcePath) {
+		fileReader = new FileReader();
+		setupResourceController(resourcePath);
+	}
+
+	//ideally this method would grab the controller by name from the resources directory.
+	private void setupResourceController(String resourcePath) {
+		if (resourcePath.contains("game"))
+			resourceController = new GameController();
+		else
+			resourceController = new CobSpecController();
 	}
 
 	public Response buildResponseFor(String resourcePath, String method, HashMap<String,String> requestParams) throws IOException {
@@ -26,18 +35,9 @@ public class ResponseBuilder {
 		response.setResource(resourcePath);
 		requestVerb = method;
 		params = requestParams;
-		setupResourceController();
 		buildResponse();
 
 		return response;
-	}
-
-	//ideally this method would grab the controller by name from the resources directory.
-	private void setupResourceController() {
-		if (resourceRequiresGameController())
-			resourceController = new GameController();
-		else
-			resourceController = new CobSpecController();
 	}
 
 	public void buildResponse() throws IOException {
@@ -67,7 +67,7 @@ public class ResponseBuilder {
 		if (responseIsImage())
 			response.setTextContent("");
 		else
-			response.setTextContent(reader.readFile(response.getResource()));
+			response.setTextContent(fileReader.readFile(response.getResource()));
 	}
 
 	public void getUpdatedResource() throws IOException {
@@ -96,10 +96,6 @@ public class ResponseBuilder {
 					 response.getResource().endsWith(".png");
 	}
 
-	private boolean resourceRequiresGameController() {
-		return response.getResource().contains("game");
-	}
-
 	public String getResponseResource() {
 		return response.getResource();
 	}
@@ -124,4 +120,7 @@ public class ResponseBuilder {
 		return response;
 	}
 
+	public void setFileReader(FileReader reader) {
+		fileReader = reader;
+	}
 }
