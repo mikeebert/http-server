@@ -1,6 +1,6 @@
 HTTP Server (and Tic Tac Toe) in Java
 
-*Note: as of 12/24/12 the Jar does not contain the org.apache.commons.io.FileUtils library required to serve images so it’s just text. Still figuring the dependency out in IntelliJ*
+*Note: as of 1/1/13 the Jar does not contain the org.apache.commons.io.FileUtils library required to serve images so it’s just text. Still figuring the dependency out in IntelliJ*
 
 This HTTP Server is an exercise in creating sockets, parsing requests and serving both static and dynamic responses.
 
@@ -34,16 +34,22 @@ The HTTP router will assume any requested resource that doesn’t have an extens
 
 ##Play Tic Tac Toe
 
-You can play tic-tac-toe versus an unbeatable UI by starting the Jar with the following command:
+You can play tic-tac-toe versus an unbeatable UI by starting the included Jar with the following command:
 
 	java -jar -p 5000 -d /Path-to-the-tictactoe-resources-directory-in-this-repo
 	
-##TESTS
+##UNIT TESTS
 
-Some of these tests rely on hardcoded paths to mock files. For the test suite to properly run update the **DIR** constant at the top of these four files:
+**Test Dependencies:**
+
+1)Junit 4.10 (if using IntelliJ go to Project Structure > Platform Settings > SDKs and include JUnit)
+
+2) Tic-Tac-Toe code. Download my [Tic-Tac-Toe repo](https://github.com/mikeebert/tictactoe-java) and in IntelliJ go to Project Structure > Modules > New Module and add an existing module using the tictactoe-java.iml file.
+
+3) Some of the tests rely on hardcoded paths to mock files. For the test suite to properly run update the **DIR** constant at the top of these four files:
 - CobSpecControllerTest
 - ResponderTest
 - ResponseBuilderTest
 - RouterTest
 
-There are a few commented-out tests. These are tests that I need to finish but am having trouble figuring out the proper mocks. (There are also a few comments in the code. I know they shouldn’t be there but since this is an exercise those are important notes to myself.)
+There are also a few commented-out tests. These are tests that I need to finish but I’m having trouble figuring out the proper mocks. (There may also be a few comments in the code. I know they shouldn’t be there but and as I keep working on this I’ll remove them.)
