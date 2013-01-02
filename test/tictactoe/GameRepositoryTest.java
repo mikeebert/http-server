@@ -11,7 +11,7 @@ public class GameRepositoryTest {
 	@Test
 	public void itInitializesWithAGameID() throws Exception {
 		GameRepository.initialize();
-		assertEquals(1, GameRepository.getGameId());
+		assertEquals(1, GameRepository.getNextGameId());
 	}
 
 	@Test

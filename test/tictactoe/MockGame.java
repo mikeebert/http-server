@@ -8,6 +8,7 @@ public class MockGame extends Game {
 	private String receivedMove;
 	private Player receivedPlayer;
 	private String[] mockMoves = {"X"};
+	private boolean checkedForOver = false;
 
 	public String[] updateBoard(Player player, String space) {
 		setReceivedPlayer(player);
@@ -18,6 +19,11 @@ public class MockGame extends Game {
 	public String[] updateBoardWith(String move) {
 		setReceivedMove(move);
 		return mockMoves;
+	}
+
+	public boolean isOver() {
+		checkedForOver = true;
+		return false;
 	}
 
 	private void setReceivedMove(String space) {
@@ -38,5 +44,9 @@ public class MockGame extends Game {
 
 	public void setMockMoves(String[] mockMoves) {
 		this.mockMoves = mockMoves;
+	}
+
+	public boolean checkedForOver() {
+		return checkedForOver;
 	}
 }

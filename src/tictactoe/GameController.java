@@ -1,7 +1,6 @@
 package tictactoe;
 
 import HttpServer.ControllerInterface;
-import HttpServer.FileReader;
 import org.mebert.ttt.Game;
 
 import java.io.IOException;
@@ -9,13 +8,9 @@ import java.util.HashMap;
 
 public class GameController implements ControllerInterface {
 	private static final String controllerName = "/game/";
-
-	private String resourceContent = "";
 	private TttViewBuilder tttViewBuilder;
-	private FileReader fileReader;
 
 	public GameController() {
-		fileReader = new FileReader();
 		tttViewBuilder = new TttViewBuilder();
 	}
 
@@ -23,41 +18,41 @@ public class GameController implements ControllerInterface {
 		String resourceDirectory = resource.split(controllerName)[0];
 		String method = resource.split(controllerName)[1];
 
-		updateResourceContent(method, resourceDirectory, params);
-		return resourceContent;
+		return updateResourceContent(method, resourceDirectory, params);
 	}
 
-	private void updateResourceContent(String method, String resourceDirectory, HashMap<String, String> params) throws IOException {
+	private String updateResourceContent(String method, String resourceDirectory, HashMap<String, String> params) throws IOException {
 		if(method.equals("new"))
-			resourceContent = newGame(resourceDirectory);
+			return newGame(resourceDirectory);
 		else if (method.equals("update"))
-			resourceContent = updateGame(resourceDirectory, params);
+			return updateGame(resourceDirectory, params);
+		else
+			return "";
 	}
 
-	public String newGame(String resourceDirectory) throws IOException {
+	private String newGame(String resourceDirectory) throws IOException {
 		Game game = new Game();
 		GameRepository.store(game);
 		return tttViewBuilder.buildNewBoard(resourceDirectory, game.getId());
 	}
 
-	public String updateGame(String resourceDirectory, HashMap<String, String> params) throws IOException {
+	private String updateGame(String resourceDirectory, HashMap<String, String> params) throws IOException {
 		Game game = GameRepository.fetch(Integer.parseInt(params.get("game-id")));
+		String[] updatedMoves = game.updateBoardWith(params.get("move"));
 
-		String boardHtml = tttViewBuilder.updateBoardHtml(resourceDirectory, game.getId(), game.updateBoardWith(params.get("move")));
+		String boardHtml = tttViewBuilder.updateBoardHtml(resourceDirectory, game.getId(), updatedMoves);
 
+		return updatedHtmlFor(game, boardHtml);
+	}
+
+	private String updatedHtmlFor(Game game, String boardHtml) {
 		if (game.isOver())
 			return tttViewBuilder.buildGameOverHtml(boardHtml);
 		else
 			return boardHtml;
-
 	}
 
-	public void setFileReader(FileReader reader) {
-		fileReader = reader;
-		tttViewBuilder.setFileReader(reader);
-	}
-
-	public String getResourceContent() {
-		return resourceContent;
+	public void setViewBuilder(TttViewBuilder viewBuilder) {
+		tttViewBuilder = viewBuilder;
 	}
 }

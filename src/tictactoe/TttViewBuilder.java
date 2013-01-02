@@ -6,44 +6,51 @@ import java.io.IOException;
 public class TttViewBuilder {
 	private static final int[] SPACES = {1,2,3,4,5,6,7,8,9};
 	private FileReader fileReader;
+	private static final String CELL = "&&cell";
+	private static final String GAMEINPROGRESSMESSAGE = "<p>Game In Progress</p>";
+	private static final String GAMEOVERMESSAGE = "<p>Game Over</p>";
+	private static final String BOARDFILE = "/board.html";
+	private static final String XMOVE = "X";
+	private static final String OMOVE = "O";
 
 	public TttViewBuilder() {
 	}
 
 	public String buildNewBoard(String resourceDirectory, int gameId) throws IOException {
-		String boardFile = fileReader.readFile(resourceDirectory + "/board.html");
-		String newBoard = addGameIdToHtml(boardFile, gameId);
+		String newBoardHtml = addIdToBoardFile(resourceDirectory, gameId);
 
 		for(int space: SPACES) {
-			newBoard = newBoard.replace("&&cell" + space, buildButtonFor(space));
+			newBoardHtml = newBoardHtml.replace(CELL + space, buildButtonFor(space));
 		}
-
-		return newBoard;
+		
+		return newBoardHtml;
 	}
 
 	public String updateBoardHtml(String resourceDirectory, int gameId, String[] moves) throws IOException {
-		String boardFile = fileReader.readFile(resourceDirectory + "/board.html");
-		String gameBoardFile = boardFile.replace("&&gameId", String.valueOf(gameId));
+		String cleanBoardHtml = addIdToBoardFile(resourceDirectory, gameId);
+		return buildUpdatedBoard(moves, cleanBoardHtml);
+	}
 
-		return buildUpdatedBoard(moves, gameBoardFile);
-
+	private String addIdToBoardFile(String resourceDirectory, int gameId) throws IOException {
+		String boardFile = fileReader.readFile(resourceDirectory + BOARDFILE);
+		return addGameIdToHtml(boardFile, gameId);
 	}
 
 	private String buildUpdatedBoard(String[] updatedMoves, String boardFile) {
 		for (int i = 0;i < updatedMoves.length; i++) {
 			if (isEmpty(updatedMoves[i])) {
-				boardFile = boardFile.replace("&&cell" + move(i), buildButtonFor(move(i)));
+				boardFile = boardFile.replace(CELL + move(i), buildButtonFor(move(i)));
 			} else {
-				boardFile = boardFile.replace("&&cell" + move(i), updatedMoves[i]);
+				boardFile = boardFile.replace(CELL + move(i), updatedMoves[i]);
 			}
 		}
+		
 		return boardFile;
 	}
 
 	public String buildGameOverHtml(String gameBoardHtml) {
-		String noButtons = gameBoardHtml.replaceAll("<button.*</button>", "");
-		String gameOverHtml = noButtons.replace("<p>Game In Progress</p>", "<p>Game Over</p>");
-		return gameOverHtml;
+		String noMoveButtonsLeft = gameBoardHtml.replaceAll("<button.*</button>", "");
+		return noMoveButtonsLeft.replace(GAMEINPROGRESSMESSAGE, GAMEOVERMESSAGE);
 	}
 
 	private String buildButtonFor(int move) {
@@ -55,7 +62,7 @@ public class TttViewBuilder {
 	}
 
 	private boolean isEmpty(String move) {
-		return !move.equals("X") && !move.equals("O");
+		return !move.equals(XMOVE) && !move.equals(OMOVE);
 	}
 
 	private String addGameIdToHtml(String boardHtml, int gameId) {

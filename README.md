@@ -45,8 +45,7 @@ You can play tic-tac-toe versus an unbeatable UI by starting the included Jar wi
 
 2) Tic-Tac-Toe code. Download my [Tic-Tac-Toe repo](https://github.com/mikeebert/tictactoe-java) and in IntelliJ go to Project Structure > Modules > New Module and add an existing module using the tictactoe-java.iml file.
 
-3) Some of the tests rely on hardcoded paths to mock files. Update the **DIR** constant at the top of these four files:
-- CobSpecControllerTest
+3) Some of the tests rely on hardcoded paths to mock files. Update the **DIR** constant at the top of these three files:
 - ResponderTest
 - ResponseBuilderTest
 - RouterTest

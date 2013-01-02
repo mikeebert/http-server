@@ -13,7 +13,7 @@ public class GameRepository {
 		repo = new HashMap<Integer, Game>();
 	}
 
-	public static int getGameId() {
+	public static int getNextGameId() {
 		return gameId;
 	}
 
