@@ -1,8 +1,6 @@
 HTTP Server (and Tic Tac Toe) in Java
 
-*Note: as of 1/1/13 the Jar does not contain the org.apache.commons.io.FileUtils library required to serve images so it’s just text. Still figuring the dependency out in IntelliJ*
-
-This HTTP Server is an exercise in creating sockets, parsing requests and serving both static and dynamic responses.
+This HTTP Server is an exercise in creating sockets, parsing requests and serving both static and dynamic content.
 
 ##Static Content & Routes
 
@@ -25,18 +23,19 @@ You can see other examples in [resources/CobSpec](https://github.com/mikeebert/h
 
 ##Dynamic Content
 
-I’m serving Dynamic Content using Controllers, and you can see examples of these in [src/HttpServer/CobSpecController](https://github.com/mikeebert/http-server/blob/master/src/HttpServer/CobSpecController.java) and [src/tictactoe/GameController](https://github.com/mikeebert/http-server/blob/master/src/tictactoe/GameController.java). In order to use these the routes file just directs the request to a controller action:
+I’m serving Dynamic Content using Controllers, and you can see examples of these in [src/HttpServer/CobSpecController](https://github.com/mikeebert/http-server/blob/master/src/HttpServer/CobSpecController.java) and [src/tictactoe/GameController](https://github.com/mikeebert/http-server/blob/master/src/tictactoe/GameController.java). 
+In order to use the controllers the routes file just directs the request to a controller action:
 
 	PATH  | VERB |  RESOURCE
 	game/update | POST | game/udpate
 	
-The HTTP router will assume any requested resource that doesn’t have an extension is a request for dynamic content and it looks for the controller action that it’s mapped to.
+The HTTP router will assume any requested resource that doesn’t have a file extension (i.e. .html, .jpg, etc... ) is a request for dynamic content and it looks for the controller action that it’s mapped to.
 
 ##Play Tic Tac Toe
 
 You can play tic-tac-toe versus an unbeatable UI by starting the included Jar with the following command:
 
-	java -jar -p 5000 -d /Path-to-the-tictactoe-resources-directory-in-this-repo
+	java -jar HTTPserver.jar -p 5000 -d /Path-to-the-tictactoe-resources-directory-in-this-repo
 	
 ##UNIT TESTS
 
@@ -46,7 +45,7 @@ You can play tic-tac-toe versus an unbeatable UI by starting the included Jar wi
 
 2) Tic-Tac-Toe code. Download my [Tic-Tac-Toe repo](https://github.com/mikeebert/tictactoe-java) and in IntelliJ go to Project Structure > Modules > New Module and add an existing module using the tictactoe-java.iml file.
 
-3) Some of the tests rely on hardcoded paths to mock files. For the test suite to properly run update the **DIR** constant at the top of these four files:
+3) Some of the tests rely on hardcoded paths to mock files. Update the **DIR** constant at the top of these four files:
 - CobSpecControllerTest
 - ResponderTest
 - ResponseBuilderTest
