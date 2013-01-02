@@ -11,6 +11,7 @@ public class ResponseBuilderTest {
 	private static final String DIR = "/Users/ebert/Dropbox/projects/http-server/test/HttpServer/";
 	private ResponseBuilder builder;
 	private MockController mockController = new MockController();
+	private static final HashMap<String, String> NULLPARAMS = null;
 
 	@Before
 	public void setUp() {
@@ -32,19 +33,25 @@ public class ResponseBuilderTest {
 
 	@Test
 	public void itSetsResponseTypeForHTML() throws Exception {
-		Response response = builder.buildResponseFor(DIR + "test.html", "GET", null);
+		Response response = builder.buildResponseFor(DIR + "test.html", "GET", NULLPARAMS);
 		assertEquals("text/html", response.getType());
 	}
 
 	@Test
 	public void itSetsResponseTypeForJPG() throws  Exception {
-		Response response = builder.buildResponseFor(DIR + "test.jpg", "GET", null);
+		Response response = builder.buildResponseFor(DIR + "test.jpg", "GET", NULLPARAMS);
 		assertEquals("image/jpeg", response.getType());
 	}
 
 	@Test
+	public void itAddsEmptyStringToTextContentForImage() throws Exception {
+		Response response = builder.buildResponseFor(DIR + "test.jpg", "GET", NULLPARAMS);
+		assertEquals("", response.getTextContent());
+	}
+
+	@Test
 	public void itAddsResourceFileContentToResponse() throws Exception {
-		builder.buildResponseFor(DIR + "test.html", "GET", null);
+		builder.buildResponseFor(DIR + "test.html", "GET", NULLPARAMS);
 
 		Response response = builder.getResponse();
 
@@ -53,14 +60,14 @@ public class ResponseBuilderTest {
 
 	@Test
 	public void itSetsStatusCodeForOK() throws Exception {
-		Response response = builder.buildResponseFor(DIR + "test.html", "GET", null);
+		Response response = builder.buildResponseFor(DIR + "test.html", "GET", NULLPARAMS);
 
 		assertEquals(200, response.getStatusCode());
 	}
 
 	@Test
 	public void itSetsResponseForNotFound() throws Exception {
-		Response response = builder.buildResponseFor(DIR + "test404.html", "GET", null);
+		Response response = builder.buildResponseFor(DIR + "test404.html", "GET", NULLPARAMS);
 
 		assertEquals(404, response.getStatusCode());
 	}

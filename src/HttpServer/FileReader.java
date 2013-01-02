@@ -4,6 +4,8 @@ import java.io.*;
 
 public class FileReader {
 
+	private static final String FILEREADERROR = "Error reading file.";
+
 	public String readFile(String fileName) throws IOException {
 		FileInputStream fileStream = new FileInputStream(fileName);
 		BufferedReader fileReader = new BufferedReader(new InputStreamReader(fileStream));
@@ -40,7 +42,7 @@ public class FileReader {
 				input.close();
 			}
 		} catch (IOException ex) {
-			System.out.println("Error reading file.");
+			System.out.println(FILEREADERROR);
 		}
 		return buffer;
 	}

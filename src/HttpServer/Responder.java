@@ -7,11 +7,16 @@ public class Responder {
 	private static final String VERSION = "HTTP/1.1";
 	private static final String SPACE = " ";
 	private static final String CRLF = "\r\n";
+	
+	
 	private StringBuffer preparedResponse;
 	private OutputStreamWriter outputWriter;
 	private String responseType;
 	private OutputStream outputStream;
 	private String binaryResource;
+	private static final String CONTENTTYPEHEADER = "Content-Type: ";
+	private static final String CONTENTLENGTHHEADER = "Content-Length: ";
+	private static final String PREPARINGRESPONSE = "###Preparing Response: ";
 
 	public Responder(OutputStream output) {
 		this.outputStream = output;
@@ -42,11 +47,11 @@ public class Responder {
 	}
 
 	private void setHeaders(Response response) {
-		preparedResponse.append("Content-Type: " + response.getType() + CRLF);
+		preparedResponse.append(CONTENTTYPEHEADER + response.getType() + CRLF);
 		if (response.getTextContent() != null) {
-			preparedResponse.append("Content-Length: " + response.getTextContent().length() + CRLF);
+			preparedResponse.append(CONTENTLENGTHHEADER + response.getTextContent().length() + CRLF);
 		}
-		System.out.println("###Preparing Response: " + preparedResponse + CRLF);
+		System.out.println(PREPARINGRESPONSE + preparedResponse + CRLF);
 	}
 
 	public void sendResponse() throws IOException {

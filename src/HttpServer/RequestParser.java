@@ -8,6 +8,13 @@ public class RequestParser {
 
 	private BufferedReader reader;
 	private static final String CRLF = "\r\n";
+	private static final String REQUESTRECEIVED = "### REQUEST RECEIVED ###: ";
+	private static final String POSTHEADER = "POST Content: ";
+	private static final String CONTENTLENGTH = "Content-Length";
+	private static final String EQUALSIGN = "=";
+	private static final String BLANKSPACE = " ";
+	private static final String EMPTYSTRING = "";
+	private static final String QUESTIONMARK = "\\?";
 
 	public RequestParser(BufferedReader inputReader) {
 		reader = inputReader;
@@ -23,12 +30,12 @@ public class RequestParser {
 		StringBuilder input = new StringBuilder();
 		String line = reader.readLine();
 
-		while ((line != null) && (!line.equals(""))) {
+		while ((line != null) && (!line.equals(EMPTYSTRING))) {
 			input.append(line + CRLF);
 			line = reader.readLine();
 		}
 
-		printStatus("### REQUEST RECEIVED ###: " + CRLF + input);
+		printStatus(REQUESTRECEIVED + CRLF + input);
 
 		return input.toString();
 	}
@@ -48,11 +55,11 @@ public class RequestParser {
 	}
 
 	private String getfirstLine(String input) {
-		return input.split("\r\n")[0];
+		return input.split(CRLF)[0];
 	}
 
 	public String getVerb(String firstLine) {
-		return firstLine.split(" ")[0];
+		return firstLine.split(BLANKSPACE)[0];
 	}
 
 	public String getPath(String firstLine) {
@@ -60,15 +67,15 @@ public class RequestParser {
 	}
 
 	public String getResourcePath(String fullpath) {
-		return fullpath.split("\\?")[0];
+		return fullpath.split(QUESTIONMARK)[0];
 	}
 
 	private String getFullPath(String firstLine) {
-		return firstLine.split(" ")[1];
+		return firstLine.split(BLANKSPACE)[1];
 	}
 
 	public String getHttpVersion(String firstLine) {
-		return firstLine.split(" ")[2].split("/")[1];
+		return firstLine.split(BLANKSPACE)[2].split("/")[1];
 	}
 
 	public String getHeader(String input) {
@@ -77,7 +84,7 @@ public class RequestParser {
 		int lineNumber = 1;
 		String line = lines[lineNumber];
 
-		while (!line.equals("")) {
+		while (!line.equals(EMPTYSTRING)) {
 			header.append(line + CRLF);
 			lineNumber++;
 			if (lineNumber == lines.length)
@@ -89,8 +96,8 @@ public class RequestParser {
 	}
 
 	public String getBody(String input) {
-		if (input.split("\r\n\r\n").length > 1)
-			return input.split("\r\n\r\n")[1];
+		if (input.split(CRLF + CRLF).length > 1)
+			return input.split(CRLF + CRLF)[1];
 		else
 			return null;
 	}
@@ -100,7 +107,7 @@ public class RequestParser {
 
 		if (urlHasParams(getFullPath(firstLine))) {
 			String fullPath = getFullPath(firstLine);
-			String[] termsArray = fullPath.split("\\?")[1].split("&");
+			String[] termsArray = fullPath.split(QUESTIONMARK)[1].split("&");
 			return paramaterizeTerms(params, termsArray);
 		}
 
@@ -108,7 +115,7 @@ public class RequestParser {
 	}
 
 	private boolean urlHasParams(String fullPath) {
-		String[] splitPath = fullPath.split("\\?");
+		String[] splitPath = fullPath.split(QUESTIONMARK);
 		return splitPath.length > 1;
 	}
 
@@ -118,8 +125,8 @@ public class RequestParser {
 
 		for (int i=0;i < termsArray.length; i++) {
 			String param = termsArray[i];
-			if (param.split("=").length > 1)
-				params.put(param.split("=")[0], param.split("=")[1]);
+			if (param.split(EQUALSIGN).length > 1)
+				params.put(param.split(EQUALSIGN)[0], param.split(EQUALSIGN)[1]);
 		}
 
 		return params;
@@ -141,7 +148,7 @@ public class RequestParser {
 		reader.read(characters, 0, length);
 		postContent.append(new String(characters));
 
-		printStatus("POST Content: " + postContent.toString() + CRLF);
+		printStatus(POSTHEADER + postContent.toString() + CRLF);
 		return postContent.toString();
 	}
 
@@ -150,7 +157,7 @@ public class RequestParser {
 		int contentLength = 0;
 
 		for(String header: headerArray) {
-			if (header.startsWith("Content-Length"))
+			if (header.startsWith(CONTENTLENGTH))
 				contentLength = Integer.parseInt(header.split(": ")[1]);
 		}
 

@@ -9,11 +9,13 @@ import java.util.HashMap;
 
 public class ResponseBuilder {
 	private static final String NOTFOUND = "404";
+
 	private Response response;
 	private HashMap<String, String> params;
 	private String requestVerb;
 	private ControllerInterface resourceController;
 	private FileReader reader;
+
 
 	public ResponseBuilder() {
 		reader = new FileReader();
@@ -30,6 +32,14 @@ public class ResponseBuilder {
 		return response;
 	}
 
+	//ideally this method would grab the controller by name from the resources directory.
+	private void setupResourceController() {
+		if (resourceRequiresGameController())
+			resourceController = new GameController();
+		else
+			resourceController = new CobSpecController();
+	}
+
 	public void buildResponse() throws IOException {
 		setResponseType();
 		addContentToResponse();
@@ -40,15 +50,7 @@ public class ResponseBuilder {
 		FileNameMap fileNameMap = URLConnection.getFileNameMap();
 		String type = fileNameMap.getContentTypeFor(response.getResource());
 
-		response.setType(type != null ?  type : "text/html");
-	}
-
-	//ideally this method would grab the controller by name from the resources directory.
-	private void setupResourceController() {
-		if (response.getResource().contains("game"))
-			resourceController = new GameController();
-		else
-			resourceController = new CobSpecController();
+		response.setType(type != null ? type : "text/html");
 	}
 
 	//need to come up with solution for stupid favicon requests
@@ -62,7 +64,7 @@ public class ResponseBuilder {
 	}
 
 	private void getStaticResourceContents() throws IOException {
-		if (isImage(response.getResource()))
+		if (responseIsImage())
 			response.setTextContent("");
 		else
 			response.setTextContent(reader.readFile(response.getResource()));
@@ -70,6 +72,13 @@ public class ResponseBuilder {
 
 	public void getUpdatedResource() throws IOException {
 		response.setTextContent(resourceController.process(response.getResource(), params));
+	}
+
+	private void addStatusCodeToResponse(String requestVerb) {
+		if (response.getResource().contains(NOTFOUND))
+			response.setStatusCode(404);
+		else
+			response.setStatusCode(200);
 	}
 
 	private boolean isFaviconRequest() {
@@ -80,21 +89,17 @@ public class ResponseBuilder {
 		return response.getResource().contains(".");
 	}
 
-	private boolean isImage(String resource) {
-		return resource.endsWith(".jpeg") ||
-					 resource.endsWith(".gif") ||
-					 resource.endsWith(".png");
+	private boolean responseIsImage() {
+		return response.getResource().endsWith(".jpeg") ||
+					 response.getResource().endsWith(".jpg") ||
+					 response.getResource().endsWith(".gif") ||
+					 response.getResource().endsWith(".png");
 	}
 
-	private void addStatusCodeToResponse(String requestVerb) {
-		if (response.getResource().contains(NOTFOUND)) {
-			response.setStatusCode(404);
-		} else {
-			response.setStatusCode(200);
-		}
+	private boolean resourceRequiresGameController() {
+		return response.getResource().contains("game");
 	}
 
-	// Getters and Setters
 	public String getResponseResource() {
 		return response.getResource();
 	}
