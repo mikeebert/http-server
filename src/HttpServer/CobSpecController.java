@@ -5,10 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CobSpecController implements ControllerInterface {
-	private FileReader reader;
+	private FileReader fileReader;
 
 	public CobSpecController() {
-		reader = new FileReader();
+		fileReader = new FileReader();
 	}
 
 	@Override
@@ -17,11 +17,15 @@ public class CobSpecController implements ControllerInterface {
 	}
 
 	private String updateEchoContents(String resource, HashMap<String, String> params) throws IOException {
-		String updatedContents = reader.readFile(resource);
+		String updatedContents = fileReader.readFile(resource);
 
 		for (Map.Entry<String, String> entry : params.entrySet())
 			updatedContents = updatedContents.replace("&&" + entry.getKey(), entry.getValue());
 
 		return updatedContents;
+	}
+
+	public void setFileReader(FileReader reader) {
+		fileReader = reader;
 	}
 }

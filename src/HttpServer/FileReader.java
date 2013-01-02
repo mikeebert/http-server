@@ -6,8 +6,8 @@ public class FileReader {
 
 	private static final String FILEREADERROR = "Error reading file.";
 
-	public String readFile(String fileName) throws IOException {
-		FileInputStream fileStream = new FileInputStream(fileName);
+	public String readFile(String filePath) throws IOException {
+		FileInputStream fileStream = new FileInputStream(filePath);
 		BufferedReader fileReader = new BufferedReader(new InputStreamReader(fileStream));
 		StringBuilder input = new StringBuilder();
 		String line = fileReader.readLine();
