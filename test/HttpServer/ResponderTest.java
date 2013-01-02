@@ -5,7 +5,6 @@ import org.junit.Test;
 import static junit.framework.Assert.assertEquals;
 
 public class ResponderTest {
-	private static String DIR = "/Users/ebert/Dropbox/projects/http-server/test/HttpServer/test.html";
 
 	@Test
 	public void itAppendsStatusAndHeadersToPreparedResponse() throws Exception {
@@ -13,7 +12,7 @@ public class ResponderTest {
 		Response response = new Response();
 		response.setStatusCode(200);
 		response.setType("text/html");
-		response.setResource(DIR);
+		response.setResource("some-file.html");
 		String someContent = "This is some test content";
 		response.setTextContent(someContent);
 
