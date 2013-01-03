@@ -14,6 +14,7 @@ public class TttViewBuilder {
 	private static final String OMOVE = "O";
 
 	public TttViewBuilder() {
+		fileReader = new FileReader();
 	}
 
 	public String buildNewBoard(String resourceDirectory, int gameId) throws IOException {
