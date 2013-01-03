@@ -16,11 +16,20 @@ public class RequestParser {
 	private static final String EMPTYSTRING = "";
 	private static final String QUESTIONMARK = "\\?";
 
+
+	public RequestParser() {
+
+	}
+
+	public void setReader(BufferedReader bufferedReader) {
+		reader = bufferedReader;
+	}
+
 	public RequestParser(BufferedReader inputReader) {
 		reader = inputReader;
 	}
 
-	public Request parseRequest() throws IOException {
+	public Request receiveRequest() throws IOException {
 		Request request = new Request();
 		String input = getInput();
 		return constructRequest(request, input);

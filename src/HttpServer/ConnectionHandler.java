@@ -9,10 +9,16 @@ public class ConnectionHandler {
 	private ServerSocket socket;
 	private Socket clientSocket;
 	private RouterInterface router;
+	private RequestParser parser;
+	private ReaderFactory readerFactory;
+	private ResponseBuilder builder;
 
 	public ConnectionHandler(int portNumber, RouterInterface appRouter) {
 		port = portNumber;
 		router = appRouter;
+		parser = new RequestParser();
+		readerFactory = new ReaderFactory();
+		builder = new ResponseBuilder();
 	}
 
 	public void open() throws IOException {
@@ -27,33 +33,31 @@ public class ConnectionHandler {
 			try {
 				clientSocket = socket.accept();
 
-				Request request = getRequest(clientSocket);
+				Request request = getRequest();
 				Response response = getResponseFor(request);
 				processResponse(response, output(clientSocket));
 
 				//THIS FUNCTION SHOULD REPLACE processResponse
 				//sendResponse(response, clientSocket));
 
-				printStatus("### Closing Socket.\n\n");
+				printStatus("### Closing Socket ###.\n\n");
 				clientSocket.close();
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 	}
 
-	private Request getRequest(Socket clientSocket) throws IOException {
-		RequestParser parser = new RequestParser(new BufferedReader(new InputStreamReader(input(clientSocket))));
-		return parser.parseRequest();
+	private Request getRequest() throws IOException {
+		parser.setReader(readerFactory.getNewReader(clientSocket));
+		return parser.receiveRequest();
 	}
-//
-	private Response getResponseFor(Request request) throws IOException {
-		String resourcePath = router.getResourceFor(request.getPath());
-		ResponseBuilder builder = new ResponseBuilder(resourcePath);
 
-		return builder.buildResponseFor(resourcePath,
-																		request.getVerb(),
-																		request.getParams());
+	private Response getResponseFor(Request request) throws IOException {
+		builder.setResourcePath(router.getResourceFor(request.getPath()));
+		builder.setupResourceController();
+		return builder.buildResponseFor(request.getVerb(), request.getParams());
 	}
 //
 //	private void sendResponse(Response response, Socket clientSocket) {
