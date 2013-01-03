@@ -8,9 +8,9 @@ public class ConnectionHandler {
 	private int port;
 	private ServerSocket socket;
 	private Socket clientSocket;
-	private Router router;
+	private RouterInterface router;
 
-	public ConnectionHandler(int portNumber, Router appRouter) {
+	public ConnectionHandler(int portNumber, RouterInterface appRouter) {
 		port = portNumber;
 		router = appRouter;
 	}

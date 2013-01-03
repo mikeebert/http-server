@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Router {
+public class Router implements RouterInterface {
 	private String dir;
 	private List<HashMap<String, String>> routes = new ArrayList<HashMap<String, String>>();
 	private FileReader fileReader;
