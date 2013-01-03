@@ -12,7 +12,8 @@ public class HttpServer {
 
 	public void run() {
 		try {
-			socketHandler.open();
+			socketHandler.openServerSocket();
+			socketHandler.handleNewConnections();
 		} catch (IOException e) {
 			System.out.println("Error running server");
 			e.printStackTrace();

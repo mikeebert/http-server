@@ -2,6 +2,7 @@ package HttpServer;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -24,12 +25,22 @@ public class MockServerSocket extends ServerSocket {
 		isListening = true;
 	}
 
+	public boolean returnedSocket() {
+		return returnedSocket;
+	}
 }
 
 class MockSocket extends Socket {
 
 	public InputStream getInputStream() {
 		return new MockInputStream();
+	}
+
+	public OutputStream getOutputStream() {
+		return new MockOutputStream();
+	}
+
+	public void close() {
 	}
 }
 

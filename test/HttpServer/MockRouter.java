@@ -4,7 +4,7 @@ public class MockRouter implements RouterInterface {
 
 	@Override
 	public String getResourceFor(String path) {
-		return null;
+		return "";
 	}
 
 }

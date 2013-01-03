@@ -22,7 +22,7 @@ public class Request {
 		this.path = path;
 	}
 
-	public String getPath() {
+	public String getURI() {
 		return path;
 	}
 

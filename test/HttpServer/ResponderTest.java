@@ -8,7 +8,8 @@ public class ResponderTest {
 
 	@Test
 	public void itAppendsStatusAndHeadersToPreparedResponse() throws Exception {
-		Responder responder = new Responder(new MockOutput(new MockOutputStream()));
+		Responder responder = new Responder();
+		responder.setOutput(new MockOutput(new MockOutputStream()));
 		Response response = new Response();
 		response.setStatusCode(200);
 		response.setType("text/html");

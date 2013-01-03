@@ -18,45 +18,47 @@ public class ResponseBuilderTest {
 
 	@Before
 	public void setUp() {
-		builder = new ResponseBuilder(STATICRESOURCEPATH);
+		builder = new ResponseBuilder();
 		mockReader = new MockFileReader();
 		builder.setFileReader(mockReader);
+		builder.setupResourceController(STATICRESOURCEPATH);
 	}
 
 	@Test
 	public void itSetsResourceAndVerbAndParams() throws Exception {
-		String resource = STATICRESOURCEPATH;
 		HashMap<String, String> params = new HashMap<String, String>();
 		String requestVerb = "GET";
 
-		builder.buildResponseFor(resource, requestVerb, params);
-		assertEquals(builder.getResponseResource(), resource);
+		builder.buildResponseFor(requestVerb, params);
+		assertEquals(builder.getResponseResource(), STATICRESOURCEPATH);
 		assertEquals(builder.getRequestVerb(), requestVerb);
 		assertEquals(builder.getParams(), params);
 	}
 
 	@Test
 	public void itSetsResponseTypeForHTML() throws Exception {
-		Response response = builder.buildResponseFor(STATICRESOURCEPATH, "GET", NULLPARAMS);
+		Response response = builder.buildResponseFor("GET", NULLPARAMS);
 		assertEquals("text/html", response.getType());
 	}
 
 	@Test
 	public void itSetsResponseTypeForJPG() throws  Exception {
-		Response response = builder.buildResponseFor(IMAGERESOURCEPATH, "GET", NULLPARAMS);
+		builder.setupResourceController(IMAGERESOURCEPATH);
+		Response response = builder.buildResponseFor("GET", NULLPARAMS);
 		assertEquals("image/jpeg", response.getType());
 	}
 
 	@Test
 	public void itAddsEmptyStringToTextContentForImage() throws Exception {
-		Response response = builder.buildResponseFor(IMAGERESOURCEPATH, "GET", NULLPARAMS);
+		builder.setupResourceController(IMAGERESOURCEPATH);
+		Response response = builder.buildResponseFor("GET", NULLPARAMS);
 		assertEquals("", response.getTextContent());
 	}
 
 	@Test
 	public void itAddsResourceFileContentToResponse() throws Exception {
 		mockReader.setFileContents("<h1>Hello World</h1>");
-		builder.buildResponseFor(STATICRESOURCEPATH, "GET", NULLPARAMS);
+		builder.buildResponseFor("GET", NULLPARAMS);
 
 		Response response = builder.getResponse();
 
@@ -65,20 +67,23 @@ public class ResponseBuilderTest {
 
 	@Test
 	public void itSetsStatusCodeForOK() throws Exception {
-		Response response = builder.buildResponseFor(STATICRESOURCEPATH, "GET", NULLPARAMS);
+		Response response = builder.buildResponseFor("GET", NULLPARAMS);
 
 		assertEquals(200, response.getStatusCode());
 	}
 
 	@Test
 	public void itSetsResponseForNotFound() throws Exception {
-		Response response = builder.buildResponseFor(NOTFOUNDPATH, "GET", NULLPARAMS);
+		builder.setupResourceController(NOTFOUNDPATH);
+		Response response = builder.buildResponseFor("GET", NULLPARAMS);
 
 		assertEquals(404, response.getStatusCode());
 	}
 
 	@Test
 	public void itAsksControllerForDynamicContent() throws Exception {
+		builder.setupResourceController(DYNAMICRESOURCEPATH);
+
 		MockController mockController = new MockController();
 		builder.setController(mockController);
 
@@ -86,7 +91,7 @@ public class ResponseBuilderTest {
 		params.put("this", "that");
 		params.put("foo", "bar");
 
-		builder.buildResponseFor(DYNAMICRESOURCEPATH, "GET", params);
+		builder.buildResponseFor("GET", params);
 
 		assertEquals(DYNAMICRESOURCEPATH,mockController.getReceivedResource() );
 		assertEquals(params, mockController.getReceivedParams());

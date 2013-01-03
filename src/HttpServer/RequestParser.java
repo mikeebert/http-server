@@ -80,7 +80,10 @@ public class RequestParser {
 	}
 
 	private String getFullPath(String firstLine) {
-		return firstLine.split(BLANKSPACE)[1];
+		if (firstLine.contains(BLANKSPACE))
+			return firstLine.split(BLANKSPACE)[1];
+		else
+			return "";
 	}
 
 	public String getHttpVersion(String firstLine) {

@@ -80,7 +80,7 @@ public class RequestParserTest {
 		mockReader.setMockInput(complexInput);
 		Request request = parser.receiveRequest();
 		assertEquals("GET", request.getVerb());
-		assertEquals("/model/something/1", request.getPath());
+		assertEquals("/model/something/1", request.getURI());
 		assertEquals("1.1", request.getHttpVersion());
 		assertEquals("Header1\r\nHeader2\r\n", request.getHeader());
 		assertEquals("This is the body.\r\n", request.getBody());
@@ -94,7 +94,7 @@ public class RequestParserTest {
 		mockReader.setMockInput(inputNoBody);
 		Request request = parser.receiveRequest();
 		assertEquals("GET", request.getVerb());
-		assertEquals("/model/something/1", request.getPath());
+		assertEquals("/model/something/1", request.getURI());
 		assertEquals("1.1", request.getHttpVersion());
 		assertEquals("Header1\r\nHeader2\r\n", request.getHeader());
 		assertEquals(null, request.getBody());

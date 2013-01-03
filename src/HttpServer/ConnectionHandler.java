@@ -12,6 +12,9 @@ public class ConnectionHandler {
 	private RequestParser parser;
 	private ReaderFactory readerFactory;
 	private ResponseBuilder builder;
+	private Responder responder;
+	private boolean keepServerSocketOpen = true;
+	private boolean closeSocketAfterConnection = false;
 
 	public ConnectionHandler(int portNumber, RouterInterface appRouter) {
 		port = portNumber;
@@ -19,29 +22,27 @@ public class ConnectionHandler {
 		parser = new RequestParser();
 		readerFactory = new ReaderFactory();
 		builder = new ResponseBuilder();
+		responder = new Responder();
 	}
 
-	public void open() throws IOException {
+	public void openServerSocket() throws IOException {
 		socket = new ServerSocket(port);
 		printStatus("Listening on " + port);
-
-		handleNewConnection();
 	}
 
-	private void handleNewConnection() {
-		while (true) {
+	public void handleNewConnections() {
+		while (keepServerSocketOpen) {
 			try {
 				clientSocket = socket.accept();
 
 				Request request = getRequest();
 				Response response = getResponseFor(request);
-				processResponse(response, output(clientSocket));
-
-				//THIS FUNCTION SHOULD REPLACE processResponse
-				//sendResponse(response, clientSocket));
+				respondToRequest(response, clientSocket);
 
 				printStatus("### Closing Socket ###.\n\n");
 				clientSocket.close();
+
+				checkIfServerSocketStaysOpen();
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -55,31 +56,42 @@ public class ConnectionHandler {
 	}
 
 	private Response getResponseFor(Request request) throws IOException {
-		builder.setResourcePath(router.getResourceFor(request.getPath()));
-		builder.setupResourceController();
+		builder.setupResourceController(router.getResourceFor(request.getURI()));
 		return builder.buildResponseFor(request.getVerb(), request.getParams());
 	}
-//
-//	private void sendResponse(Response response, Socket clientSocket) {
-//		Responder responder = new ResponderFactory(response.getType(), clientSocket);
-//		responder.sendResponse(response);
-//	}
 
-	private void processResponse(Response response, OutputStream output) throws IOException {
-		Responder responder = new Responder(output);
+	private void respondToRequest(Response response, Socket clientSocket) throws IOException {
+		responder.setOutput(clientSocket.getOutputStream());
 		responder.prepare(response);
 		responder.sendResponse();
 	}
 
-	private InputStream input(Socket clientSocket) throws IOException {
-		return clientSocket.getInputStream();
-	}
-
-	private OutputStream output(Socket clientSocket) throws IOException {
-		return clientSocket.getOutputStream();
+	private void checkIfServerSocketStaysOpen() {
+		if (closeSocketAfterConnection)
+			keepServerSocketOpen = false;
 	}
 
 	private void printStatus(String status) {
 		System.out.println(status);
+	}
+
+	public void setServerSocket(ServerSocket serverSocket) {
+		socket = serverSocket;
+	}
+
+	public void setParser(RequestParser requestParser) {
+		parser = requestParser;
+	}
+
+	public void setBuilder(ResponseBuilder responseBuilder) {
+		builder = responseBuilder;
+	}
+
+	public void setResponder(Responder newResponder) {
+		responder = newResponder;
+	}
+
+	public void setCloseSocketAfterConnection(boolean value) {
+		closeSocketAfterConnection = value;
 	}
 }

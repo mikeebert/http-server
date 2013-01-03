@@ -6,31 +6,34 @@ import java.io.IOException;
 import java.net.FileNameMap;
 import java.net.URLConnection;
 import java.util.HashMap;
+import java.util.StringTokenizer;
 
 public class ResponseBuilder {
 	private static final String NOTFOUND = "404";
 
 	private Response response;
 	private HashMap<String, String> params;
+	private String resourcePath;
 	private String requestVerb;
 	private ControllerInterface resourceController;
 	private FileReader fileReader;
 
 
-	public ResponseBuilder(String resourcePath) {
+	public ResponseBuilder() {
 		fileReader = new FileReader();
-		setupResourceController(resourcePath);
 	}
 
 	//ideally this method would grab the controller by name from the resources directory.
-	private void setupResourceController(String resourcePath) {
+	public void setupResourceController(String path) {
+		resourcePath = path;
+
 		if (resourcePath.contains("game"))
 			resourceController = new GameController();
 		else
 			resourceController = new CobSpecController();
 	}
 
-	public Response buildResponseFor(String resourcePath, String method, HashMap<String,String> requestParams) throws IOException {
+	public Response buildResponseFor(String method, HashMap<String,String> requestParams) throws IOException {
 		response = new Response();
 		response.setResource(resourcePath);
 		requestVerb = method;
@@ -106,10 +109,6 @@ public class ResponseBuilder {
 
 	public String getRequestVerb() {
 		return requestVerb;
-	}
-
-	public ControllerInterface getController() {
-		return resourceController;
 	}
 
 	public void setController(ControllerInterface controller) {

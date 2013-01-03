@@ -7,19 +7,19 @@ public class Responder {
 	private static final String VERSION = "HTTP/1.1";
 	private static final String SPACE = " ";
 	private static final String CRLF = "\r\n";
-	
-	
-	private StringBuffer preparedResponse;
-	private OutputStreamWriter outputWriter;
-	private String responseType;
-	private OutputStream outputStream;
-	private String binaryResource;
 	private static final String CONTENTTYPEHEADER = "Content-Type: ";
 	private static final String CONTENTLENGTHHEADER = "Content-Length: ";
-	private static final String PREPARINGRESPONSE = "###Preparing Response: ";
+	private static final String PREPARINGRESPONSE = "###Preparing Response: ";	
+	
+	private PrintWriter writer;
+	private StringBuffer preparedResponse;
+	private String responseType;
+	private String binaryResource;
+	private OutputStream outputStream;
+	private FileReader fileReader;
 
-	public Responder(OutputStream output) {
-		this.outputStream = output;
+	public Responder() {
+		fileReader = new FileReader();
 	}
 
 	public void prepare(Response response) {
@@ -62,15 +62,13 @@ public class Responder {
 	}
 
 	private void sendTextResponse() {
-		PrintWriter writer = new PrintWriter(new OutputStreamWriter(outputStream), true);
 		writer.println(preparedResponse);
 		writer.flush();
 	}
 
 	// Needs to be split into getting the data and sending the data
 	private void sendBinaryResponse() throws IOException {
-		FileReader reader = new FileReader();
-		byte[] binaryData =  reader.getBinaryData(binaryResource);
+		byte[] binaryData =  fileReader.getBinaryData(binaryResource);
 
 		FilterOutputStream filterOutput = new FilterOutputStream(outputStream);
 		filterOutput.write(binaryData);
@@ -79,5 +77,10 @@ public class Responder {
 
 	public String getPreparedResponse() {
 		return preparedResponse.toString();
+	}
+
+	public void setOutput(OutputStream output) {
+		outputStream = output;
+		writer = new PrintWriter(new OutputStreamWriter(outputStream), true);
 	}
 }
