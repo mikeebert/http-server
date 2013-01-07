@@ -67,9 +67,9 @@ public class ResponseBuilder {
 	}
 
 	private void getStaticResourceContents() throws IOException {
-		if (responseIsImage())
-			response.setTextContent("");
-		else
+		if (responseIsImage()) {
+			response.setBinaryContent(fileReader.getBinaryData(resourcePath));
+		} else
 			response.setTextContent(fileReader.readFile(response.getResource()));
 	}
 

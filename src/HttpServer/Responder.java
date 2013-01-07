@@ -1,5 +1,7 @@
 package HttpServer;
 
+import org.apache.commons.io.FileUtils;
+
 import java.io.*;
 
 public class Responder {
@@ -7,80 +9,108 @@ public class Responder {
 	private static final String VERSION = "HTTP/1.1";
 	private static final String SPACE = " ";
 	private static final String CRLF = "\r\n";
-	private static final String CONTENTTYPEHEADER = "Content-Type: ";
-	private static final String CONTENTLENGTHHEADER = "Content-Length: ";
-	private static final String PREPARINGRESPONSE = "###Preparing Response: ";	
-	
-	private PrintWriter writer;
-	private StringBuffer preparedResponse;
-	private String responseType;
-	private String binaryResource;
+	private static final String CONTENTLENGTH = "Content-Length: ";
+	private static final String PREPAREDRESPONSE = "###Prepared Response: ###" + CRLF;
+
+	private OutputStreamFactory outputStreamFactory;
+	private PrintWriter printWriter;
+	private StringBuffer responseHeaders;
 	private OutputStream outputStream;
-	private FileReader fileReader;
+	private Response response;
 
 	public Responder() {
-		fileReader = new FileReader();
+		outputStreamFactory = new OutputStreamFactory();
 	}
 
-	public void prepare(Response response) {
-		preparedResponse = new StringBuffer();
-		responseType = response.getType();
-		binaryResource = response.getResource();
-		setResponseStatusLine(response);
-		setHeaders(response);
-		addLineBreak();
-		addBody(response);
+	public void prepare(Response newResponse) {
+		response = newResponse;
+		responseHeaders = new StringBuffer();
+		setResponseStatusLine();
+		setHeaders();
+		addLineBreakAfterHeaders();
+		System.out.println(PREPAREDRESPONSE + responseHeaders + CRLF);
 	}
 
-	private void addLineBreak() {
-		preparedResponse.append(CRLF);
+	private void setResponseStatusLine() {
+		responseHeaders.append(VERSION + SPACE);
+		responseHeaders.append(response.getStatusCode() + SPACE);
+		responseHeaders.append(response.getStatusMessage() + CRLF);
 	}
 
-	private void addBody(Response response) {
-		preparedResponse.append(response.getTextContent());
+	private void setHeaders() {
+		responseHeaders.append("Content-Type: " + response.getType() + CRLF);
+		responseHeaders.append(contentLengthFor(response));
 	}
 
-	private void setResponseStatusLine(Response response) {
-		preparedResponse.append(VERSION + SPACE);
-		preparedResponse.append(response.getStatusCode() + SPACE);
-		preparedResponse.append(response.getStatusMessage() + CRLF);
+	private void addLineBreakAfterHeaders() {
+		responseHeaders.append(CRLF);
 	}
 
-	private void setHeaders(Response response) {
-		preparedResponse.append(CONTENTTYPEHEADER + response.getType() + CRLF);
-		if (response.getTextContent() != null) {
-			preparedResponse.append(CONTENTLENGTHHEADER + response.getTextContent().length() + CRLF);
-		}
-		System.out.println(PREPARINGRESPONSE + preparedResponse + CRLF);
+	private String contentLengthFor(Response response) {
+		if (response.getTextContent() != null)
+			return CONTENTLENGTH + response.getTextContent().length() + CRLF;
+		else if (response.getBinaryContent() != null)
+			return CONTENTLENGTH + response.getBinaryContent().length + CRLF;
+		else
+			return "Content-Length: 0";
 	}
 
 	public void sendResponse() throws IOException {
-		if (responseType.contains("text"))
+		if (responseBodyIsText())
 			sendTextResponse();
 		else
 			sendBinaryResponse();
 	}
 
 	private void sendTextResponse() {
-		writer.println(preparedResponse);
-		writer.flush();
+		addBody();
+		printWriter.println(responseHeaders);
+		printWriter.flush();
 	}
 
-	// Needs to be split into getting the data and sending the data
+	private void addBody() {
+		if (responseBodyIsText())
+			responseHeaders.append(response.getTextContent());
+	}
+
 	private void sendBinaryResponse() throws IOException {
-		byte[] binaryData =  fileReader.getBinaryData(binaryResource);
+		FilterOutputStream binaryOutputStream = outputStreamFactory.newStream(outputStream);
+		byte [] binaryResponse = combineHeadersAndBinaryContent();
 
-		FilterOutputStream filterOutput = new FilterOutputStream(outputStream);
-		filterOutput.write(binaryData);
-		filterOutput.flush();
+		binaryOutputStream.write(binaryResponse);
+		binaryOutputStream.flush();
 	}
 
-	public String getPreparedResponse() {
-		return preparedResponse.toString();
+	private byte[] combineHeadersAndBinaryContent() {
+		byte [] binaryHeaders = responseHeaders.toString().getBytes();
+		byte [] binaryContent = response.getBinaryContent();
+		byte [] fullBinaryResponse = new byte[binaryHeaders.length + binaryContent.length];
+
+		System.arraycopy(binaryHeaders, 0, fullBinaryResponse, 0, binaryHeaders.length);
+		System.arraycopy(binaryContent, 0, fullBinaryResponse, binaryHeaders.length, binaryContent.length );
+		return fullBinaryResponse;
+	}
+
+	private boolean responseBodyIsText() {
+		return response.getType().contains("text");
+	}
+
+	public String getResponseHeaders() {
+		return responseHeaders.toString();
 	}
 
 	public void setOutput(OutputStream output) {
 		outputStream = output;
-		writer = new PrintWriter(new OutputStreamWriter(outputStream), true);
+		printWriter = new PrintWriter(new OutputStreamWriter(outputStream), true);
+	}
+
+	public void setOutputStreamFactory(OutputStreamFactory factory) {
+		outputStreamFactory = factory;
+	}
+
+
+	public void setResponseHeaders(String string) {
+		responseHeaders = new StringBuffer();
+		responseHeaders.append(string);
 	}
 }

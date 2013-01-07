@@ -3,11 +3,11 @@ package HttpServer;
 
 
 public class Response {
-	private String textContent;
+	private String textContent = null;
 	private String resource;
 	private int statusCode;
 	private String type;
-	private char[] binaryContent;
+	private byte[] binaryContent;
 
 	public void setTextContent(String htmlString) {
 		textContent = htmlString;
@@ -50,11 +50,11 @@ public class Response {
 		return type;
 	}
 
-	public char[] getBinaryContent() {
+	public byte[] getBinaryContent() {
 		return binaryContent;
 	}
 
-	public void setBinaryContent(char[] binaryContent) {
+	public void setBinaryContent(byte[] binaryContent) {
 		this.binaryContent = binaryContent;
 	}
 }

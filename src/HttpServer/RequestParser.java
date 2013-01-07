@@ -87,7 +87,10 @@ public class RequestParser {
 	}
 
 	public String getHttpVersion(String firstLine) {
-		return firstLine.split(BLANKSPACE)[2].split("/")[1];
+		if (firstLine.contains(BLANKSPACE))
+			return firstLine.split(BLANKSPACE)[2].split("/")[1];
+		else
+			return "";
 	}
 
 	public String getHeader(String input) {

@@ -49,10 +49,13 @@ public class ResponseBuilderTest {
 	}
 
 	@Test
-	public void itAddsEmptyStringToTextContentForImage() throws Exception {
+	public void itGetsBinaryContentForImage() throws Exception {
 		builder.setupResourceController(IMAGERESOURCEPATH);
+		byte[] someImageData = "data".getBytes();
+		mockReader.setBinaryFileContents(someImageData);
+
 		Response response = builder.buildResponseFor("GET", NULLPARAMS);
-		assertEquals("", response.getTextContent());
+		assertEquals(someImageData, response.getBinaryContent());
 	}
 
 	@Test
