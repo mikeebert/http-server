@@ -5,27 +5,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CobSpecController implements ControllerInterface {
-	private FileReader fileReader;
-
-	public CobSpecController() {
-		fileReader = new FileReader();
-	}
 
 	@Override
 	public String process(String resource, HashMap<String, String> params) throws IOException {
-		return updateEchoContents(resource, params);  //To change body of implemented methods use File | Settings | File Templates.
+		return updateEchoContents(params);
 	}
 
-	private String updateEchoContents(String resource, HashMap<String, String> params) throws IOException {
-		String updatedContents = fileReader.readFile(resource);
+	private String updateEchoContents(HashMap<String, String> params) throws IOException {
+		String body = "";
 
-		for (Map.Entry<String, String> entry : params.entrySet())
-			updatedContents = updatedContents.replace("&&" + entry.getKey(), entry.getValue());
+		if (params != null) {
+			for (Map.Entry<String, String> entry : params.entrySet()) {
+				body = body.concat(entry.getKey() + " = " + entry.getValue() + "\n");
+			}
+		}
 
-		return updatedContents;
+		return "<html>\n<body>\n" + body + "</body>\n</html>";
 	}
 
-	public void setFileReader(FileReader reader) {
-		fileReader = reader;
-	}
 }
