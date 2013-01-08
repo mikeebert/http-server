@@ -28,6 +28,8 @@ public class Response {
 	public String getStatusMessage() {
 		if (statusCode == 200) {
 			return "OK";
+		} else if (statusCode == 302) {
+			return "FOUND";
 		} else if (statusCode == 404) {
 			return "NOT FOUND";
 		} else

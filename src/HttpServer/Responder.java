@@ -39,7 +39,10 @@ public class Responder {
 
 	private void setHeaders() {
 		responseHeaders.append("Content-Type: " + response.getType() + CRLF);
-		responseHeaders.append(contentLengthFor(response));
+		responseHeaders.append(contentLengthFor(response) + CRLF);
+		if (response.getStatusCode() == 302) {
+			responseHeaders.append("Location: http://localhost:5000/" + CRLF);
+		}
 	}
 
 	private void addLineBreakAfterHeaders() {
@@ -48,9 +51,9 @@ public class Responder {
 
 	private String contentLengthFor(Response response) {
 		if (response.getTextContent() != null)
-			return CONTENTLENGTH + response.getTextContent().length() + CRLF;
+			return CONTENTLENGTH + response.getTextContent().length();
 		else if (response.getBinaryContent() != null)
-			return CONTENTLENGTH + response.getBinaryContent().length + CRLF;
+			return CONTENTLENGTH + response.getBinaryContent().length;
 		else
 			return "Content-Length: 0";
 	}
@@ -63,14 +66,11 @@ public class Responder {
 	}
 
 	private void sendTextResponse() {
-		addBody();
-		printWriter.println(responseHeaders);
-		printWriter.flush();
-	}
-
-	private void addBody() {
-		if (responseBodyIsText())
+		if (responseBodyIsText()) {
 			responseHeaders.append(response.getTextContent());
+			printWriter.println(responseHeaders);
+			printWriter.flush();
+		}
 	}
 
 	private void sendBinaryResponse() throws IOException {

@@ -10,6 +10,7 @@ import java.util.StringTokenizer;
 
 public class ResponseBuilder {
 	private static final String NOTFOUND = "404";
+	private static final String REDIRECT = "REDIRECT";
 
 	private Response response;
 	private HashMap<String, String> params;
@@ -45,8 +46,8 @@ public class ResponseBuilder {
 
 	public void buildResponse() throws IOException {
 		setResponseType();
-		addContentToResponse();
 		addStatusCodeToResponse(requestVerb);
+		addContentToResponse();
 	}
 
 	private void setResponseType() {
@@ -56,10 +57,21 @@ public class ResponseBuilder {
 		response.setType(type != null ? type : "text/html");
 	}
 
+	private void addStatusCodeToResponse(String requestVerb) {
+		if (response.getResource().contains(NOTFOUND))
+			response.setStatusCode(404);
+		else if (resourcePath.contains("redirect"))
+			response.setStatusCode(302);
+		else
+			response.setStatusCode(200);
+	}
+
 	//need to come up with solution for stupid favicon requests
 	private void addContentToResponse() throws IOException {
 		if (isFaviconRequest())
 			response.setTextContent(null);
+		else if(resourcePath.contains("redirect"))
+			response.setTextContent("");
 		else if(isStaticResource())
 			getStaticResourceContents();
 		else
@@ -75,13 +87,6 @@ public class ResponseBuilder {
 
 	public void getUpdatedResource() throws IOException {
 		response.setTextContent(resourceController.process(response.getResource(), params));
-	}
-
-	private void addStatusCodeToResponse(String requestVerb) {
-		if (response.getResource().contains(NOTFOUND))
-			response.setStatusCode(404);
-		else
-			response.setStatusCode(200);
 	}
 
 	private boolean isFaviconRequest() {

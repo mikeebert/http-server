@@ -84,6 +84,26 @@ public class ResponseBuilderTest {
 	}
 
 	@Test
+	public void itSetsStatusCodeForRedirect() throws Exception {
+		MockController mockController = new MockController();
+		builder.setController(mockController);
+		builder.setupResourceController("redirect");
+
+		Response response = builder.buildResponseFor("GET", NULLPARAMS);
+		assertEquals(302, response.getStatusCode());
+	}
+
+//	@Test
+//	public void itSetsHeadersForRedirect {
+//		MockController mockController = new MockController();
+//		builder.setController(mockController);
+//		builder.setupResourceController("redirect");
+//
+//		Response response = builder.buildResponseFor("GET", NULLPARAMS);
+//		assertEquals(3);
+//	}
+
+	@Test
 	public void itAsksControllerForDynamicContent() throws Exception {
 		builder.setupResourceController(DYNAMICRESOURCEPATH);
 
