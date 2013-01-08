@@ -2,6 +2,8 @@ package HttpServer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.HashMap;
 
 public class RequestParser {
@@ -50,7 +52,7 @@ public class RequestParser {
 	}
 
 	private Request constructRequest(Request request, String input) throws IOException {
-		String firstLine = getfirstLine(input);
+		String firstLine = getFirstLine(input);
 
 		request.setVerb(getVerb(firstLine));
 		request.setPath(getResourcePath(getFullPath(firstLine)));
@@ -63,7 +65,7 @@ public class RequestParser {
 		return request;
 	}
 
-	private String getfirstLine(String input) {
+	private String getFirstLine(String input) {
 		return input.split(CRLF)[0];
 	}
 
@@ -141,11 +143,20 @@ public class RequestParser {
 		for (int i=0;i < termsArray.length; i++) {
 			String param = termsArray[i];
 			if (param.split(EQUALSIGN).length > 1)
-				params.put(param.split(EQUALSIGN)[0], param.split(EQUALSIGN)[1]);
+				try {
+					params.put(param.split(EQUALSIGN)[0], decodedParameter(param.split(EQUALSIGN)[1]));
+				} catch (UnsupportedEncodingException e) {
+					System.out.println("Error Decoding Param: " + param);
+				}
 		}
 
 		return params;
 	}
+
+	private String decodedParameter(String encodedParam) throws UnsupportedEncodingException {
+		return URLDecoder.decode(encodedParam, "UTF-8");
+	}
+
 
 	private void addPostContentToParams(Request request) throws IOException {
 		if (request.isPost()) {

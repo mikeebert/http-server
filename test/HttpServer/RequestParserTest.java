@@ -108,6 +108,13 @@ public class RequestParserTest {
 	}
 
 	@Test
+	public void itDecodesUrlParams() throws Exception {
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("test", "Hello World");
+		assertEquals(params, parser.getURLParams("GET /someurl?test=Hello%20World HTTP/1.1"));
+	}
+
+	@Test
 	public void itSetsMultipleParams() throws Exception {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("variable_1", "12345987");
