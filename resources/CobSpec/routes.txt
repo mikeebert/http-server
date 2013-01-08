@@ -1,7 +1,7 @@
 PATH  | VERB |  RESOURCE
 / | GET | index.html
 /index.html | GET | index.html
-/form | GET | index.html
+/form | GET | form
 /file1 | GET | file1.txt
 /file2 | GET | file2.txt
 /image.jpeg | GET | image.jpeg
