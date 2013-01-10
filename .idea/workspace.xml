@@ -7,31 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a636b589-4877-4a39-82a4-3ad72592c37b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/HttpServer/MockFilterOutputStream.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/HttpServer/MockPrintWriter.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/Http-server/HttpServer/MockOutput.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/Http-server/HttpServer/MockRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/HttpServer/MockOutput.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTTPserver.jar" afterPath="$PROJECT_DIR$/HTTPserver.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Http-server/HttpServer/ConnectionHandler.class" afterPath="$PROJECT_DIR$/out/production/Http-server/HttpServer/ConnectionHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Http-server/HttpServer/Responder.class" afterPath="$PROJECT_DIR$/out/production/Http-server/HttpServer/Responder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Http-server/HttpServer/Response.class" afterPath="$PROJECT_DIR$/out/production/Http-server/HttpServer/Response.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Http-server/HttpServer/ResponseBuilder.class" afterPath="$PROJECT_DIR$/out/production/Http-server/HttpServer/ResponseBuilder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/Http-server/HttpServer/MockFileReader.class" afterPath="$PROJECT_DIR$/out/test/Http-server/HttpServer/MockFileReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/Http-server/HttpServer/MockFilterOutputStream.class" afterPath="$PROJECT_DIR$/out/test/Http-server/HttpServer/MockFilterOutputStream.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/Http-server/HttpServer/MockOutputStreamFactory.class" afterPath="$PROJECT_DIR$/out/test/Http-server/HttpServer/MockOutputStreamFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/Http-server/HttpServer/MockParser.class" afterPath="$PROJECT_DIR$/out/test/Http-server/HttpServer/MockParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/Http-server/HttpServer/ResponderTest.class" afterPath="$PROJECT_DIR$/out/test/Http-server/HttpServer/ResponderTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/Http-server/HttpServer/ResponseBuilderTest.class" afterPath="$PROJECT_DIR$/out/test/Http-server/HttpServer/ResponseBuilderTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java" afterPath="$PROJECT_DIR$/src/HttpServer/ConnectionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/Responder.java" afterPath="$PROJECT_DIR$/src/HttpServer/Responder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/Response.java" afterPath="$PROJECT_DIR$/src/HttpServer/Response.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpServer/ResponseBuilder.java" afterPath="$PROJECT_DIR$/src/HttpServer/ResponseBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/HttpServer/MockFileReader.java" afterPath="$PROJECT_DIR$/test/HttpServer/MockFileReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/HttpServer/MockParser.java" afterPath="$PROJECT_DIR$/test/HttpServer/MockParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/HttpServer/ResponderTest.java" afterPath="$PROJECT_DIR$/test/HttpServer/ResponderTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/HttpServer/ResponseBuilderTest.java" afterPath="$PROJECT_DIR$/test/HttpServer/ResponseBuilderTest.java" />
     </list>
     <ignored path="HTTPserver.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -139,7 +115,7 @@
           <file leaf-file-name="RequestParserTest.java" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/test/HttpServer/RequestParserTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="113" column="30" selection-start="3509" selection-end="3509" vertical-scroll-proportion="0.56632656">
+                <state line="113" column="30" selection-start="3509" selection-end="3509" vertical-scroll-proportion="1.8994083">
                   <folding />
                 </state>
               </provider>
@@ -199,7 +175,7 @@
           <file leaf-file-name="MockBufferedReader.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/test/HttpServer/MockBufferedReader.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="34" column="0" selection-start="714" selection-end="714" vertical-scroll-proportion="0.6738769">
+                <state line="34" column="0" selection-start="714" selection-end="714" vertical-scroll-proportion="0.5769231">
                   <folding />
                 </state>
               </provider>
@@ -794,7 +770,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15337424" sideWeight="0.7166483" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28335172" sideWeight="0.93006134" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28335172" sideWeight="0.93006134" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -932,7 +908,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/HttpServer/RequestParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="30" selection-start="3509" selection-end="3509" vertical-scroll-proportion="0.56632656">
+        <state line="113" column="30" selection-start="3509" selection-end="3509" vertical-scroll-proportion="1.8994083">
           <folding />
         </state>
       </provider>
@@ -978,7 +954,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/HttpServer/MockBufferedReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="714" selection-end="714" vertical-scroll-proportion="0.6738769">
+        <state line="34" column="0" selection-start="714" selection-end="714" vertical-scroll-proportion="0.5769231">
           <folding />
         </state>
       </provider>
