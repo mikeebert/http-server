@@ -12,7 +12,7 @@ public class MockParser extends RequestParser {
 	}
 	public Request receiveRequest() {
 		requestReceived = true;
-		return new MockRequest();
+		return new Request();
 	}
 
 	public boolean receivedReader() {
@@ -22,10 +22,4 @@ public class MockParser extends RequestParser {
 	public boolean receivedRequestCommand() {
 		return requestReceived;
 	}
-}
-
-class MockRequest extends Request {
-	public String getURI() {return null;}
-	public String getVerb() {return null;}
-	public HashMap<String, String> getParams() {return null;}
 }

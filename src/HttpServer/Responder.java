@@ -1,7 +1,5 @@
 package HttpServer;
 
-import org.apache.commons.io.FileUtils;
-
 import java.io.*;
 
 public class Responder {
@@ -50,8 +48,8 @@ public class Responder {
 	}
 
 	private String contentLengthFor(Response response) {
-		if (response.getTextContent() != null)
-			return CONTENTLENGTH + response.getTextContent().length();
+		if (response.getBodyTextContent() != null)
+			return CONTENTLENGTH + response.getBodyTextContent().length();
 		else if (response.getBinaryContent() != null)
 			return CONTENTLENGTH + response.getBinaryContent().length;
 		else
@@ -67,8 +65,8 @@ public class Responder {
 
 	private void sendTextResponse() {
 		if (responseBodyIsText()) {
-			responseHeaders.append(response.getTextContent());
-			printWriter.println(responseHeaders);
+			StringBuffer textResponse = responseHeaders.append(response.getBodyTextContent());
+			printWriter.println(textResponse);
 			printWriter.flush();
 		}
 	}
@@ -108,9 +106,12 @@ public class Responder {
 		outputStreamFactory = factory;
 	}
 
-
 	public void setResponseHeaders(String string) {
 		responseHeaders = new StringBuffer();
 		responseHeaders.append(string);
+	}
+
+	public void setPrintWriter(PrintWriter writer) {
+		printWriter = writer;
 	}
 }

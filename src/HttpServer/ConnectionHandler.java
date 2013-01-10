@@ -61,8 +61,8 @@ public class ConnectionHandler {
 	}
 
 	private void respondToRequest(Response response, Socket clientSocket) throws IOException {
-		responder.setOutput(clientSocket.getOutputStream());
 		responder.prepare(response);
+		responder.setOutput(clientSocket.getOutputStream());
 		responder.sendResponse();
 	}
 

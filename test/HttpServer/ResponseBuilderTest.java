@@ -65,7 +65,7 @@ public class ResponseBuilderTest {
 
 		Response response = builder.getResponse();
 
-		assertEquals("<h1>Hello World</h1>", response.getTextContent());
+		assertEquals("<h1>Hello World</h1>", response.getBodyTextContent());
 	}
 
 	@Test

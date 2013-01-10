@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.net.FileNameMap;
 import java.net.URLConnection;
 import java.util.HashMap;
-import java.util.StringTokenizer;
 
 public class ResponseBuilder {
 	private static final String NOTFOUND = "404";
@@ -68,11 +67,11 @@ public class ResponseBuilder {
 
 	//need to come up with solution for stupid favicon requests
 	private void addContentToResponse() throws IOException {
-		if (isFaviconRequest())
-			response.setTextContent(null);
+		if (resourceIsFavicon())
+			response.setBodyTextContent(null);
 		else if(resourcePath.contains("redirect"))
-			response.setTextContent("");
-		else if(isStaticResource())
+			response.setBodyTextContent("");
+		else if(resourceIsStatic())
 			getStaticResourceContents();
 		else
 			getUpdatedResource();
@@ -82,18 +81,18 @@ public class ResponseBuilder {
 		if (responseIsImage()) {
 			response.setBinaryContent(fileReader.getBinaryData(resourcePath));
 		} else
-			response.setTextContent(fileReader.readFile(response.getResource()));
+			response.setBodyTextContent(fileReader.readFile(response.getResource()));
 	}
 
 	public void getUpdatedResource() throws IOException {
-		response.setTextContent(resourceController.process(response.getResource(), params));
+		response.setBodyTextContent(resourceController.process(response.getResource(), params));
 	}
 
-	private boolean isFaviconRequest() {
+	private boolean resourceIsFavicon() {
 		return response.getResource().endsWith(".ico");
 	}
 
-	private boolean isStaticResource() {
+	private boolean resourceIsStatic() {
 		return response.getResource().contains(".");
 	}
 
