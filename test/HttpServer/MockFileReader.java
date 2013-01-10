@@ -1,7 +1,5 @@
 package HttpServer;
 
-import java.io.IOException;
-
 public class MockFileReader extends FileReader {
 
 	private String fileContents;
